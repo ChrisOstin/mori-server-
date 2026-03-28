@@ -47,44 +47,71 @@ def with_tenant(f):
         
         return f(*args, **kwargs)
     return decorated_function
-    # ========== ПОРТФЕЛЬ (MORI) ==========
-def get_mori_price():
-    """Получение текущей цены MORI — реальные данные с DexScreener"""
-    try:
-        token_address = "8ZHE4ow1a2jjxuoMfyExuNamQNALv5ekZhsBn5nMDf5e"
-        resp = requests.get(
-            f"https://api.dexscreener.com/latest/dex/search?q={token_address}",
-            timeout=5
-        )
-        if resp.status_code != 200:
-            return jsonify({"error": "DexScreener не отвечает"}), 503
-        
-        data = resp.json()
-        if not data.get("pairs"):
-            return jsonify({"error": "Токен не найден"}), 404
-        
-        pair = data["pairs"][0]
-        price = float(pair.get("priceUsd"))
-        change24h = float(pair.get("priceChange", {}).get("h24", 0))
-        volume24h = float(pair.get("volume", {}).get("h24", 0))
-        liquidity = float(pair.get("liquidity", {}).get("usd", 0))
-        fdv = price * 1_000_000_000
-        marketCap = price * 400_000_000
-        
-        return jsonify({
-            "price": round(price, 6),
-            "change24h": round(change24h, 2),
-            "volume24h": int(volume24h),
-            "liquidity": int(liquidity),
-            "fdv": int(fdv),
-            "marketCap": int(marketCap),
-            "circulatingSupply": 400_000_000,
-            "timestamp": datetime.utcnow().timestamp()
-        })
-        
-    except Exception as e:
-        logger.error(f"Ошибка получения цены: {e}")
+    # ========== НОВАЯ ФУНКЦИЯ ДЛЯ ЦЕНЫ (DexScreener + fallback CoinGecko) ==========
+    def get_mori_price():
+        """Получение текущей цены MORI — DexScreener + fallback CoinGecko"""
+    
+        # Пробуем DexScreener с User-Agent
+        try:
+            token_address = "8ZHE4ow1a2jjxuoMfyExuNamQNALv5ekZhsBn5nMDf5e"
+            headers = {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+            }
+            resp = requests.get(
+                f"https://api.dexscreener.com/latest/dex/search?q={token_address}",
+                headers=headers,
+                timeout=5
+            )
+            if resp.status_code == 200:
+                data = resp.json()
+                if data.get("pairs"):
+                    pair = data["pairs"][0]
+                    price = float(pair.get("priceUsd"))
+                    change24h = float(pair.get("priceChange", {}).get("h24", 0))
+                    volume24h = float(pair.get("volume", {}).get("h24", 0))
+                    liquidity = float(pair.get("liquidity", {}).get("usd", 0))
+                    fdv = price * 1_000_000_000
+                    marketCap = price * 400_000_000
+                
+                    return jsonify({
+                        "price": round(price, 6),
+                        "change24h": round(change24h, 2),
+                        "volume24h": int(volume24h),
+                        "liquidity": int(liquidity),
+                        "fdv": int(fdv),
+                        "marketCap": int(marketCap),
+                        "circulatingSupply": 400_000_000,
+                        "timestamp": datetime.utcnow().timestamp()
+                    })
+        except Exception as e:
+            logger.error(f"DexScreener error: {e}")
+    
+        # Fallback: CoinGecko
+        try:
+            url = "https://api.coingecko.com/api/v3/simple/price"
+            params = {"ids": "solana", "vs_currencies": "usd"}
+            resp = requests.get(url, params=params, timeout=5)
+            if resp.status_code == 200:
+                data = resp.json()
+                sol_price = data.get("solana", {}).get("usd", 0)
+                # 1 MORI ≈ 0.00005432 SOL (актуальное соотношение)
+                mori_price = sol_price * 0.00005432
+                return jsonify({
+                    "price": round(mori_price, 6),
+                    "change24h": 0,
+                    "volume24h": 0,
+                    "liquidity": 0,
+                    "fdv": 0,
+                    "marketCap": 0,
+                    "circulatingSupply": 400_000_000,
+                    "timestamp": datetime.utcnow().timestamp()
+                })
+        except Exception as e:
+            logger.error(f"CoinGecko error: {e}")
+    
+        # Если всё упало
         return jsonify({"error": "Сервис временно недоступен"}), 503
+
 
 # ========== РЕГИСТРАЦИЯ ВСЕХ РОУТОВ ==========
 def register_all_routes(app):
@@ -92,69 +119,164 @@ def register_all_routes(app):
     # Сначала регистрируем auth роуты
     register_auth_routes(app)
 
-    
     @with_tenant
     def get_mori_history():
-        """Получение истории цены для графика"""
+        """Получение истории цены — свечи для коротких ТФ, линейный график для длинных"""
         try:
-            timeframe = request.args.get('timeframe', '1h')
-            
-            # Определяем количество точек и интервал
-            timeframes = {
-                '15m': (15, 'minute', 15),
-                '30m': (30, 'minute', 30),
-                '1h': (60, 'hour', 1),
-                '4h': (48, 'hour', 4),
-                '12h': (72, 'hour', 12),
-                '1d': (24, 'day', 1),
-                '1w': (168, 'day', 7),
-                '1m': (30, 'day', 30),
-                '3m': (90, 'day', 90),
-                '6m': (180, 'day', 180)
+            timeframe = request.args.get('timeframe', '1d')
+            token_address = "8ZHE4ow1a2jjxuoMfyExuNamQNALv5ekZhsBn5nMDf5e"
+        
+            # Длинные таймфреймы (3м, 6м, 12м) — используем CoinGecko (линейный график)
+            if timeframe in ['3m', '6m', '12m']:
+                return get_linear_from_coingecko(timeframe)
+        
+            # Короткие таймфреймы — используем Birdeye (свечи)
+            resolution_map = {
+                '12h': '15m',
+                '1d': '1h',
+                '3d': '1h',
+                '1m': '4h',
             }
-            
-            points, unit, value = timeframes.get(timeframe, (60, 'hour', 1))
-            
-            # Вычисляем время начала
-            if unit == 'minute':
-                start_time = datetime.utcnow() - timedelta(minutes=value * points)
-            elif unit == 'hour':
-                start_time = datetime.utcnow() - timedelta(hours=value * points)
-            else:  # day
-                start_time = datetime.utcnow() - timedelta(days=value * points)
-            
-            # Берём данные из БД
-            history = MoriHistory.query.filter(
-                MoriHistory.timestamp >= start_time
-            ).order_by(MoriHistory.timestamp).all()
-            
-            # Если данных мало, генерируем тестовые
-            if len(history) < points:
-                return generate_mock_history(timeframe, points)
-            
-            return jsonify([h.to_dict() for h in history]), 200
-            
+        
+            resolution = resolution_map.get(timeframe, '1h')
+        
+            # Для 3d и 1m нужно больше данных, увеличиваем диапазон
+            days = 30
+            if timeframe == '3d':
+                days = 7
+            elif timeframe == '1m':
+                days = 30
+        
+            url = "https://public-api.birdeye.so/defi/ohlcv"
+            params = {
+                'address': token_address,
+                'type': resolution,
+                'time_from': int((datetime.utcnow() - timedelta(days=days)).timestamp()),
+                'time_to': int(datetime.utcnow().timestamp())
+            }
+        
+            resp = requests.get(url, params=params, timeout=5)
+        
+            if resp.status_code == 200:
+                data = resp.json()
+                if data.get('success') and data.get('data'):
+                    ohlcv_list = data['data']
+                    result = []
+                    for candle in ohlcv_list:
+                        result.append({
+                            'x': candle['unixTime'] * 1000,
+                            'open': candle['o'],
+                            'high': candle['h'],
+                            'low': candle['l'],
+                            'close': candle['c']
+                        })
+                    # Агрегируем свечи по таймфрейму
+                    result = aggregate_candles(result, timeframe)
+                    return jsonify(result)
+                
         except Exception as e:
             logger.error(f"Ошибка получения истории: {e}")
-            return generate_mock_history(timeframe, points)
     
-    def generate_mock_history(timeframe, points):
-        """Генерация тестовых данных для графика"""
-        import random
-        data = []
-        now = datetime.utcnow()
-        base_price = 0.006887
+        # Если ничего не получилось — пустой массив
+        return jsonify([])
+   
+    def get_linear_from_coingecko(timeframe):
+        """Получение линейной истории цен из CoinGecko для длинных таймфреймов"""
+        try:
+            # Определяем количество дней
+            days_map = {
+                '3m': 90,
+                '6m': 180,
+                '12m': 365
+            }
+            days = days_map.get(timeframe, 90)
         
-        for i in range(points):
-            timestamp = now - timedelta(minutes=(points-i)*5)
-            price = base_price + (random.random() - 0.5) * 0.0005
-            data.append({
-                'x': timestamp.timestamp() * 1000,
-                'y': price
-            })
+            # Запрос к CoinGecko для SOL (MORI привязан к SOL)
+            url = "https://api.coingecko.com/api/v3/coins/solana/market_chart"
+            params = {
+                'vs_currency': 'usd',
+                'days': days,
+                'interval': 'daily'
+            }
         
-        return jsonify(data), 200
+            resp = requests.get(url, params=params, timeout=10)
+        
+            if resp.status_code == 200:
+                data = resp.json()
+                prices = data.get('prices', [])
+            
+                result = []
+                for ts, price in prices:
+                    # Конвертируем SOL в MORI (1 MORI ≈ 0.00004 SOL)
+                    mori_price = price * 0.00004
+                    result.append({
+                        'x': ts,
+                        'y': round(mori_price, 6)
+                    })
+                return jsonify(result)
+            
+        except Exception as e:
+            logger.error(f"Ошибка получения истории из CoinGecko: {e}")
     
+        return jsonify([])
+
+    def aggregate_candles(candles, timeframe):
+        """Агрегирует свечи по таймфрейму"""
+        if not candles:
+            return candles
+    
+        # Определяем целевой интервал агрегации (в минутах)
+        agg_map = {
+            '12h': 15,
+            '1d': 60,
+            '3d': 60,
+            '1m': 240,
+        }
+    
+        target_minutes = agg_map.get(timeframe, 60)
+    
+        # Если агрегация не нужна (15-минутные свечи для 12ч)
+        if target_minutes == 15:
+            return candles
+    
+        result = []
+        current_group = []
+        group_start_time = None
+    
+        for candle in candles:
+            candle_time = candle['x'] / 1000
+            group_key = int(candle_time // (target_minutes * 60)) * (target_minutes * 60)
+        
+            if group_start_time is None:
+                group_start_time = group_key
+                current_group = [candle]
+            elif group_key == group_start_time:
+                current_group.append(candle)
+            else:
+                if current_group:
+                    aggregated = {
+                        'x': group_start_time * 1000,
+                        'open': current_group[0]['open'],
+                        'high': max(c['high'] for c in current_group),
+                        'low': min(c['low'] for c in current_group),
+                        'close': current_group[-1]['close']
+                    }
+                    result.append(aggregated)
+                group_start_time = group_key
+                current_group = [candle]
+    
+        if current_group:
+            aggregated = {
+                'x': group_start_time * 1000,
+                'open': current_group[0]['open'],
+                'high': max(c['high'] for c in current_group),
+                'low': min(c['low'] for c in current_group),
+                'close': current_group[-1]['close']
+            }
+            result.append(aggregated)
+    
+        return result
+   
     @with_tenant
     @cached_query('whales', ttl=300)  # Кэш на 5 минут
     def get_whales():
@@ -1149,3 +1271,4 @@ def register_all_routes(app):
     app.add_url_rule('/api/info', view_func=api_info, methods=['GET'])
 
     logger.info(f"✅ Зарегистрировано 35 эндпоинтов для {len(Config.ALLOWED_ORIGINS)} origins")
+
