@@ -396,34 +396,45 @@ SOLSCAN_URL = "https://public-api.solscan.io"
 
 @app.route('/api/price', methods=['GET'])
 def api_price():
-    """Реальная цена MORI через CoinGecko"""
     try:
-        # Пробуем получить цену SOL
+        # Реальный токен MORI на Solana
+        token_address = "8ZHE4ow1a2jjxuoMfyExuNamQNALv5ekZhsBn5nMDf5e"
         resp = requests.get(
-            f"{COINGECKO_URL}/simple/price",
-            params={"ids": "solana", "vs_currencies": "usd"},
+            f"https://api.dexscreener.com/latest/dex/search?q={token_address}",
             timeout=5
         )
         if resp.status_code == 200:
             data = resp.json()
-            sol_price = data.get("solana", {}).get("usd", 170)
-            # MORI торгуется на Raydium, цена привязана к SOL
-            # Примерное соотношение: 1 MORI = 0.00004 SOL
-            mori_price = sol_price * 0.00004
-        else:
-            raise Exception("CoinGecko не ответил")
+            if data.get("pairs"):
+                pair = data["pairs"][0]
+                price = float(pair.get("priceUsd", 0.006887))
+                change24h = float(pair.get("priceChange", {}).get("h24", 0))
+                volume24h = float(pair.get("volume", {}).get("h24", 0))
+                liquidity = float(pair.get("liquidity", {}).get("usd", 0))
+                fdv = price * 1_000_000_000
+                marketCap = price * 400_000_000
+                circulating = 400_000_000
+                return jsonify({
+                    "price": round(price, 6),
+                    "change24h": round(change24h, 2),
+                    "volume24h": int(volume24h),
+                    "liquidity": int(liquidity),
+                    "fdv": int(fdv),
+                    "marketCap": int(marketCap),
+                    "circulatingSupply": circulating
+                })
     except Exception as e:
         print(f"Ошибка получения цены: {e}")
-        mori_price = 0.006887
 
+    # Фолбэк
     return jsonify({
-        "price": round(mori_price, 6),
-        "change24h": round(random.uniform(-3, 3), 2),
-        "volume24h": random.randint(100000, 500000),
-        "liquidity": random.randint(200000, 800000),
-        "fdv": random.randint(5000000, 15000000),
-        "marketCap": random.randint(2000000, 8000000),
-        "circulatingSupply": random.randint(100000000, 300000000)
+        "price": 0.006887,
+        "change24h": 0,
+        "volume24h": 100000,
+        "liquidity": 200000,
+        "fdv": 5000000,
+        "marketCap": 2000000,
+        "circulatingSupply": 300000000
     })
 
 @app.route('/api/history', methods=['GET'])
