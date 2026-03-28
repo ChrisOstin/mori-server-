@@ -54,36 +54,61 @@ def register_all_routes(app):
     register_auth_routes(app)
     
     # ========== ПОРТФЕЛЬ (MORI) ==========
-    
     @app.route('/api/mori/price', methods=['GET'])
     @with_tenant
     @cached_query('mori_price', ttl=5)  # Кэш на 5 секунд
     def get_mori_price():
-        """Получение текущей цены MORI"""
+        """Получение текущей цены MORI — реальные данные с DexScreener"""
         try:
-            # Берём последнюю цену
-            price = MoriPrice.query.order_by(desc(MoriPrice.timestamp)).first()
-            
-            if not price:
-                # Если нет данных, создаём тестовые
-                price = MoriPrice(
-                    price=0.006887,
-                    change_24h=2.5,
-                    volume_24h=1250000,
-                    liquidity=850000,
-                    market_cap=6800000,
-                    fdv=6800000,
-                    circulating_supply=1000000000,
-                    timestamp=datetime.utcnow()
-                )
-                db.session.add(price)
-                db.session.commit()
-            
-            return jsonify(price.to_dict()), 200
-            
+            token_address = "8ZHE4ow1a2jjxuoMfyExuNamQNALv5ekZhsBn5nMDf5e"
+            resp = requests.get(
+                f"https://api.dexscreener.com/latest/dex/search?q={token_address}",
+                timeout=5
+            )
+            if resp.status_code == 200:
+                data = resp.json()
+                if data.get("pairs"):
+                    pair = data["pairs"][0]
+                    price = float(pair.get("priceUsd", 0.006887))
+                    change24h = float(pair.get("priceChange", {}).get("h24", 0))
+                    volume24h = float(pair.get("volume", {}).get("h24", 0))
+                    liquidity = float(pair.get("liquidity", {}).get("usd", 0))
+                    fdv = price * 1_000_000_000
+                    marketCap = price * 400_000_000
+                    circulating = 400_000_000
+
+                    return jsonify({
+                        "price": round(price, 6),
+                        "change24h": round(change24h, 2),
+                        "volume24h": int(volume24h),
+                        "liquidity": int(liquidity),
+                        "fdv": int(fdv),
+                        "marketCap": int(marketCap),
+                        "circulatingSupply": circulating,
+                        "timestamp": datetime.utcnow().timestamp()
+                    })
         except Exception as e:
-            logger.error(f"Ошибка получения цены: {e}")
-            return jsonify({"error": "Ошибка получения данных"}), 500
+            logger.error(f"Ошибка получения цены с DexScreener: {e}")
+
+        # Фолбэк: последняя цена из БД
+        try:
+            price = MoriPrice.query.order_by(desc(MoriPrice.timestamp)).first()
+            if price:
+                return jsonify(price.to_dict())
+        except Exception as e:
+            logger.error(f"Ошибка получения цены из БД: {e}")
+
+        # Супер-фолбэк: статические данные
+        return jsonify({
+            "price": 0.006887,
+            "change24h": 0,
+            "volume24h": 1250000,
+            "liquidity": 850000,
+            "fdv": 6800000,
+            "marketCap": 6800000,
+            "circulatingSupply": 1000000000,
+            "timestamp": datetime.utcnow().timestamp()
+        })
     
     @app.route('/api/mori/history', methods=['GET'])
     @with_tenant
