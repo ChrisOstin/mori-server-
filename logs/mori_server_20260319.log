@@ -1,0 +1,1253 @@
+2026-03-19 03:29:45,487 - mori_server - INFO - 
+╔══════════════════════════════════════════════════════════╗
+║                                                          ║
+║   ███╗   ███╗ ██████╗ ██████╗ ██╗                       ║
+║   ████╗ ████║██╔═══██╗██╔══██╗██║                       ║
+║   ██╔████╔██║██║   ██║██████╔╝██║                       ║
+║   ██║╚██╔╝██║██║   ██║██╔══██╗██║                       ║
+║   ██║ ╚═╝ ██║╚██████╔╝██║  ██║██║                       ║
+║   ╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝                       ║
+║                                                          ║
+║   🔥 MORI ORACLE SERVER v2.0.0                          ║
+║   💪 РАЗРЫВНОЙ РЕЖИМ АКТИВИРОВАН                        ║
+║   🚀 Поддержка 10+ приложений                            ║
+╚══════════════════════════════════════════════════════════╝
+        
+2026-03-19 03:29:46,253 - mori_server - INFO - ✅ База данных инициализирована
+2026-03-19 03:29:46,330 - mori_server - INFO - ✅ Тестовые пользователи созданы
+2026-03-19 03:29:46,413 - mori_server - ERROR - 💥 Критическая ошибка: View function mapping is overwriting an existing endpoint function: ping
+Traceback (most recent call last):
+  File "/data/data/com.termux/files/home/Oracle-Mini-App-/server/app.py", line 419, in <module>
+    register_blueprints()
+  File "/data/data/com.termux/files/home/Oracle-Mini-App-/server/app.py", line 387, in register_blueprints
+    register_all_routes(app)
+  File "/data/data/com.termux/files/home/Oracle-Mini-App-/server/routes.py", line 1106, in register_all_routes
+    @app.route('/api/ping', methods=['GET'])
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/data/com.termux/files/usr/lib/python3.12/site-packages/flask/sansio/scaffold.py", line 362, in decorator
+    self.add_url_rule(rule, endpoint, f, **options)
+  File "/data/data/com.termux/files/usr/lib/python3.12/site-packages/flask/sansio/scaffold.py", line 47, in wrapper_func
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/data/com.termux/files/usr/lib/python3.12/site-packages/flask/sansio/app.py", line 657, in add_url_rule
+    raise AssertionError(
+AssertionError: View function mapping is overwriting an existing endpoint function: ping
+2026-03-19 03:29:46,421 - mori_server - INFO - 🏁 Сервер завершил работу
+2026-03-19 03:31:49,235 - mori_server - INFO - 
+╔══════════════════════════════════════════════════════════╗
+║                                                          ║
+║   ███╗   ███╗ ██████╗ ██████╗ ██╗                       ║
+║   ████╗ ████║██╔═══██╗██╔══██╗██║                       ║
+║   ██╔████╔██║██║   ██║██████╔╝██║                       ║
+║   ██║╚██╔╝██║██║   ██║██╔══██╗██║                       ║
+║   ██║ ╚═╝ ██║╚██████╔╝██║  ██║██║                       ║
+║   ╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝                       ║
+║                                                          ║
+║   🔥 MORI ORACLE SERVER v2.0.0                          ║
+║   💪 РАЗРЫВНОЙ РЕЖИМ АКТИВИРОВАН                        ║
+║   🚀 Поддержка 10+ приложений                            ║
+╚══════════════════════════════════════════════════════════╝
+        
+2026-03-19 03:31:49,852 - mori_server - INFO - ✅ База данных инициализирована
+2026-03-19 03:31:49,948 - mori_routes - INFO - ✅ Зарегистрировано 35 эндпоинтов для 4 origins
+2026-03-19 03:31:49,949 - mori_server - INFO - 📋 Зарегистрировано эндпоинтов: 45
+2026-03-19 03:31:49,949 - mori_server - INFO - 🌐 Сервер запущен на 0.0.0.0:5000
+2026-03-19 03:31:49,949 - mori_server - INFO - 🐍 Debug mode: True
+2026-03-19 03:31:49,950 - mori_server - INFO - ⚡ Ожидание подключений...
+2026-03-19 03:31:50,004 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.101:5000
+2026-03-19 03:31:50,004 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-03-19 03:31:50,006 - werkzeug - INFO -  * Restarting with stat
+2026-03-19 03:31:50,477 - mori_server - INFO - 
+╔══════════════════════════════════════════════════════════╗
+║                                                          ║
+║   ███╗   ███╗ ██████╗ ██████╗ ██╗                       ║
+║   ████╗ ████║██╔═══██╗██╔══██╗██║                       ║
+║   ██╔████╔██║██║   ██║██████╔╝██║                       ║
+║   ██║╚██╔╝██║██║   ██║██╔══██╗██║                       ║
+║   ██║ ╚═╝ ██║╚██████╔╝██║  ██║██║                       ║
+║   ╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝                       ║
+║                                                          ║
+║   🔥 MORI ORACLE SERVER v2.0.0                          ║
+║   💪 РАЗРЫВНОЙ РЕЖИМ АКТИВИРОВАН                        ║
+║   🚀 Поддержка 10+ приложений                            ║
+╚══════════════════════════════════════════════════════════╝
+        
+2026-03-19 03:31:51,098 - mori_server - INFO - ✅ База данных инициализирована
+2026-03-19 03:31:51,196 - mori_routes - INFO - ✅ Зарегистрировано 35 эндпоинтов для 4 origins
+2026-03-19 03:31:51,197 - mori_server - INFO - 📋 Зарегистрировано эндпоинтов: 45
+2026-03-19 03:31:51,197 - mori_server - INFO - 🌐 Сервер запущен на 0.0.0.0:5000
+2026-03-19 03:31:51,197 - mori_server - INFO - 🐍 Debug mode: True
+2026-03-19 03:31:51,197 - mori_server - INFO - ⚡ Ожидание подключений...
+2026-03-19 03:31:51,229 - werkzeug - WARNING -  * Debugger is active!
+2026-03-19 03:31:51,301 - werkzeug - INFO -  * Debugger PIN: 320-612-823
+2026-03-19 03:32:28,516 - mori_server - INFO - 📥 [0b682e650404fb60] GET /api/health | IP: 127.0.0.1
+2026-03-19 03:32:28,516 - mori_server - INFO - 📤 [0b682e650404fb60] 200 | 0.62ms
+2026-03-19 03:32:28,518 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 03:32:28] "GET /api/health HTTP/1.1" 200 -
+2026-03-19 03:33:13,098 - mori_server - INFO - 📥 [a75013b6a42be9ae] GET /api/books | IP: 127.0.0.1
+2026-03-19 03:33:13,121 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 03:33:13] "[35m[1mGET /api/books HTTP/1.1[0m" 500 -
+2026-03-19 03:33:13,147 - mori_server - INFO - 📥 [608b6e96ac9cd2e6] POST /api/auth/login | IP: 127.0.0.1
+2026-03-19 03:33:13,180 - auth - INFO - Успешный вход: Админ (ID: 1, уровень: admin)
+2026-03-19 03:33:13,181 - mori_server - INFO - 📤 [608b6e96ac9cd2e6] 200 | 34.35ms
+2026-03-19 03:33:13,182 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 03:33:13] "POST /api/auth/login HTTP/1.1" 200 -
+2026-03-19 03:33:13,210 - mori_server - INFO - 📥 [d2a8cc26badd8a89] GET /metrics | IP: 127.0.0.1
+2026-03-19 03:33:13,262 - mori_server - ERROR - 💥 Необработанное исключение: [Errno 13] Permission denied: '/proc/stat'
+Traceback (most recent call last):
+  File "/data/data/com.termux/files/usr/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/data/com.termux/files/usr/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/data/com.termux/files/home/Oracle-Mini-App-/server/app.py", line 257, in metrics
+    'cpu_percent': psutil.cpu_percent(interval=0.1),
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/data/com.termux/files/usr/lib/python3.12/site-packages/psutil/__init__.py", line 1844, in cpu_percent
+    t1 = cpu_times()
+         ^^^^^^^^^^^
+  File "/data/data/com.termux/files/usr/lib/python3.12/site-packages/psutil/__init__.py", line 1712, in cpu_times
+    return _psplatform.cpu_times()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/data/com.termux/files/usr/lib/python3.12/site-packages/psutil/_pslinux.py", line 509, in cpu_times
+    with open_binary(f"{procfs_path}/stat") as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/data/com.termux/files/usr/lib/python3.12/site-packages/psutil/_common.py", line 682, in open_binary
+    return open(fname, "rb", buffering=FILE_READ_BUFFER_SIZE)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: '/proc/stat'
+2026-03-19 03:33:13,268 - mori_server - INFO - 📤 [d2a8cc26badd8a89] 500 | 58.02ms
+2026-03-19 03:33:13,269 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 03:33:13] "[35m[1mGET /metrics HTTP/1.1[0m" 500 -
+2026-03-19 03:43:31,192 - werkzeug - INFO -  * Detected change in '/data/data/com.termux/files/home/Oracle-Mini-App-/server/app.py', reloading
+2026-03-19 03:43:31,230 - mori_server - INFO - 🏁 Сервер завершил работу
+2026-03-19 03:43:31,765 - werkzeug - INFO -  * Restarting with stat
+2026-03-19 03:43:32,425 - mori_server - INFO - 
+╔══════════════════════════════════════════════════════════╗
+║                                                          ║
+║   ███╗   ███╗ ██████╗ ██████╗ ██╗                       ║
+║   ████╗ ████║██╔═══██╗██╔══██╗██║                       ║
+║   ██╔████╔██║██║   ██║██████╔╝██║                       ║
+║   ██║╚██╔╝██║██║   ██║██╔══██╗██║                       ║
+║   ██║ ╚═╝ ██║╚██████╔╝██║  ██║██║                       ║
+║   ╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝                       ║
+║                                                          ║
+║   🔥 MORI ORACLE SERVER v2.0.0                          ║
+║   💪 РАЗРЫВНОЙ РЕЖИМ АКТИВИРОВАН                        ║
+║   🚀 Поддержка 10+ приложений                            ║
+╚══════════════════════════════════════════════════════════╝
+        
+2026-03-19 03:43:33,306 - mori_server - INFO - ✅ База данных инициализирована
+2026-03-19 03:43:33,424 - mori_routes - INFO - ✅ Зарегистрировано 35 эндпоинтов для 4 origins
+2026-03-19 03:43:33,425 - mori_server - INFO - 📋 Зарегистрировано эндпоинтов: 45
+2026-03-19 03:43:33,425 - mori_server - INFO - 🌐 Сервер запущен на 0.0.0.0:5000
+2026-03-19 03:43:33,425 - mori_server - INFO - 🐍 Debug mode: True
+2026-03-19 03:43:33,425 - mori_server - INFO - ⚡ Ожидание подключений...
+2026-03-19 03:43:33,475 - werkzeug - WARNING -  * Debugger is active!
+2026-03-19 03:43:33,565 - werkzeug - INFO -  * Debugger PIN: 406-721-969
+2026-03-19 03:43:35,185 - mori_server - INFO - 🏁 Сервер завершил работу
+2026-03-19 03:43:35,461 - mori_server - INFO - 🏁 Сервер завершил работу
+2026-03-19 03:43:40,133 - mori_server - INFO - 
+╔══════════════════════════════════════════════════════════╗
+║                                                          ║
+║   ███╗   ███╗ ██████╗ ██████╗ ██╗                       ║
+║   ████╗ ████║██╔═══██╗██╔══██╗██║                       ║
+║   ██╔████╔██║██║   ██║██████╔╝██║                       ║
+║   ██║╚██╔╝██║██║   ██║██╔══██╗██║                       ║
+║   ██║ ╚═╝ ██║╚██████╔╝██║  ██║██║                       ║
+║   ╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝                       ║
+║                                                          ║
+║   🔥 MORI ORACLE SERVER v2.0.0                          ║
+║   💪 РАЗРЫВНОЙ РЕЖИМ АКТИВИРОВАН                        ║
+║   🚀 Поддержка 10+ приложений                            ║
+╚══════════════════════════════════════════════════════════╝
+        
+2026-03-19 03:43:40,744 - mori_server - INFO - ✅ База данных инициализирована
+2026-03-19 03:43:40,844 - mori_routes - INFO - ✅ Зарегистрировано 35 эндпоинтов для 4 origins
+2026-03-19 03:43:40,844 - mori_server - INFO - 📋 Зарегистрировано эндпоинтов: 45
+2026-03-19 03:43:40,844 - mori_server - INFO - 🌐 Сервер запущен на 0.0.0.0:5000
+2026-03-19 03:43:40,845 - mori_server - INFO - 🐍 Debug mode: True
+2026-03-19 03:43:40,845 - mori_server - INFO - ⚡ Ожидание подключений...
+2026-03-19 03:43:40,895 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.101:5000
+2026-03-19 03:43:40,895 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-03-19 03:43:40,896 - werkzeug - INFO -  * Restarting with stat
+2026-03-19 03:43:41,331 - mori_server - INFO - 
+╔══════════════════════════════════════════════════════════╗
+║                                                          ║
+║   ███╗   ███╗ ██████╗ ██████╗ ██╗                       ║
+║   ████╗ ████║██╔═══██╗██╔══██╗██║                       ║
+║   ██╔████╔██║██║   ██║██████╔╝██║                       ║
+║   ██║╚██╔╝██║██║   ██║██╔══██╗██║                       ║
+║   ██║ ╚═╝ ██║╚██████╔╝██║  ██║██║                       ║
+║   ╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝                       ║
+║                                                          ║
+║   🔥 MORI ORACLE SERVER v2.0.0                          ║
+║   💪 РАЗРЫВНОЙ РЕЖИМ АКТИВИРОВАН                        ║
+║   🚀 Поддержка 10+ приложений                            ║
+╚══════════════════════════════════════════════════════════╝
+        
+2026-03-19 03:43:41,946 - mori_server - INFO - ✅ База данных инициализирована
+2026-03-19 03:43:42,041 - mori_routes - INFO - ✅ Зарегистрировано 35 эндпоинтов для 4 origins
+2026-03-19 03:43:42,041 - mori_server - INFO - 📋 Зарегистрировано эндпоинтов: 45
+2026-03-19 03:43:42,041 - mori_server - INFO - 🌐 Сервер запущен на 0.0.0.0:5000
+2026-03-19 03:43:42,041 - mori_server - INFO - 🐍 Debug mode: True
+2026-03-19 03:43:42,042 - mori_server - INFO - ⚡ Ожидание подключений...
+2026-03-19 03:43:42,073 - werkzeug - WARNING -  * Debugger is active!
+2026-03-19 03:43:42,146 - werkzeug - INFO -  * Debugger PIN: 773-124-086
+2026-03-19 03:44:25,775 - mori_server - INFO - 📥 [e5f19bb8bcb85a1c] POST /api/auth/login | IP: 127.0.0.1
+2026-03-19 03:44:25,821 - auth - INFO - Успешный вход: Админ (ID: 1, уровень: admin)
+2026-03-19 03:44:25,822 - mori_server - INFO - 📤 [e5f19bb8bcb85a1c] 200 | 47.04ms
+2026-03-19 03:44:25,823 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 03:44:25] "POST /api/auth/login HTTP/1.1" 200 -
+2026-03-19 03:44:25,890 - mori_server - INFO - 📥 [41146a17d16161c4] POST /api/auth/login | IP: 127.0.0.1
+2026-03-19 03:44:25,914 - auth - INFO - Успешный вход: Семья (ID: 2, уровень: family)
+2026-03-19 03:44:25,915 - mori_server - INFO - 📤 [41146a17d16161c4] 200 | 25.3ms
+2026-03-19 03:44:25,917 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 03:44:25] "POST /api/auth/login HTTP/1.1" 200 -
+2026-03-19 03:44:25,980 - mori_server - INFO - 📥 [1948f2131ebe39f8] POST /api/auth/login | IP: 127.0.0.1
+2026-03-19 03:44:26,001 - auth - INFO - Успешный вход: Пользователь (ID: 3, уровень: user)
+2026-03-19 03:44:26,002 - mori_server - INFO - 📤 [1948f2131ebe39f8] 200 | 22.77ms
+2026-03-19 03:44:26,004 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 03:44:26] "POST /api/auth/login HTTP/1.1" 200 -
+2026-03-19 03:44:26,065 - mori_server - INFO - 📥 [f5b54979eeb4f643] POST /api/auth/login | IP: 127.0.0.1
+2026-03-19 03:44:26,067 - auth - WARNING - Неудачная попытка входа с IP 127.0.0.1
+2026-03-19 03:44:26,068 - mori_server - INFO - 📤 [f5b54979eeb4f643] 401 | 2.61ms
+2026-03-19 03:44:26,070 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 03:44:26] "[31m[1mPOST /api/auth/login HTTP/1.1[0m" 401 -
+2026-03-19 03:44:26,151 - mori_server - INFO - 📥 [ccdad48bba855afb] POST /api/auth/verify | IP: 127.0.0.1
+2026-03-19 03:44:26,156 - mori_server - INFO - 📤 [ccdad48bba855afb] 401 | 4.91ms
+2026-03-19 03:44:26,158 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 03:44:26] "[31m[1mPOST /api/auth/verify HTTP/1.1[0m" 401 -
+2026-03-19 03:44:26,256 - mori_server - INFO - 📥 [fc8881d2d45731fc] GET /api/auth/me | IP: 127.0.0.1
+2026-03-19 03:44:26,258 - mori_server - INFO - 📤 [fc8881d2d45731fc] 401 | 2.89ms
+2026-03-19 03:44:26,260 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 03:44:26] "[31m[1mGET /api/auth/me HTTP/1.1[0m" 401 -
+2026-03-19 03:44:45,899 - mori_server - INFO - 📥 [cad7b3b8c3c9574f] GET /api/books | IP: 127.0.0.1
+2026-03-19 03:44:45,906 - mori_server - INFO - 📤 [cad7b3b8c3c9574f] 200
+2026-03-19 03:44:45,907 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 03:44:45] "GET /api/books HTTP/1.1" 200 -
+2026-03-19 03:44:45,994 - mori_server - INFO - 📥 [607c99368d626a67] GET /api/books/1 | IP: 127.0.0.1
+2026-03-19 03:44:45,999 - mori_server - INFO - 📤 [607c99368d626a67] 404
+2026-03-19 03:44:46,000 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 03:44:46] "[33mGET /api/books/1 HTTP/1.1[0m" 404 -
+2026-03-19 03:44:46,051 - mori_server - INFO - 📥 [111816b6049f60ff] POST /api/books | IP: 127.0.0.1
+2026-03-19 03:44:46,054 - mori_server - INFO - 📤 [111816b6049f60ff] 401
+2026-03-19 03:44:46,055 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 03:44:46] "[31m[1mPOST /api/books HTTP/1.1[0m" 401 -
+2026-03-19 03:44:46,147 - mori_server - INFO - 📥 [c0bae2f9b8f691bd] DELETE /api/books/2 | IP: 127.0.0.1
+2026-03-19 03:44:46,150 - mori_server - INFO - 📤 [c0bae2f9b8f691bd] 401
+2026-03-19 03:44:46,152 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 03:44:46] "[31m[1mDELETE /api/books/2 HTTP/1.1[0m" 401 -
+2026-03-19 03:44:53,884 - mori_server - INFO - 📥 [2367b200a72fbfbd] GET /api/chat/general/messages | IP: 127.0.0.1
+2026-03-19 03:44:53,885 - mori_server - INFO - 📤 [2367b200a72fbfbd] 401
+2026-03-19 03:44:53,886 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 03:44:53] "[31m[1mGET /api/chat/general/messages?limit=10 HTTP/1.1[0m" 401 -
+2026-03-19 03:44:53,960 - mori_server - INFO - 📥 [45d00786be6541ec] POST /api/chat/message | IP: 127.0.0.1
+2026-03-19 03:44:53,961 - mori_server - INFO - 📤 [45d00786be6541ec] 401
+2026-03-19 03:44:53,962 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 03:44:53] "[31m[1mPOST /api/chat/message HTTP/1.1[0m" 401 -
+2026-03-19 03:44:54,085 - mori_server - INFO - 📥 [83de0520d7fafed5] POST /api/chat/message/1/reaction | IP: 127.0.0.1
+2026-03-19 03:44:54,087 - mori_server - INFO - 📤 [83de0520d7fafed5] 401
+2026-03-19 03:44:54,088 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 03:44:54] "[31m[1mPOST /api/chat/message/1/reaction HTTP/1.1[0m" 401 -
+2026-03-19 03:44:54,198 - mori_server - INFO - 📥 [d6b195be63b70d16] GET /api/chat/users | IP: 127.0.0.1
+2026-03-19 03:44:54,202 - mori_server - INFO - 📤 [d6b195be63b70d16] 401
+2026-03-19 03:44:54,203 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 03:44:54] "[31m[1mGET /api/chat/users HTTP/1.1[0m" 401 -
+2026-03-19 03:45:00,896 - mori_server - INFO - 📥 [a897e1bf3e056f44] GET /api/family/members | IP: 127.0.0.1
+2026-03-19 03:45:00,898 - mori_server - INFO - 📤 [a897e1bf3e056f44] 401
+2026-03-19 03:45:00,898 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 03:45:00] "[31m[1mGET /api/family/members HTTP/1.1[0m" 401 -
+2026-03-19 03:45:00,994 - mori_server - INFO - 📥 [f7d15987da9c3914] GET /api/family/budget | IP: 127.0.0.1
+2026-03-19 03:45:00,997 - mori_server - INFO - 📤 [f7d15987da9c3914] 401
+2026-03-19 03:45:00,999 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 03:45:00] "[31m[1mGET /api/family/budget HTTP/1.1[0m" 401 -
+2026-03-19 03:45:01,052 - mori_server - INFO - 📥 [fed0dcd8d0919220] POST /api/family/budget | IP: 127.0.0.1
+2026-03-19 03:45:01,055 - mori_server - INFO - 📤 [fed0dcd8d0919220] 401
+2026-03-19 03:45:01,056 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 03:45:01] "[31m[1mPOST /api/family/budget HTTP/1.1[0m" 401 -
+2026-03-19 03:45:01,159 - mori_server - INFO - 📥 [2affd10f5f463556] GET /api/family/calendar | IP: 127.0.0.1
+2026-03-19 03:45:01,163 - mori_server - INFO - 📤 [2affd10f5f463556] 401
+2026-03-19 03:45:01,165 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 03:45:01] "[31m[1mGET /api/family/calendar?year=2026&month=2 HTTP/1.1[0m" 401 -
+2026-03-19 03:45:01,242 - mori_server - INFO - 📥 [9649fd89c4a1dc78] POST /api/family/calendar | IP: 127.0.0.1
+2026-03-19 03:45:01,245 - mori_server - INFO - 📤 [9649fd89c4a1dc78] 401
+2026-03-19 03:45:01,246 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 03:45:01] "[31m[1mPOST /api/family/calendar HTTP/1.1[0m" 401 -
+2026-03-19 03:45:01,327 - mori_server - INFO - 📥 [fef0930cdadbc86b] GET /api/family/reminders | IP: 127.0.0.1
+2026-03-19 03:45:01,330 - mori_server - INFO - 📤 [fef0930cdadbc86b] 401
+2026-03-19 03:45:01,332 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 03:45:01] "[31m[1mGET /api/family/reminders HTTP/1.1[0m" 401 -
+2026-03-19 03:45:09,989 - mori_server - INFO - 📥 [369b5077dd2aa59e] GET /api/mori/price | IP: 127.0.0.1
+2026-03-19 03:45:10,021 - mori_server - INFO - 📤 [369b5077dd2aa59e] 200
+2026-03-19 03:45:10,022 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 03:45:10] "GET /api/mori/price HTTP/1.1" 200 -
+2026-03-19 03:45:10,066 - mori_server - INFO - 📥 [da538e09c83622a4] GET /api/mori/history | IP: 127.0.0.1
+2026-03-19 03:45:10,075 - mori_server - INFO - 📤 [da538e09c83622a4] 200
+2026-03-19 03:45:10,076 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 03:45:10] "GET /api/mori/history?timeframe=1h HTTP/1.1" 200 -
+2026-03-19 03:45:10,162 - mori_server - INFO - 📥 [411bbac80dbcaad5] GET /api/mori/whales | IP: 127.0.0.1
+2026-03-19 03:45:10,176 - mori_server - INFO - 📤 [411bbac80dbcaad5] 200
+2026-03-19 03:45:10,178 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 03:45:10] "GET /api/mori/whales HTTP/1.1" 200 -
+2026-03-19 03:45:16,499 - mori_server - INFO - 📥 [270bb61b6bf308b4] GET /api/admin/stats | IP: 127.0.0.1
+2026-03-19 03:45:16,500 - mori_server - INFO - 📤 [270bb61b6bf308b4] 401
+2026-03-19 03:45:16,501 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 03:45:16] "[31m[1mGET /api/admin/stats HTTP/1.1[0m" 401 -
+2026-03-19 03:45:16,578 - mori_server - INFO - 📥 [9a69d0a0afaf9295] GET /api/admin/users | IP: 127.0.0.1
+2026-03-19 03:45:16,580 - mori_server - INFO - 📤 [9a69d0a0afaf9295] 401
+2026-03-19 03:45:16,580 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 03:45:16] "[31m[1mGET /api/admin/users?limit=5 HTTP/1.1[0m" 401 -
+2026-03-19 03:45:22,972 - mori_server - INFO - 📥 [dc23a10fd2a9420f] GET /health | IP: 127.0.0.1
+2026-03-19 03:45:22,973 - mori_server - INFO - 📤 [dc23a10fd2a9420f] 200 | 0.71ms
+2026-03-19 03:45:22,973 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 03:45:22] "GET /health HTTP/1.1" 200 -
+2026-03-19 03:45:23,041 - mori_server - INFO - 📥 [a7ffd47ee5a3b36d] GET /metrics | IP: 127.0.0.1
+2026-03-19 03:45:23,124 - mori_server - ERROR - 💥 Необработанное исключение: [Errno 13] Permission denied: '/proc/stat'
+Traceback (most recent call last):
+  File "/data/data/com.termux/files/usr/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/data/com.termux/files/usr/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/data/com.termux/files/home/Oracle-Mini-App-/server/app.py", line 256, in metrics
+    'cpu_percent': psutil.cpu_percent(interval=0.1),
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/data/com.termux/files/usr/lib/python3.12/site-packages/psutil/__init__.py", line 1844, in cpu_percent
+    t1 = cpu_times()
+         ^^^^^^^^^^^
+  File "/data/data/com.termux/files/usr/lib/python3.12/site-packages/psutil/__init__.py", line 1712, in cpu_times
+    return _psplatform.cpu_times()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/data/com.termux/files/usr/lib/python3.12/site-packages/psutil/_pslinux.py", line 509, in cpu_times
+    with open_binary(f"{procfs_path}/stat") as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/data/com.termux/files/usr/lib/python3.12/site-packages/psutil/_common.py", line 682, in open_binary
+    return open(fname, "rb", buffering=FILE_READ_BUFFER_SIZE)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: '/proc/stat'
+2026-03-19 03:45:23,145 - mori_server - INFO - 📤 [a7ffd47ee5a3b36d] 500 | 103.83ms
+2026-03-19 03:45:23,147 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 03:45:23] "[35m[1mGET /metrics HTTP/1.1[0m" 500 -
+2026-03-19 03:45:23,205 - mori_server - INFO - 📥 [2ef6328f05042b3a] GET /api/info | IP: 127.0.0.1
+2026-03-19 03:45:23,206 - mori_server - INFO - 📤 [2ef6328f05042b3a] 200 | 1.34ms
+2026-03-19 03:45:23,207 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 03:45:23] "GET /api/info HTTP/1.1" 200 -
+2026-03-19 03:47:51,758 - mori_server - INFO - 📥 [a1f20221954e70ba] POST /api/auth/login | IP: 127.0.0.1
+2026-03-19 03:47:51,796 - auth - INFO - Успешный вход: Админ (ID: 1, уровень: admin)
+2026-03-19 03:47:51,797 - mori_server - INFO - 📤 [a1f20221954e70ba] 200 | 39.78ms
+2026-03-19 03:47:51,798 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 03:47:51] "POST /api/auth/login HTTP/1.1" 200 -
+2026-03-19 03:50:20,009 - mori_server - INFO - 📥 [9d4f202332c710c8] GET /api/auth/me | IP: 127.0.0.1
+2026-03-19 03:50:20,011 - mori_server - INFO - 📤 [9d4f202332c710c8] 401 | 1.29ms
+2026-03-19 03:50:20,011 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 03:50:20] "[31m[1mGET /api/auth/me HTTP/1.1[0m" 401 -
+2026-03-19 03:50:51,118 - mori_server - INFO - 📥 [f680d97a0e030a41] GET /api/auth/me | IP: 127.0.0.1
+2026-03-19 03:50:51,120 - mori_server - INFO - 📤 [f680d97a0e030a41] 401 | 1.39ms
+2026-03-19 03:50:51,120 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 03:50:51] "[31m[1mGET /api/auth/me HTTP/1.1[0m" 401 -
+2026-03-19 03:51:21,607 - mori_server - INFO - 📥 [7d2447d6ccee0f6e] POST /api/auth/login | IP: 127.0.0.1
+2026-03-19 03:51:21,635 - auth - INFO - Успешный вход: Админ (ID: 1, уровень: admin)
+2026-03-19 03:51:21,636 - mori_server - INFO - 📤 [7d2447d6ccee0f6e] 200 | 28.86ms
+2026-03-19 03:51:21,637 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 03:51:21] "POST /api/auth/login HTTP/1.1" 200 -
+2026-03-19 03:51:33,728 - mori_server - INFO - 📥 [0e2c96a970ffcb7f] POST /api/auth/login | IP: 127.0.0.1
+2026-03-19 03:51:33,744 - auth - INFO - Успешный вход: Админ (ID: 1, уровень: admin)
+2026-03-19 03:51:33,745 - mori_server - INFO - 📤 [0e2c96a970ffcb7f] 200 | 16.77ms
+2026-03-19 03:51:33,746 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 03:51:33] "POST /api/auth/login HTTP/1.1" 200 -
+2026-03-19 03:51:44,964 - mori_server - INFO - 📥 [681daadbf67e9966] POST /api/auth/login | IP: 127.0.0.1
+2026-03-19 03:51:44,982 - auth - INFO - Успешный вход: Админ (ID: 1, уровень: admin)
+2026-03-19 03:51:44,982 - mori_server - INFO - 📤 [681daadbf67e9966] 200 | 17.98ms
+2026-03-19 03:51:44,983 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 03:51:44] "POST /api/auth/login HTTP/1.1" 200 -
+2026-03-19 03:52:02,541 - mori_server - INFO - 📥 [0f6874f9da193e37] GET /api/auth/me | IP: 127.0.0.1
+2026-03-19 03:52:02,542 - mori_server - INFO - 📤 [0f6874f9da193e37] 401 | 0.99ms
+2026-03-19 03:52:02,542 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 03:52:02] "[31m[1mGET /api/auth/me HTTP/1.1[0m" 401 -
+2026-03-19 03:52:40,265 - mori_server - INFO - 📥 [80d8c7e52846eca8] POST /api/auth/login | IP: 127.0.0.1
+2026-03-19 03:52:40,287 - auth - INFO - Успешный вход: Админ (ID: 1, уровень: admin)
+2026-03-19 03:52:40,288 - mori_server - INFO - 📤 [80d8c7e52846eca8] 200 | 23.41ms
+2026-03-19 03:52:40,289 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 03:52:40] "POST /api/auth/login HTTP/1.1" 200 -
+2026-03-19 03:53:32,371 - mori_server - INFO - 📥 [c09c84802f82632d] GET /api/auth/me | IP: 127.0.0.1
+2026-03-19 03:53:32,372 - mori_server - INFO - 📤 [c09c84802f82632d] 401 | 0.95ms
+2026-03-19 03:53:32,372 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 03:53:32] "[31m[1mGET /api/auth/me HTTP/1.1[0m" 401 -
+2026-03-19 03:53:40,324 - mori_server - INFO - 📥 [255cbc2aa520290d] GET /api/auth/me | IP: 127.0.0.1
+2026-03-19 03:53:40,326 - mori_server - INFO - 📤 [255cbc2aa520290d] 401 | 2.11ms
+2026-03-19 03:53:40,327 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 03:53:40] "[31m[1mGET /api/auth/me HTTP/1.1[0m" 401 -
+2026-03-19 03:54:18,938 - mori_server - INFO - 📥 [a3f3a52fc4fb78c5] POST /api/auth/login | IP: 127.0.0.1
+2026-03-19 03:54:18,954 - auth - INFO - Успешный вход: Админ (ID: 1, уровень: admin)
+2026-03-19 03:54:18,954 - mori_server - INFO - 📤 [a3f3a52fc4fb78c5] 200 | 16.28ms
+2026-03-19 03:54:18,955 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 03:54:18] "POST /api/auth/login HTTP/1.1" 200 -
+2026-03-19 03:54:19,080 - mori_server - INFO - 📥 [60386113660795a9] GET /api/auth/me | IP: 127.0.0.1
+2026-03-19 03:54:19,084 - mori_server - INFO - 📤 [60386113660795a9] 401 | 3.25ms
+2026-03-19 03:54:19,085 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 03:54:19] "[31m[1mGET /api/auth/me HTTP/1.1[0m" 401 -
+2026-03-19 03:54:47,951 - mori_server - INFO - 📥 [416d745fd4c03260] GET /api/auth/me | IP: 127.0.0.1
+2026-03-19 03:54:47,952 - mori_server - INFO - 📤 [416d745fd4c03260] 401 | 0.91ms
+2026-03-19 03:54:47,952 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 03:54:47] "[31m[1mGET /api/auth/me HTTP/1.1[0m" 401 -
+2026-03-19 03:55:01,123 - mori_server - INFO - 📥 [75de197853fd0fe9] GET /api/books | IP: 127.0.0.1
+2026-03-19 03:55:01,137 - mori_server - INFO - 📤 [75de197853fd0fe9] 200
+2026-03-19 03:55:01,138 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 03:55:01] "GET /api/books HTTP/1.1" 200 -
+2026-03-19 03:55:19,249 - mori_server - INFO - 📥 [94005ee791a0a29e] GET /api/auth/me | IP: 127.0.0.1
+2026-03-19 03:55:19,251 - mori_server - INFO - 📤 [94005ee791a0a29e] 401 | 1.89ms
+2026-03-19 03:55:19,252 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 03:55:19] "[31m[1mGET /api/auth/me HTTP/1.1[0m" 401 -
+2026-03-19 03:55:55,836 - mori_server - INFO - 📥 [80b9cc03d97a0cb6] POST /api/books | IP: 127.0.0.1
+2026-03-19 03:55:55,838 - mori_server - INFO - 📤 [80b9cc03d97a0cb6] 401
+2026-03-19 03:55:55,839 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 03:55:55] "[31m[1mPOST /api/books HTTP/1.1[0m" 401 -
+2026-03-19 03:55:55,918 - mori_server - INFO - 📥 [ddd069317ba067ab] POST /api/chat/message | IP: 127.0.0.1
+2026-03-19 03:55:55,922 - mori_server - INFO - 📤 [ddd069317ba067ab] 401
+2026-03-19 03:55:55,923 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 03:55:55] "[31m[1mPOST /api/chat/message HTTP/1.1[0m" 401 -
+2026-03-19 03:55:56,014 - mori_server - INFO - 📥 [a7697d5b3edcdc4e] GET /api/admin/stats | IP: 127.0.0.1
+2026-03-19 03:55:56,016 - mori_server - INFO - 📤 [a7697d5b3edcdc4e] 401
+2026-03-19 03:55:56,016 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 03:55:56] "[31m[1mGET /api/admin/stats HTTP/1.1[0m" 401 -
+2026-03-19 03:57:07,663 - mori_server - INFO - 📥 [f7cb56ed134e3056] GET /api/auth/me | IP: 127.0.0.1
+2026-03-19 03:57:07,665 - mori_server - INFO - 📤 [f7cb56ed134e3056] 401 | 2.87ms
+2026-03-19 03:57:07,666 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 03:57:07] "[31m[1mGET /api/auth/me HTTP/1.1[0m" 401 -
+2026-03-19 03:57:22,023 - mori_server - INFO - 📥 [80f09ce309ec780a] POST /api/books | IP: 127.0.0.1
+2026-03-19 03:57:22,024 - mori_server - INFO - 📤 [80f09ce309ec780a] 401
+2026-03-19 03:57:22,025 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 03:57:22] "[31m[1mPOST /api/books HTTP/1.1[0m" 401 -
+2026-03-19 03:57:56,490 - mori_server - INFO - 📥 [f0c8b251bb226ec2] GET /api/auth/me | IP: 127.0.0.1
+2026-03-19 03:57:56,491 - mori_server - INFO - 📤 [f0c8b251bb226ec2] 401 | 1.35ms
+2026-03-19 03:57:56,492 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 03:57:56] "[31m[1mGET /api/auth/me HTTP/1.1[0m" 401 -
+2026-03-19 04:00:52,575 - mori_server - INFO - 🏁 Сервер завершил работу
+2026-03-19 04:00:52,848 - mori_server - INFO - 🏁 Сервер завершил работу
+2026-03-19 04:00:57,524 - mori_server - INFO - 
+╔══════════════════════════════════════════════════════════╗
+║                                                          ║
+║   ███╗   ███╗ ██████╗ ██████╗ ██╗                       ║
+║   ████╗ ████║██╔═══██╗██╔══██╗██║                       ║
+║   ██╔████╔██║██║   ██║██████╔╝██║                       ║
+║   ██║╚██╔╝██║██║   ██║██╔══██╗██║                       ║
+║   ██║ ╚═╝ ██║╚██████╔╝██║  ██║██║                       ║
+║   ╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝                       ║
+║                                                          ║
+║   🔥 MORI ORACLE SERVER v2.0.0                          ║
+║   💪 РАЗРЫВНОЙ РЕЖИМ АКТИВИРОВАН                        ║
+║   🚀 Поддержка 10+ приложений                            ║
+╚══════════════════════════════════════════════════════════╝
+        
+2026-03-19 04:00:58,328 - mori_server - INFO - ✅ База данных инициализирована
+2026-03-19 04:00:58,499 - mori_routes - INFO - ✅ Зарегистрировано 35 эндпоинтов для 4 origins
+2026-03-19 04:00:58,500 - mori_server - INFO - 📋 Зарегистрировано эндпоинтов: 45
+2026-03-19 04:00:58,500 - mori_server - INFO - 🌐 Сервер запущен на 0.0.0.0:5000
+2026-03-19 04:00:58,500 - mori_server - INFO - 🐍 Debug mode: True
+2026-03-19 04:00:58,500 - mori_server - INFO - ⚡ Ожидание подключений...
+2026-03-19 04:00:58,573 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.101:5000
+2026-03-19 04:00:58,573 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-03-19 04:00:58,575 - werkzeug - INFO -  * Restarting with stat
+2026-03-19 04:00:59,095 - mori_server - INFO - 
+╔══════════════════════════════════════════════════════════╗
+║                                                          ║
+║   ███╗   ███╗ ██████╗ ██████╗ ██╗                       ║
+║   ████╗ ████║██╔═══██╗██╔══██╗██║                       ║
+║   ██╔████╔██║██║   ██║██████╔╝██║                       ║
+║   ██║╚██╔╝██║██║   ██║██╔══██╗██║                       ║
+║   ██║ ╚═╝ ██║╚██████╔╝██║  ██║██║                       ║
+║   ╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝                       ║
+║                                                          ║
+║   🔥 MORI ORACLE SERVER v2.0.0                          ║
+║   💪 РАЗРЫВНОЙ РЕЖИМ АКТИВИРОВАН                        ║
+║   🚀 Поддержка 10+ приложений                            ║
+╚══════════════════════════════════════════════════════════╝
+        
+2026-03-19 04:00:59,729 - mori_server - INFO - ✅ База данных инициализирована
+2026-03-19 04:00:59,825 - mori_routes - INFO - ✅ Зарегистрировано 35 эндпоинтов для 4 origins
+2026-03-19 04:00:59,826 - mori_server - INFO - 📋 Зарегистрировано эндпоинтов: 45
+2026-03-19 04:00:59,826 - mori_server - INFO - 🌐 Сервер запущен на 0.0.0.0:5000
+2026-03-19 04:00:59,826 - mori_server - INFO - 🐍 Debug mode: True
+2026-03-19 04:00:59,826 - mori_server - INFO - ⚡ Ожидание подключений...
+2026-03-19 04:00:59,860 - werkzeug - WARNING -  * Debugger is active!
+2026-03-19 04:00:59,956 - werkzeug - INFO -  * Debugger PIN: 111-625-392
+2026-03-19 04:01:05,077 - mori_server - INFO - 📥 [1fb1f7bec86b0735] POST /api/auth/login | IP: 127.0.0.1
+2026-03-19 04:01:05,118 - auth - INFO - Успешный вход: Админ (ID: 1, уровень: admin)
+2026-03-19 04:01:05,118 - mori_server - INFO - 📤 [1fb1f7bec86b0735] 200 | 41.19ms
+2026-03-19 04:01:05,120 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 04:01:05] "POST /api/auth/login HTTP/1.1" 200 -
+2026-03-19 04:01:05,150 - mori_server - INFO - 📥 [664ca8158fe99345] GET /api/auth/me | IP: 127.0.0.1
+2026-03-19 04:01:05,159 - mori_server - INFO - 📤 [664ca8158fe99345] 401 | 8.68ms
+2026-03-19 04:01:05,161 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 04:01:05] "[31m[1mGET /api/auth/me HTTP/1.1[0m" 401 -
+2026-03-19 04:01:34,627 - mori_server - INFO - 📥 [9617756fed3ace63] POST /api/auth/login | IP: 127.0.0.1
+2026-03-19 04:01:34,647 - auth - INFO - Успешный вход: Админ (ID: 1, уровень: admin)
+2026-03-19 04:01:34,648 - mori_server - INFO - 📤 [9617756fed3ace63] 200 | 20.75ms
+2026-03-19 04:01:34,649 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 04:01:34] "POST /api/auth/login HTTP/1.1" 200 -
+2026-03-19 04:02:08,522 - mori_server - INFO - 📥 [a28ab035da4563dd] GET /api/auth/me | IP: 127.0.0.1
+2026-03-19 04:02:08,524 - mori_server - INFO - 📤 [a28ab035da4563dd] 401 | 1.79ms
+2026-03-19 04:02:08,525 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 04:02:08] "[31m[1mGET /api/auth/me HTTP/1.1[0m" 401 -
+2026-03-19 04:02:16,225 - mori_server - INFO - 📥 [13349ceb1ed50aba] POST /api/books | IP: 127.0.0.1
+2026-03-19 04:02:16,226 - mori_server - INFO - 📤 [13349ceb1ed50aba] 401
+2026-03-19 04:02:16,227 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 04:02:16] "[31m[1mPOST /api/books HTTP/1.1[0m" 401 -
+2026-03-19 04:02:44,977 - mori_server - INFO - 📥 [3d6544a7e24c4b19] POST /api/auth/login | IP: 127.0.0.1
+2026-03-19 04:02:45,006 - auth - INFO - Успешный вход: Админ (ID: 1, уровень: admin)
+2026-03-19 04:02:45,007 - mori_server - INFO - 📤 [3d6544a7e24c4b19] 200 | 30.11ms
+2026-03-19 04:02:45,008 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 04:02:45] "POST /api/auth/login HTTP/1.1" 200 -
+2026-03-19 04:02:45,049 - mori_server - INFO - 📥 [9f284d1636cebd01] GET /api/auth/me | IP: 127.0.0.1
+2026-03-19 04:02:45,050 - mori_server - INFO - 📤 [9f284d1636cebd01] 401 | 1.19ms
+2026-03-19 04:02:45,051 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 04:02:45] "[31m[1mGET /api/auth/me HTTP/1.1[0m" 401 -
+2026-03-19 04:03:06,310 - mori_server - INFO - 📥 [3850a07e38d5501d] POST /api/auth/login | IP: 127.0.0.1
+2026-03-19 04:03:06,326 - auth - INFO - Успешный вход: Админ (ID: 1, уровень: admin)
+2026-03-19 04:03:06,327 - mori_server - INFO - 📤 [3850a07e38d5501d] 200 | 17.27ms
+2026-03-19 04:03:06,328 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 04:03:06] "POST /api/auth/login HTTP/1.1" 200 -
+2026-03-19 04:03:06,387 - mori_server - INFO - 📥 [75bfca8e78dd0595] GET /api/auth/me | IP: 127.0.0.1
+2026-03-19 04:03:06,390 - mori_server - INFO - 📤 [75bfca8e78dd0595] 401 | 3.22ms
+2026-03-19 04:03:06,391 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 04:03:06] "[31m[1mGET /api/auth/me HTTP/1.1[0m" 401 -
+2026-03-19 04:03:50,605 - mori_server - INFO - 🏁 Сервер завершил работу
+2026-03-19 04:03:50,856 - mori_server - INFO - 🏁 Сервер завершил работу
+2026-03-19 04:12:00,266 - mori_server - INFO - 
+╔══════════════════════════════════════════════════════════╗
+║                                                          ║
+║   ███╗   ███╗ ██████╗ ██████╗ ██╗                       ║
+║   ████╗ ████║██╔═══██╗██╔══██╗██║                       ║
+║   ██╔████╔██║██║   ██║██████╔╝██║                       ║
+║   ██║╚██╔╝██║██║   ██║██╔══██╗██║                       ║
+║   ██║ ╚═╝ ██║╚██████╔╝██║  ██║██║                       ║
+║   ╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝                       ║
+║                                                          ║
+║   🔥 MORI ORACLE SERVER v2.0.0                          ║
+║   💪 РАЗРЫВНОЙ РЕЖИМ АКТИВИРОВАН                        ║
+║   🚀 Поддержка 10+ приложений                            ║
+╚══════════════════════════════════════════════════════════╝
+        
+2026-03-19 04:12:00,968 - mori_server - INFO - ✅ База данных инициализирована
+2026-03-19 04:12:01,078 - mori_routes - INFO - ✅ Зарегистрировано 35 эндпоинтов для 4 origins
+2026-03-19 04:12:01,078 - mori_server - INFO - 📋 Зарегистрировано эндпоинтов: 45
+2026-03-19 04:12:01,078 - mori_server - INFO - 🌐 Сервер запущен на 0.0.0.0:5000
+2026-03-19 04:12:01,078 - mori_server - INFO - 🐍 Debug mode: True
+2026-03-19 04:12:01,079 - mori_server - INFO - ⚡ Ожидание подключений...
+2026-03-19 04:12:01,124 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.101:5000
+2026-03-19 04:12:01,124 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-03-19 04:12:01,126 - werkzeug - INFO -  * Restarting with stat
+2026-03-19 04:12:01,594 - mori_server - INFO - 
+╔══════════════════════════════════════════════════════════╗
+║                                                          ║
+║   ███╗   ███╗ ██████╗ ██████╗ ██╗                       ║
+║   ████╗ ████║██╔═══██╗██╔══██╗██║                       ║
+║   ██╔████╔██║██║   ██║██████╔╝██║                       ║
+║   ██║╚██╔╝██║██║   ██║██╔══██╗██║                       ║
+║   ██║ ╚═╝ ██║╚██████╔╝██║  ██║██║                       ║
+║   ╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝                       ║
+║                                                          ║
+║   🔥 MORI ORACLE SERVER v2.0.0                          ║
+║   💪 РАЗРЫВНОЙ РЕЖИМ АКТИВИРОВАН                        ║
+║   🚀 Поддержка 10+ приложений                            ║
+╚══════════════════════════════════════════════════════════╝
+        
+2026-03-19 04:12:02,228 - mori_server - INFO - ✅ База данных инициализирована
+2026-03-19 04:12:02,329 - mori_routes - INFO - ✅ Зарегистрировано 35 эндпоинтов для 4 origins
+2026-03-19 04:12:02,330 - mori_server - INFO - 📋 Зарегистрировано эндпоинтов: 45
+2026-03-19 04:12:02,330 - mori_server - INFO - 🌐 Сервер запущен на 0.0.0.0:5000
+2026-03-19 04:12:02,330 - mori_server - INFO - 🐍 Debug mode: True
+2026-03-19 04:12:02,330 - mori_server - INFO - ⚡ Ожидание подключений...
+2026-03-19 04:12:02,362 - werkzeug - WARNING -  * Debugger is active!
+2026-03-19 04:12:02,467 - werkzeug - INFO -  * Debugger PIN: 508-352-725
+2026-03-19 04:12:26,813 - mori_server - INFO - 📥 [1cc5b882292ba493] POST /api/auth/login | IP: 127.0.0.1
+2026-03-19 04:12:26,855 - auth - INFO - Успешный вход: Админ (ID: 1, уровень: admin)
+2026-03-19 04:12:26,856 - mori_server - INFO - 📤 [1cc5b882292ba493] 200 | 43.35ms
+2026-03-19 04:12:26,857 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 04:12:26] "POST /api/auth/login HTTP/1.1" 200 -
+2026-03-19 04:12:26,911 - mori_server - INFO - 📥 [09327b66355faa30] GET /api/auth/me | IP: 127.0.0.1
+2026-03-19 04:12:26,913 - mori_server - INFO - 📤 [09327b66355faa30] 401 | 2.55ms
+2026-03-19 04:12:26,914 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 04:12:26] "[31m[1mGET /api/auth/me HTTP/1.1[0m" 401 -
+2026-03-19 04:48:19,777 - werkzeug - INFO -  * Detected change in '/data/data/com.termux/files/home/Oracle-Mini-App-/server/auth.py', reloading
+2026-03-19 04:48:19,802 - mori_server - INFO - 🏁 Сервер завершил работу
+2026-03-19 04:48:20,346 - werkzeug - INFO -  * Restarting with stat
+2026-03-19 04:48:21,292 - mori_server - INFO - 
+╔══════════════════════════════════════════════════════════╗
+║                                                          ║
+║   ███╗   ███╗ ██████╗ ██████╗ ██╗                       ║
+║   ████╗ ████║██╔═══██╗██╔══██╗██║                       ║
+║   ██╔████╔██║██║   ██║██████╔╝██║                       ║
+║   ██║╚██╔╝██║██║   ██║██╔══██╗██║                       ║
+║   ██║ ╚═╝ ██║╚██████╔╝██║  ██║██║                       ║
+║   ╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝                       ║
+║                                                          ║
+║   🔥 MORI ORACLE SERVER v2.0.0                          ║
+║   💪 РАЗРЫВНОЙ РЕЖИМ АКТИВИРОВАН                        ║
+║   🚀 Поддержка 10+ приложений                            ║
+╚══════════════════════════════════════════════════════════╝
+        
+2026-03-19 04:48:22,219 - mori_server - INFO - ✅ База данных инициализирована
+2026-03-19 04:48:22,371 - mori_routes - INFO - ✅ Зарегистрировано 35 эндпоинтов для 4 origins
+2026-03-19 04:48:22,372 - mori_server - INFO - 📋 Зарегистрировано эндпоинтов: 45
+2026-03-19 04:48:22,372 - mori_server - INFO - 🌐 Сервер запущен на 0.0.0.0:5000
+2026-03-19 04:48:22,372 - mori_server - INFO - 🐍 Debug mode: True
+2026-03-19 04:48:22,373 - mori_server - INFO - ⚡ Ожидание подключений...
+2026-03-19 04:48:22,434 - werkzeug - WARNING -  * Debugger is active!
+2026-03-19 04:48:22,514 - werkzeug - INFO -  * Debugger PIN: 122-446-258
+2026-03-19 04:48:45,018 - mori_server - INFO - 🏁 Сервер завершил работу
+2026-03-19 04:48:45,278 - mori_server - INFO - 🏁 Сервер завершил работу
+2026-03-19 04:49:51,735 - mori_server - INFO - 
+╔══════════════════════════════════════════════════════════╗
+║                                                          ║
+║   ███╗   ███╗ ██████╗ ██████╗ ██╗                       ║
+║   ████╗ ████║██╔═══██╗██╔══██╗██║                       ║
+║   ██╔████╔██║██║   ██║██████╔╝██║                       ║
+║   ██║╚██╔╝██║██║   ██║██╔══██╗██║                       ║
+║   ██║ ╚═╝ ██║╚██████╔╝██║  ██║██║                       ║
+║   ╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝                       ║
+║                                                          ║
+║   🔥 MORI ORACLE SERVER v2.0.0                          ║
+║   💪 РАЗРЫВНОЙ РЕЖИМ АКТИВИРОВАН                        ║
+║   🚀 Поддержка 10+ приложений                            ║
+╚══════════════════════════════════════════════════════════╝
+        
+2026-03-19 04:49:52,463 - mori_server - INFO - ✅ База данных инициализирована
+2026-03-19 04:49:52,584 - mori_routes - INFO - ✅ Зарегистрировано 35 эндпоинтов для 4 origins
+2026-03-19 04:49:52,585 - mori_server - INFO - 📋 Зарегистрировано эндпоинтов: 45
+2026-03-19 04:49:52,585 - mori_server - INFO - 🌐 Сервер запущен на 0.0.0.0:5000
+2026-03-19 04:49:52,585 - mori_server - INFO - 🐍 Debug mode: True
+2026-03-19 04:49:52,585 - mori_server - INFO - ⚡ Ожидание подключений...
+2026-03-19 04:49:52,636 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.101:5000
+2026-03-19 04:49:52,636 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-03-19 04:49:52,638 - werkzeug - INFO -  * Restarting with stat
+2026-03-19 04:49:53,301 - mori_server - INFO - 
+╔══════════════════════════════════════════════════════════╗
+║                                                          ║
+║   ███╗   ███╗ ██████╗ ██████╗ ██╗                       ║
+║   ████╗ ████║██╔═══██╗██╔══██╗██║                       ║
+║   ██╔████╔██║██║   ██║██████╔╝██║                       ║
+║   ██║╚██╔╝██║██║   ██║██╔══██╗██║                       ║
+║   ██║ ╚═╝ ██║╚██████╔╝██║  ██║██║                       ║
+║   ╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝                       ║
+║                                                          ║
+║   🔥 MORI ORACLE SERVER v2.0.0                          ║
+║   💪 РАЗРЫВНОЙ РЕЖИМ АКТИВИРОВАН                        ║
+║   🚀 Поддержка 10+ приложений                            ║
+╚══════════════════════════════════════════════════════════╝
+        
+2026-03-19 04:49:54,242 - mori_server - INFO - ✅ База данных инициализирована
+2026-03-19 04:49:54,416 - mori_routes - INFO - ✅ Зарегистрировано 35 эндпоинтов для 4 origins
+2026-03-19 04:49:54,417 - mori_server - INFO - 📋 Зарегистрировано эндпоинтов: 45
+2026-03-19 04:49:54,417 - mori_server - INFO - 🌐 Сервер запущен на 0.0.0.0:5000
+2026-03-19 04:49:54,417 - mori_server - INFO - 🐍 Debug mode: True
+2026-03-19 04:49:54,418 - mori_server - INFO - ⚡ Ожидание подключений...
+2026-03-19 04:49:54,458 - werkzeug - WARNING -  * Debugger is active!
+2026-03-19 04:49:54,550 - werkzeug - INFO -  * Debugger PIN: 110-524-539
+2026-03-19 04:49:58,741 - mori_server - INFO - 📥 [f42983f4a163218a] POST /api/auth/login | IP: 127.0.0.1
+2026-03-19 04:49:58,781 - auth - INFO - Успешный вход: Админ (ID: 1, уровень: admin)
+2026-03-19 04:49:58,782 - mori_server - INFO - 📤 [f42983f4a163218a] 200 | 41.39ms
+2026-03-19 04:49:58,784 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 04:49:58] "POST /api/auth/login HTTP/1.1" 200 -
+2026-03-19 04:49:58,836 - mori_server - INFO - 📥 [46ae3e2f09235d9f] GET /api/auth/me | IP: 127.0.0.1
+2026-03-19 04:49:58,854 - mori_server - INFO - 📤 [46ae3e2f09235d9f] 200 | 17.73ms
+2026-03-19 04:49:58,857 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 04:49:58] "GET /api/auth/me HTTP/1.1" 200 -
+2026-03-19 04:50:28,570 - mori_server - INFO - 📥 [78d3eb2d7cbee8b6] POST /api/books | IP: 127.0.0.1
+2026-03-19 04:50:28,616 - mori_routes - INFO - 📚 Добавлена книга: Богатый папа, бедный папа
+2026-03-19 04:50:28,617 - mori_server - INFO - 📤 [78d3eb2d7cbee8b6] 201
+2026-03-19 04:50:28,619 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 04:50:28] "[35m[1mPOST /api/books HTTP/1.1[0m" 201 -
+2026-03-19 04:50:49,367 - mori_server - INFO - 📥 [1991864481045ee7] POST /api/chat/message | IP: 127.0.0.1
+2026-03-19 04:50:49,406 - mori_routes - INFO - 💬 Новое сообщение в general от Админ
+2026-03-19 04:50:49,407 - mori_server - INFO - 📤 [1991864481045ee7] 201
+2026-03-19 04:50:49,408 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 04:50:49] "[35m[1mPOST /api/chat/message HTTP/1.1[0m" 201 -
+2026-03-19 04:51:59,065 - mori_server - INFO - 📥 [27799efd629b6790] POST /api/books | IP: 127.0.0.1
+2026-03-19 04:51:59,095 - mori_routes - INFO - 📚 Добавлена книга: Самый богатый человек в Вавилоне
+2026-03-19 04:51:59,096 - mori_server - INFO - 📤 [27799efd629b6790] 201
+2026-03-19 04:51:59,097 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 04:51:59] "[35m[1mPOST /api/books HTTP/1.1[0m" 201 -
+2026-03-19 04:51:59,160 - mori_server - INFO - 📥 [779a86a8accbcb55] POST /api/books | IP: 127.0.0.1
+2026-03-19 04:51:59,187 - mori_routes - INFO - 📚 Добавлена книга: Думай и богатей
+2026-03-19 04:51:59,187 - mori_server - INFO - 📤 [779a86a8accbcb55] 201
+2026-03-19 04:51:59,189 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 04:51:59] "[35m[1mPOST /api/books HTTP/1.1[0m" 201 -
+2026-03-19 04:52:16,177 - mori_server - INFO - 📥 [0332a70691b13a28] GET /api/books | IP: 127.0.0.1
+2026-03-19 04:52:16,183 - mori_server - INFO - 📤 [0332a70691b13a28] 200
+2026-03-19 04:52:16,184 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 04:52:16] "GET /api/books HTTP/1.1" 200 -
+2026-03-19 04:52:32,313 - mori_server - INFO - 📥 [5d790ce137607896] POST /api/chat/message | IP: 127.0.0.1
+2026-03-19 04:52:32,353 - mori_routes - INFO - 💬 Новое сообщение в general от Админ
+2026-03-19 04:52:32,354 - mori_server - INFO - 📤 [5d790ce137607896] 201
+2026-03-19 04:52:32,355 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 04:52:32] "[35m[1mPOST /api/chat/message HTTP/1.1[0m" 201 -
+2026-03-19 04:52:32,409 - mori_server - INFO - 📥 [89a2799975b9379c] POST /api/chat/message | IP: 127.0.0.1
+2026-03-19 04:52:32,435 - mori_routes - INFO - 💬 Новое сообщение в general от Админ
+2026-03-19 04:52:32,436 - mori_server - INFO - 📤 [89a2799975b9379c] 201
+2026-03-19 04:52:32,437 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 04:52:32] "[35m[1mPOST /api/chat/message HTTP/1.1[0m" 201 -
+2026-03-19 04:52:32,556 - mori_server - INFO - 📥 [ef5291190aa3761e] GET /api/chat/general/messages | IP: 127.0.0.1
+2026-03-19 04:52:32,575 - mori_server - INFO - 📤 [ef5291190aa3761e] 200
+2026-03-19 04:52:32,576 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 04:52:32] "GET /api/chat/general/messages?limit=10 HTTP/1.1" 200 -
+2026-03-19 04:52:45,887 - mori_server - INFO - 📥 [5a07abe3681072f2] GET /api/family/members | IP: 127.0.0.1
+2026-03-19 04:52:45,905 - mori_server - INFO - 📤 [5a07abe3681072f2] 200
+2026-03-19 04:52:45,907 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 04:52:45] "GET /api/family/members HTTP/1.1" 200 -
+2026-03-19 04:52:45,998 - mori_server - INFO - 📥 [98f41f69415ef431] GET /api/family/budget | IP: 127.0.0.1
+2026-03-19 04:52:46,022 - mori_server - INFO - 📤 [98f41f69415ef431] 200
+2026-03-19 04:52:46,024 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 04:52:46] "GET /api/family/budget HTTP/1.1" 200 -
+2026-03-19 04:52:46,098 - mori_server - INFO - 📥 [e8ebe93435e6e802] POST /api/family/budget | IP: 127.0.0.1
+2026-03-19 04:52:46,125 - mori_routes - INFO - 💰 income: Зарплата - 150000 MORI
+2026-03-19 04:52:46,132 - mori_server - INFO - 📤 [e8ebe93435e6e802] 201
+2026-03-19 04:52:46,133 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 04:52:46] "[35m[1mPOST /api/family/budget HTTP/1.1[0m" 201 -
+2026-03-19 04:53:01,642 - mori_server - INFO - 📥 [1e3bd2682df18779] GET /api/mori/price | IP: 127.0.0.1
+2026-03-19 04:53:01,649 - mori_server - INFO - 📤 [1e3bd2682df18779] 200
+2026-03-19 04:53:01,650 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 04:53:01] "GET /api/mori/price HTTP/1.1" 200 -
+2026-03-19 04:53:01,734 - mori_server - INFO - 📥 [d3dd65cd19824397] GET /api/mori/history | IP: 127.0.0.1
+2026-03-19 04:53:01,758 - mori_server - INFO - 📤 [d3dd65cd19824397] 200
+2026-03-19 04:53:01,760 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 04:53:01] "GET /api/mori/history?timeframe=1h HTTP/1.1" 200 -
+2026-03-19 04:53:01,857 - mori_server - INFO - 📥 [a286d2d74fd3f5a3] GET /api/mori/whales | IP: 127.0.0.1
+2026-03-19 04:53:01,868 - mori_server - INFO - 📤 [a286d2d74fd3f5a3] 200
+2026-03-19 04:53:01,871 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 04:53:01] "GET /api/mori/whales HTTP/1.1" 200 -
+2026-03-19 04:53:11,289 - mori_server - INFO - 📥 [0c72c5721bd27ff7] GET /api/admin/stats | IP: 127.0.0.1
+2026-03-19 04:53:11,372 - mori_server - INFO - 📤 [0c72c5721bd27ff7] 200
+2026-03-19 04:53:11,373 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 04:53:11] "GET /api/admin/stats HTTP/1.1" 200 -
+2026-03-19 04:53:11,412 - mori_server - INFO - 📥 [ec986b88cfea6c9e] GET /api/admin/users | IP: 127.0.0.1
+2026-03-19 04:53:11,437 - mori_server - INFO - 📤 [ec986b88cfea6c9e] 200
+2026-03-19 04:53:11,438 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 04:53:11] "GET /api/admin/users?limit=10 HTTP/1.1" 200 -
+2026-03-19 04:53:21,835 - mori_server - INFO - 📥 [7030d176e489d7d5] GET /health | IP: 127.0.0.1
+2026-03-19 04:53:21,836 - mori_server - INFO - 📤 [7030d176e489d7d5] 200 | 1.02ms
+2026-03-19 04:53:21,837 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 04:53:21] "GET /health HTTP/1.1" 200 -
+2026-03-19 04:53:21,921 - mori_server - INFO - 📥 [9fc7d4ecc4dcfec8] GET /api/info | IP: 127.0.0.1
+2026-03-19 04:53:21,922 - mori_server - INFO - 📤 [9fc7d4ecc4dcfec8] 200 | 1.66ms
+2026-03-19 04:53:21,924 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 04:53:21] "GET /api/info HTTP/1.1" 200 -
+2026-03-19 04:56:33,456 - mori_server - INFO - 📥 [0b421e703cee35bd] POST /api/family/members | IP: 127.0.0.1
+2026-03-19 04:56:33,466 - mori_server - INFO - 📤 [0b421e703cee35bd] 403
+2026-03-19 04:56:33,467 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 04:56:33] "[31m[1mPOST /api/family/members HTTP/1.1[0m" 403 -
+2026-03-19 04:56:33,548 - mori_server - INFO - 📥 [882cebaa5b3249c0] POST /api/family/calendar | IP: 127.0.0.1
+2026-03-19 04:56:33,632 - mori_routes - INFO - 📅 Добавлено событие: День рождения
+2026-03-19 04:56:33,640 - mori_server - INFO - 📤 [882cebaa5b3249c0] 201
+2026-03-19 04:56:33,642 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 04:56:33] "[35m[1mPOST /api/family/calendar HTTP/1.1[0m" 201 -
+2026-03-19 04:56:33,696 - mori_server - INFO - 📥 [8ade4c0c59b593c5] POST /api/family/reminders | IP: 127.0.0.1
+2026-03-19 04:56:33,720 - mori_routes - INFO - ⏰ Добавлено напоминание: Купить подарок
+2026-03-19 04:56:33,732 - mori_server - INFO - 📤 [8ade4c0c59b593c5] 201
+2026-03-19 04:56:33,734 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 04:56:33] "[35m[1mPOST /api/family/reminders HTTP/1.1[0m" 201 -
+2026-03-19 04:56:52,263 - mori_server - INFO - 📥 [83bc78b1322b8686] GET /api/family/members | IP: 127.0.0.1
+2026-03-19 04:56:52,273 - mori_server - INFO - 📤 [83bc78b1322b8686] 200
+2026-03-19 04:56:52,274 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 04:56:52] "GET /api/family/members HTTP/1.1" 200 -
+2026-03-19 04:56:52,401 - mori_server - INFO - 📥 [bdce0306131966e8] GET /api/family/calendar | IP: 127.0.0.1
+2026-03-19 04:56:52,408 - mori_server - INFO - 📤 [bdce0306131966e8] 200
+2026-03-19 04:56:52,410 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 04:56:52] "GET /api/family/calendar?year=2026&month=11 HTTP/1.1" 200 -
+2026-03-19 04:56:52,487 - mori_server - INFO - 📥 [d7bdc63b926a962d] GET /api/family/reminders | IP: 127.0.0.1
+2026-03-19 04:56:52,496 - mori_server - INFO - 📤 [d7bdc63b926a962d] 200
+2026-03-19 04:56:52,499 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 04:56:52] "GET /api/family/reminders HTTP/1.1" 200 -
+2026-03-19 04:57:03,071 - mori_server - INFO - 📥 [86bafb76a8ba415c] GET /api/user/2 | IP: 127.0.0.1
+2026-03-19 04:57:03,080 - mori_server - INFO - 📤 [86bafb76a8ba415c] 200
+2026-03-19 04:57:03,082 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 04:57:03] "GET /api/user/2 HTTP/1.1" 200 -
+2026-03-19 04:57:03,163 - mori_server - INFO - 📥 [9ec8576c13a0b5de] GET /api/user/3/stats | IP: 127.0.0.1
+2026-03-19 04:57:03,176 - mori_server - INFO - 📤 [9ec8576c13a0b5de] 200
+2026-03-19 04:57:03,179 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 04:57:03] "GET /api/user/3/stats HTTP/1.1" 200 -
+2026-03-19 05:01:23,683 - mori_server - INFO - 📥 [7aa2b7a30a1d7764] GET /api/family/members | IP: 127.0.0.1
+2026-03-19 05:01:23,691 - mori_server - INFO - 📤 [7aa2b7a30a1d7764] 200
+2026-03-19 05:01:23,692 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 05:01:23] "GET /api/family/members HTTP/1.1" 200 -
+2026-03-19 05:03:02,195 - mori_server - INFO - 📥 [5f76c52dea3c0477] GET /api/family/members | IP: 127.0.0.1
+2026-03-19 05:03:02,205 - mori_server - INFO - 📤 [5f76c52dea3c0477] 200
+2026-03-19 05:03:02,206 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 05:03:02] "GET /api/family/members HTTP/1.1" 200 -
+2026-03-19 05:09:28,042 - mori_server - INFO - 📥 [ea36fa7d9305300f] GET /api/family/members | IP: 127.0.0.1
+2026-03-19 05:09:28,055 - mori_server - INFO - 📤 [ea36fa7d9305300f] 200
+2026-03-19 05:09:28,056 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 05:09:28] "GET /api/family/members HTTP/1.1" 200 -
+2026-03-19 05:11:59,052 - mori_server - INFO - 📥 [8c81284b24046cfc] GET /api/family/members | IP: 127.0.0.1
+2026-03-19 05:11:59,072 - mori_server - INFO - 📤 [8c81284b24046cfc] 200
+2026-03-19 05:11:59,073 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 05:11:59] "GET /api/family/members HTTP/1.1" 200 -
+2026-03-19 05:14:54,433 - mori_server - INFO - 🏁 Сервер завершил работу
+2026-03-19 05:14:54,714 - mori_server - INFO - 🏁 Сервер завершил работу
+2026-03-19 05:19:26,602 - mori_server - INFO - 
+╔══════════════════════════════════════════════════════════╗
+║                                                          ║
+║   ███╗   ███╗ ██████╗ ██████╗ ██╗                       ║
+║   ████╗ ████║██╔═══██╗██╔══██╗██║                       ║
+║   ██╔████╔██║██║   ██║██████╔╝██║                       ║
+║   ██║╚██╔╝██║██║   ██║██╔══██╗██║                       ║
+║   ██║ ╚═╝ ██║╚██████╔╝██║  ██║██║                       ║
+║   ╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝                       ║
+║                                                          ║
+║   🔥 MORI ORACLE SERVER v2.0.0                          ║
+║   💪 РАЗРЫВНОЙ РЕЖИМ АКТИВИРОВАН                        ║
+║   🚀 Поддержка 10+ приложений                            ║
+╚══════════════════════════════════════════════════════════╝
+        
+2026-03-19 05:19:27,704 - mori_server - INFO - ✅ База данных инициализирована
+2026-03-19 05:19:27,887 - mori_routes - INFO - ✅ Зарегистрировано 35 эндпоинтов для 4 origins
+2026-03-19 05:19:27,888 - mori_server - INFO - 📋 Зарегистрировано эндпоинтов: 45
+2026-03-19 05:19:27,888 - mori_server - INFO - 🌐 Сервер запущен на 0.0.0.0:5000
+2026-03-19 05:19:27,888 - mori_server - INFO - 🐍 Debug mode: True
+2026-03-19 05:19:27,888 - mori_server - INFO - ⚡ Ожидание подключений...
+2026-03-19 05:19:27,993 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.101:5000
+2026-03-19 05:19:27,994 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-03-19 05:19:27,998 - werkzeug - INFO -  * Restarting with stat
+2026-03-19 05:19:28,804 - mori_server - INFO - 
+╔══════════════════════════════════════════════════════════╗
+║                                                          ║
+║   ███╗   ███╗ ██████╗ ██████╗ ██╗                       ║
+║   ████╗ ████║██╔═══██╗██╔══██╗██║                       ║
+║   ██╔████╔██║██║   ██║██████╔╝██║                       ║
+║   ██║╚██╔╝██║██║   ██║██╔══██╗██║                       ║
+║   ██║ ╚═╝ ██║╚██████╔╝██║  ██║██║                       ║
+║   ╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝                       ║
+║                                                          ║
+║   🔥 MORI ORACLE SERVER v2.0.0                          ║
+║   💪 РАЗРЫВНОЙ РЕЖИМ АКТИВИРОВАН                        ║
+║   🚀 Поддержка 10+ приложений                            ║
+╚══════════════════════════════════════════════════════════╝
+        
+2026-03-19 05:19:29,916 - mori_server - INFO - ✅ База данных инициализирована
+2026-03-19 05:19:30,107 - mori_routes - INFO - ✅ Зарегистрировано 35 эндпоинтов для 4 origins
+2026-03-19 05:19:30,108 - mori_server - INFO - 📋 Зарегистрировано эндпоинтов: 45
+2026-03-19 05:19:30,108 - mori_server - INFO - 🌐 Сервер запущен на 0.0.0.0:5000
+2026-03-19 05:19:30,108 - mori_server - INFO - 🐍 Debug mode: True
+2026-03-19 05:19:30,108 - mori_server - INFO - ⚡ Ожидание подключений...
+2026-03-19 05:19:30,164 - werkzeug - WARNING -  * Debugger is active!
+2026-03-19 05:19:30,270 - werkzeug - INFO -  * Debugger PIN: 921-911-425
+2026-03-19 05:19:34,734 - mori_server - INFO - 📥 [3486f909005fd652] GET /api/family/members | IP: 127.0.0.1
+2026-03-19 05:19:34,781 - mori_server - INFO - 📤 [3486f909005fd652] 200
+2026-03-19 05:19:34,784 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 05:19:34] "GET /api/family/members HTTP/1.1" 200 -
+2026-03-19 05:22:21,618 - mori_server - INFO - 🏁 Сервер завершил работу
+2026-03-19 05:22:21,868 - mori_server - INFO - 🏁 Сервер завершил работу
+2026-03-19 05:22:33,905 - mori_server - INFO - 
+╔══════════════════════════════════════════════════════════╗
+║                                                          ║
+║   ███╗   ███╗ ██████╗ ██████╗ ██╗                       ║
+║   ████╗ ████║██╔═══██╗██╔══██╗██║                       ║
+║   ██╔████╔██║██║   ██║██████╔╝██║                       ║
+║   ██║╚██╔╝██║██║   ██║██╔══██╗██║                       ║
+║   ██║ ╚═╝ ██║╚██████╔╝██║  ██║██║                       ║
+║   ╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝                       ║
+║                                                          ║
+║   🔥 MORI ORACLE SERVER v2.0.0                          ║
+║   💪 РАЗРЫВНОЙ РЕЖИМ АКТИВИРОВАН                        ║
+║   🚀 Поддержка 10+ приложений                            ║
+╚══════════════════════════════════════════════════════════╝
+        
+2026-03-19 05:22:34,706 - mori_server - INFO - ✅ База данных инициализирована
+2026-03-19 05:22:34,881 - mori_routes - INFO - ✅ Зарегистрировано 35 эндпоинтов для 4 origins
+2026-03-19 05:22:34,882 - mori_server - INFO - 📋 Зарегистрировано эндпоинтов: 45
+2026-03-19 05:22:34,882 - mori_server - INFO - 🌐 Сервер запущен на 0.0.0.0:5000
+2026-03-19 05:22:34,882 - mori_server - INFO - 🐍 Debug mode: True
+2026-03-19 05:22:34,882 - mori_server - INFO - ⚡ Ожидание подключений...
+2026-03-19 05:22:34,937 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.101:5000
+2026-03-19 05:22:34,937 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-03-19 05:22:34,939 - werkzeug - INFO -  * Restarting with stat
+2026-03-19 05:22:35,572 - mori_server - INFO - 
+╔══════════════════════════════════════════════════════════╗
+║                                                          ║
+║   ███╗   ███╗ ██████╗ ██████╗ ██╗                       ║
+║   ████╗ ████║██╔═══██╗██╔══██╗██║                       ║
+║   ██╔████╔██║██║   ██║██████╔╝██║                       ║
+║   ██║╚██╔╝██║██║   ██║██╔══██╗██║                       ║
+║   ██║ ╚═╝ ██║╚██████╔╝██║  ██║██║                       ║
+║   ╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝                       ║
+║                                                          ║
+║   🔥 MORI ORACLE SERVER v2.0.0                          ║
+║   💪 РАЗРЫВНОЙ РЕЖИМ АКТИВИРОВАН                        ║
+║   🚀 Поддержка 10+ приложений                            ║
+╚══════════════════════════════════════════════════════════╝
+        
+2026-03-19 05:22:36,524 - mori_server - INFO - ✅ База данных инициализирована
+2026-03-19 05:22:36,710 - mori_routes - INFO - ✅ Зарегистрировано 35 эндпоинтов для 4 origins
+2026-03-19 05:22:36,711 - mori_server - INFO - 📋 Зарегистрировано эндпоинтов: 45
+2026-03-19 05:22:36,712 - mori_server - INFO - 🌐 Сервер запущен на 0.0.0.0:5000
+2026-03-19 05:22:36,712 - mori_server - INFO - 🐍 Debug mode: True
+2026-03-19 05:22:36,713 - mori_server - INFO - ⚡ Ожидание подключений...
+2026-03-19 05:22:36,783 - werkzeug - WARNING -  * Debugger is active!
+2026-03-19 05:22:36,888 - werkzeug - INFO -  * Debugger PIN: 119-661-687
+2026-03-19 05:22:45,707 - mori_server - INFO - 📥 [85ee35f55f2d210d] GET /api/family/members | IP: 127.0.0.1
+2026-03-19 05:22:45,730 - mori_server - INFO - 📤 [85ee35f55f2d210d] 200
+2026-03-19 05:22:45,733 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 05:22:45] "GET /api/family/members HTTP/1.1" 200 -
+2026-03-19 05:26:36,066 - mori_server - INFO - 📥 [96c2ba625902014d] GET /api/family/members | IP: 127.0.0.1
+2026-03-19 05:26:36,080 - mori_server - INFO - 📤 [96c2ba625902014d] 200
+2026-03-19 05:26:36,082 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 05:26:36] "GET /api/family/members HTTP/1.1" 200 -
+2026-03-19 05:31:31,193 - mori_server - INFO - ✅ База данных инициализирована
+2026-03-19 05:31:58,114 - mori_server - INFO - ✅ База данных инициализирована
+2026-03-19 05:32:31,302 - mori_server - INFO - ✅ База данных инициализирована
+2026-03-19 05:32:47,532 - mori_server - INFO - 📥 [7feca3c2712ae134] GET /api/family/members | IP: 127.0.0.1
+2026-03-19 05:32:47,542 - mori_server - INFO - 📤 [7feca3c2712ae134] 200
+2026-03-19 05:32:47,543 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 05:32:47] "GET /api/family/members HTTP/1.1" 200 -
+2026-03-19 05:33:49,310 - mori_server - INFO - 📥 [e6e673367365a885] GET /api/family/calendar | IP: 127.0.0.1
+2026-03-19 05:33:49,320 - mori_server - INFO - 📤 [e6e673367365a885] 200
+2026-03-19 05:33:49,322 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 05:33:49] "GET /api/family/calendar?year=2026&month=11 HTTP/1.1" 200 -
+2026-03-19 05:33:49,430 - mori_server - INFO - 📥 [ac75d39af6756992] POST /api/family/calendar | IP: 127.0.0.1
+2026-03-19 05:33:49,463 - mori_routes - INFO - 📅 Добавлено событие: Новый год
+2026-03-19 05:33:49,467 - mori_server - INFO - 📤 [ac75d39af6756992] 201
+2026-03-19 05:33:49,468 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 05:33:49] "[35m[1mPOST /api/family/calendar HTTP/1.1[0m" 201 -
+2026-03-19 05:34:00,486 - mori_server - INFO - 📥 [711b1ce5e4d72cbc] GET /api/family/reminders | IP: 127.0.0.1
+2026-03-19 05:34:00,499 - mori_server - INFO - 📤 [711b1ce5e4d72cbc] 200
+2026-03-19 05:34:00,500 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 05:34:00] "GET /api/family/reminders HTTP/1.1" 200 -
+2026-03-19 05:34:00,586 - mori_server - INFO - 📥 [5d7c0ac4b25b4407] POST /api/family/reminders | IP: 127.0.0.1
+2026-03-19 05:34:00,625 - mori_routes - INFO - ⏰ Добавлено напоминание: Купить ёлку
+2026-03-19 05:34:00,636 - mori_server - INFO - 📤 [5d7c0ac4b25b4407] 201
+2026-03-19 05:34:00,639 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 05:34:00] "[35m[1mPOST /api/family/reminders HTTP/1.1[0m" 201 -
+2026-03-19 05:34:12,744 - mori_server - INFO - 📥 [b60688719f0238e2] GET /api/family/budget | IP: 127.0.0.1
+2026-03-19 05:34:12,756 - mori_server - INFO - 📤 [b60688719f0238e2] 200
+2026-03-19 05:34:12,757 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 05:34:12] "GET /api/family/budget HTTP/1.1" 200 -
+2026-03-19 05:34:12,831 - mori_server - INFO - 📥 [d7876082b64c99fe] POST /api/family/budget | IP: 127.0.0.1
+2026-03-19 05:34:12,855 - mori_routes - INFO - 💰 expense: Подарки - 5000 MORI
+2026-03-19 05:34:12,863 - mori_server - INFO - 📤 [d7876082b64c99fe] 201
+2026-03-19 05:34:12,864 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 05:34:12] "[35m[1mPOST /api/family/budget HTTP/1.1[0m" 201 -
+2026-03-19 05:34:21,895 - mori_server - INFO - 📥 [f2a35c3eea508dfc] GET /api/admin/users | IP: 127.0.0.1
+2026-03-19 05:34:21,917 - mori_server - INFO - 📤 [f2a35c3eea508dfc] 200
+2026-03-19 05:34:21,919 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 05:34:21] "GET /api/admin/users?limit=5&offset=0 HTTP/1.1" 200 -
+2026-03-19 05:34:22,000 - mori_server - INFO - 📥 [85996c2ade31830e] GET /api/admin/stats | IP: 127.0.0.1
+2026-03-19 05:34:22,100 - mori_server - INFO - 📤 [85996c2ade31830e] 200
+2026-03-19 05:34:22,101 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 05:34:22] "GET /api/admin/stats HTTP/1.1" 200 -
+2026-03-19 05:34:30,819 - mori_server - INFO - 📥 [7518201bcd3222c0] POST /api/chat/message/1/reaction | IP: 127.0.0.1
+2026-03-19 05:34:30,855 - mori_server - INFO - 📤 [7518201bcd3222c0] 200
+2026-03-19 05:34:30,856 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 05:34:30] "POST /api/chat/message/1/reaction HTTP/1.1" 200 -
+2026-03-19 05:34:30,916 - mori_server - INFO - 📥 [7de774ad84ebcdbf] GET /api/chat/general/messages | IP: 127.0.0.1
+2026-03-19 05:34:30,943 - mori_server - INFO - 📤 [7de774ad84ebcdbf] 200
+2026-03-19 05:34:30,946 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 05:34:30] "GET /api/chat/general/messages?limit=10 HTTP/1.1" 200 -
+2026-03-19 05:34:41,634 - mori_server - INFO - 📥 [e987f035f1969b4a] GET /api/mori/history | IP: 127.0.0.1
+2026-03-19 05:34:41,648 - mori_server - INFO - 📤 [e987f035f1969b4a] 200
+2026-03-19 05:34:41,650 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 05:34:41] "GET /api/mori/history?timeframe=15m HTTP/1.1" 200 -
+2026-03-19 05:34:42,073 - mori_server - INFO - 📥 [256ae44f022ddf13] GET /api/mori/history | IP: 127.0.0.1
+2026-03-19 05:34:42,078 - mori_server - INFO - 📤 [256ae44f022ddf13] 200
+2026-03-19 05:34:42,080 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 05:34:42] "GET /api/mori/history?timeframe=1d HTTP/1.1" 200 -
+2026-03-19 05:34:42,359 - mori_server - INFO - 📥 [dd1ad2d98dfa482f] GET /api/mori/history | IP: 127.0.0.1
+2026-03-19 05:34:42,376 - mori_server - INFO - 📤 [dd1ad2d98dfa482f] 200
+2026-03-19 05:34:42,381 - werkzeug - INFO - 127.0.0.1 - - [19/Mar/2026 05:34:42] "GET /api/mori/history?timeframe=1m HTTP/1.1" 200 -
+2026-03-19 05:37:24,782 - mori_server - INFO - 📥 [cadb809dfb3b94a2] OPTIONS /api/auth/verify | IP: 192.168.0.101
+2026-03-19 05:37:24,786 - mori_server - INFO - 📤 [cadb809dfb3b94a2] 200 | 4.12ms
+2026-03-19 05:37:24,788 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 05:37:24] "OPTIONS /api/auth/verify HTTP/1.1" 200 -
+2026-03-19 05:37:24,801 - mori_server - INFO - 📥 [957340a63edbc73a] POST /api/auth/verify | IP: 192.168.0.101
+2026-03-19 05:37:24,804 - mori_server - INFO - 📤 [957340a63edbc73a] 401 | 2.39ms
+2026-03-19 05:37:24,805 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 05:37:24] "[31m[1mPOST /api/auth/verify HTTP/1.1[0m" 401 -
+2026-03-19 05:37:33,029 - mori_server - INFO - 📥 [83fc54f733af4c01] POST /api/auth/verify | IP: 192.168.0.101
+2026-03-19 05:37:33,032 - mori_server - INFO - 📤 [83fc54f733af4c01] 401 | 2.96ms
+2026-03-19 05:37:33,033 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 05:37:33] "[31m[1mPOST /api/auth/verify HTTP/1.1[0m" 401 -
+2026-03-19 05:37:47,812 - mori_server - INFO - 📥 [e67ea759cdd32321] POST /api/auth/verify | IP: 192.168.0.101
+2026-03-19 05:37:47,822 - mori_server - INFO - 📤 [e67ea759cdd32321] 401 | 9.42ms
+2026-03-19 05:37:47,823 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 05:37:47] "[31m[1mPOST /api/auth/verify HTTP/1.1[0m" 401 -
+2026-03-19 05:39:44,261 - mori_server - INFO - 📥 [f940f0f181e7772e] OPTIONS /api/auth/verify | IP: 192.168.0.101
+2026-03-19 05:39:44,271 - mori_server - INFO - 📤 [f940f0f181e7772e] 200 | 10.89ms
+2026-03-19 05:39:44,276 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 05:39:44] "OPTIONS /api/auth/verify HTTP/1.1" 200 -
+2026-03-19 05:39:44,294 - mori_server - INFO - 📥 [2f2c9b4e661c75c3] POST /api/auth/verify | IP: 192.168.0.101
+2026-03-19 05:39:44,317 - mori_server - INFO - 📤 [2f2c9b4e661c75c3] 401 | 23.89ms
+2026-03-19 05:39:44,321 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 05:39:44] "[31m[1mPOST /api/auth/verify HTTP/1.1[0m" 401 -
+2026-03-19 05:42:28,655 - mori_server - INFO - 📥 [c5aa5e407d99dfea] GET /api/health | IP: 192.168.0.101
+2026-03-19 05:42:28,657 - mori_server - INFO - 📤 [c5aa5e407d99dfea] 200 | 2.08ms
+2026-03-19 05:42:28,658 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 05:42:28] "GET /api/health HTTP/1.1" 200 -
+2026-03-19 05:42:28,959 - mori_server - INFO - 📥 [22dd4ae09ce6e7be] GET /favicon.ico | IP: 192.168.0.101
+2026-03-19 05:42:28,965 - mori_server - INFO - 📤 [22dd4ae09ce6e7be] 404 | 6.71ms
+2026-03-19 05:42:28,979 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 05:42:28] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-03-19 05:42:44,347 - mori_server - INFO - 📥 [fd70e38978b3e760] GET /api/health | IP: 192.168.0.101
+2026-03-19 05:42:44,352 - mori_server - INFO - 📤 [fd70e38978b3e760] 200 | 4.49ms
+2026-03-19 05:42:44,358 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 05:42:44] "GET /api/health HTTP/1.1" 200 -
+2026-03-19 05:43:38,780 - mori_server - INFO - 📥 [5e5c3c8f2d527804] GET /api/auth/login | IP: 192.168.0.101
+2026-03-19 05:43:38,781 - mori_server - INFO - 📤 [5e5c3c8f2d527804] 405 | 0.94ms
+2026-03-19 05:43:38,782 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 05:43:38] "[31m[1mGET /api/auth/login HTTP/1.1[0m" 405 -
+2026-03-19 14:24:23,493 - mori_server - INFO - 🏁 Сервер завершил работу
+2026-03-19 14:24:23,764 - mori_server - INFO - 🏁 Сервер завершил работу
+2026-03-19 14:24:36,177 - mori_server - INFO - 
+╔══════════════════════════════════════════════════════════╗
+║                                                          ║
+║   ███╗   ███╗ ██████╗ ██████╗ ██╗                       ║
+║   ████╗ ████║██╔═══██╗██╔══██╗██║                       ║
+║   ██╔████╔██║██║   ██║██████╔╝██║                       ║
+║   ██║╚██╔╝██║██║   ██║██╔══██╗██║                       ║
+║   ██║ ╚═╝ ██║╚██████╔╝██║  ██║██║                       ║
+║   ╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝                       ║
+║                                                          ║
+║   🔥 MORI ORACLE SERVER v2.0.0                          ║
+║   💪 РАЗРЫВНОЙ РЕЖИМ АКТИВИРОВАН                        ║
+║   🚀 Поддержка 10+ приложений                            ║
+╚══════════════════════════════════════════════════════════╝
+        
+2026-03-19 14:24:37,018 - mori_server - INFO - ✅ База данных инициализирована
+2026-03-19 14:24:37,130 - mori_routes - INFO - ✅ Зарегистрировано 35 эндпоинтов для 4 origins
+2026-03-19 14:24:37,131 - mori_server - INFO - 📋 Зарегистрировано эндпоинтов: 45
+2026-03-19 14:24:37,131 - mori_server - INFO - 🌐 Сервер запущен на 0.0.0.0:5000
+2026-03-19 14:24:37,131 - mori_server - INFO - 🐍 Debug mode: True
+2026-03-19 14:24:37,131 - mori_server - INFO - ⚡ Ожидание подключений...
+2026-03-19 14:24:37,207 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.101:5000
+2026-03-19 14:24:37,207 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-03-19 14:24:37,209 - werkzeug - INFO -  * Restarting with stat
+2026-03-19 14:24:37,660 - mori_server - INFO - 
+╔══════════════════════════════════════════════════════════╗
+║                                                          ║
+║   ███╗   ███╗ ██████╗ ██████╗ ██╗                       ║
+║   ████╗ ████║██╔═══██╗██╔══██╗██║                       ║
+║   ██╔████╔██║██║   ██║██████╔╝██║                       ║
+║   ██║╚██╔╝██║██║   ██║██╔══██╗██║                       ║
+║   ██║ ╚═╝ ██║╚██████╔╝██║  ██║██║                       ║
+║   ╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝                       ║
+║                                                          ║
+║   🔥 MORI ORACLE SERVER v2.0.0                          ║
+║   💪 РАЗРЫВНОЙ РЕЖИМ АКТИВИРОВАН                        ║
+║   🚀 Поддержка 10+ приложений                            ║
+╚══════════════════════════════════════════════════════════╝
+        
+2026-03-19 14:24:38,481 - mori_server - INFO - ✅ База данных инициализирована
+2026-03-19 14:24:38,593 - mori_routes - INFO - ✅ Зарегистрировано 35 эндпоинтов для 4 origins
+2026-03-19 14:24:38,594 - mori_server - INFO - 📋 Зарегистрировано эндпоинтов: 45
+2026-03-19 14:24:38,594 - mori_server - INFO - 🌐 Сервер запущен на 0.0.0.0:5000
+2026-03-19 14:24:38,594 - mori_server - INFO - 🐍 Debug mode: True
+2026-03-19 14:24:38,594 - mori_server - INFO - ⚡ Ожидание подключений...
+2026-03-19 14:24:38,628 - werkzeug - WARNING -  * Debugger is active!
+2026-03-19 14:24:38,682 - werkzeug - INFO -  * Debugger PIN: 750-787-461
+2026-03-19 14:25:10,663 - mori_server - INFO - 📥 [f1b06f4fecf48eae] OPTIONS /api/auth/login | IP: 192.168.0.101
+2026-03-19 14:25:10,664 - mori_server - INFO - 📤 [f1b06f4fecf48eae] 200 | 1.27ms
+2026-03-19 14:25:10,666 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 14:25:10] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2026-03-19 14:25:10,677 - mori_server - INFO - 📥 [8969de2e94438fc4] POST /api/auth/login | IP: 192.168.0.101
+2026-03-19 14:25:10,712 - auth - INFO - Успешный вход: Админ (ID: 1, уровень: admin)
+2026-03-19 14:25:10,713 - mori_server - INFO - 📤 [8969de2e94438fc4] 200 | 36.18ms
+2026-03-19 14:25:10,714 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 14:25:10] "POST /api/auth/login HTTP/1.1" 200 -
+2026-03-19 14:25:28,770 - mori_server - INFO - 📥 [e7808a45858146c0] GET /favicon.ico | IP: 192.168.0.101
+2026-03-19 14:25:28,776 - mori_server - INFO - 📤 [e7808a45858146c0] 404 | 5.49ms
+2026-03-19 14:25:28,778 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 14:25:28] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-03-19 14:26:02,980 - mori_server - INFO - 📥 [fb0e823792c2ec11] OPTIONS /api/auth/verify | IP: 192.168.0.101
+2026-03-19 14:26:02,981 - mori_server - INFO - 📤 [fb0e823792c2ec11] 200 | 0.82ms
+2026-03-19 14:26:02,982 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 14:26:02] "OPTIONS /api/auth/verify HTTP/1.1" 200 -
+2026-03-19 14:26:02,994 - mori_server - INFO - 📥 [6529e2d2fd1e8a50] POST /api/auth/verify | IP: 192.168.0.101
+2026-03-19 14:26:02,998 - mori_server - INFO - 📤 [6529e2d2fd1e8a50] 401 | 4.27ms
+2026-03-19 14:26:02,998 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 14:26:02] "[31m[1mPOST /api/auth/verify HTTP/1.1[0m" 401 -
+2026-03-19 14:26:10,769 - mori_server - INFO - 📥 [8f2df8d6755eb838] POST /api/auth/verify | IP: 192.168.0.101
+2026-03-19 14:26:10,772 - mori_server - INFO - 📤 [8f2df8d6755eb838] 401 | 3.29ms
+2026-03-19 14:26:10,774 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 14:26:10] "[31m[1mPOST /api/auth/verify HTTP/1.1[0m" 401 -
+2026-03-19 14:26:15,258 - mori_server - INFO - 📥 [9c3cbcf2fa97d8a2] POST /api/auth/verify | IP: 192.168.0.101
+2026-03-19 14:26:15,261 - mori_server - INFO - 📤 [9c3cbcf2fa97d8a2] 401 | 2.69ms
+2026-03-19 14:26:15,262 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 14:26:15] "[31m[1mPOST /api/auth/verify HTTP/1.1[0m" 401 -
+2026-03-19 14:32:48,300 - mori_server - INFO - 📥 [02c6afaa8ae3c22b] POST /api/auth/verify | IP: 192.168.0.101
+2026-03-19 14:32:48,307 - mori_server - INFO - 📤 [02c6afaa8ae3c22b] 401 | 7.58ms
+2026-03-19 14:32:48,310 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 14:32:48] "[31m[1mPOST /api/auth/verify HTTP/1.1[0m" 401 -
+2026-03-19 14:38:37,842 - mori_server - INFO - 📥 [4cfe7e82ef68a84f] GET /api/health | IP: 192.168.0.101
+2026-03-19 14:38:37,852 - mori_server - INFO - 📤 [4cfe7e82ef68a84f] 200 | 10.29ms
+2026-03-19 14:38:37,855 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 14:38:37] "GET /api/health HTTP/1.1" 200 -
+2026-03-19 14:51:11,020 - mori_server - INFO - 📥 [c6c122c1d49b821f] OPTIONS /api/auth/login | IP: 192.168.0.101
+2026-03-19 14:51:11,027 - mori_server - INFO - 📤 [c6c122c1d49b821f] 200 | 7.34ms
+2026-03-19 14:51:11,030 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 14:51:11] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2026-03-19 14:51:11,043 - mori_server - INFO - 📥 [e99ac069dda43e9f] POST /api/auth/login | IP: 192.168.0.101
+2026-03-19 14:51:11,136 - auth - INFO - Успешный вход: Админ (ID: 1, уровень: admin)
+2026-03-19 14:51:11,137 - mori_server - INFO - 📤 [e99ac069dda43e9f] 200 | 94.8ms
+2026-03-19 14:51:11,138 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 14:51:11] "POST /api/auth/login HTTP/1.1" 200 -
+2026-03-19 14:51:42,822 - mori_server - INFO - 📥 [21dd1b165f3dcf61] POST /api/auth/login | IP: 192.168.0.101
+2026-03-19 14:51:42,848 - auth - INFO - Успешный вход: Админ (ID: 1, уровень: admin)
+2026-03-19 14:51:42,848 - mori_server - INFO - 📤 [21dd1b165f3dcf61] 200 | 26.24ms
+2026-03-19 14:51:42,849 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 14:51:42] "POST /api/auth/login HTTP/1.1" 200 -
+2026-03-19 14:51:56,371 - mori_server - INFO - 📥 [4be7e8311c1d08ac] OPTIONS /api/auth/verify | IP: 192.168.0.101
+2026-03-19 14:51:56,372 - mori_server - INFO - 📤 [4be7e8311c1d08ac] 200 | 0.66ms
+2026-03-19 14:51:56,373 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 14:51:56] "OPTIONS /api/auth/verify HTTP/1.1" 200 -
+2026-03-19 14:51:56,378 - mori_server - INFO - 📥 [5b6b3b50d3fd77ea] POST /api/auth/verify | IP: 192.168.0.101
+2026-03-19 14:51:56,404 - mori_server - INFO - 📤 [5b6b3b50d3fd77ea] 200 | 26.58ms
+2026-03-19 14:51:56,405 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 14:51:56] "POST /api/auth/verify HTTP/1.1" 200 -
+2026-03-19 14:52:02,461 - mori_server - INFO - 📥 [cae4fa9ff8947d95] POST /api/auth/verify | IP: 192.168.0.101
+2026-03-19 14:52:02,485 - mori_server - INFO - 📤 [cae4fa9ff8947d95] 200 | 23.82ms
+2026-03-19 14:52:02,486 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 14:52:02] "POST /api/auth/verify HTTP/1.1" 200 -
+2026-03-19 14:53:03,922 - mori_server - INFO - 📥 [eb4bd16a9b64896c] OPTIONS /api/auth/verify | IP: 192.168.0.101
+2026-03-19 14:53:03,923 - mori_server - INFO - 📤 [eb4bd16a9b64896c] 200 | 1.38ms
+2026-03-19 14:53:03,925 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 14:53:03] "OPTIONS /api/auth/verify HTTP/1.1" 200 -
+2026-03-19 14:53:03,942 - mori_server - INFO - 📥 [5cf505eb163d345e] POST /api/auth/verify | IP: 192.168.0.101
+2026-03-19 14:53:03,991 - mori_server - INFO - 📤 [5cf505eb163d345e] 200 | 48.38ms
+2026-03-19 14:53:03,993 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 14:53:03] "POST /api/auth/verify HTTP/1.1" 200 -
+2026-03-19 14:53:31,297 - mori_server - INFO - 📥 [172bd098f6058758] OPTIONS /api/auth/login | IP: 192.168.0.101
+2026-03-19 14:53:31,299 - mori_server - INFO - 📤 [172bd098f6058758] 200 | 2.41ms
+2026-03-19 14:53:31,302 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 14:53:31] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2026-03-19 14:53:31,313 - mori_server - INFO - 📥 [40a5eb50f46e8769] POST /api/auth/login | IP: 192.168.0.101
+2026-03-19 14:53:31,360 - auth - INFO - Успешный вход: Админ (ID: 1, уровень: admin)
+2026-03-19 14:53:31,362 - mori_server - INFO - 📤 [40a5eb50f46e8769] 200 | 48.71ms
+2026-03-19 14:53:31,364 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 14:53:31] "POST /api/auth/login HTTP/1.1" 200 -
+2026-03-19 15:03:51,129 - mori_server - INFO - 📥 [ebb6cdae0053a833] GET /api/mori/price | IP: 192.168.0.101
+2026-03-19 15:03:51,234 - mori_server - INFO - 📤 [ebb6cdae0053a833] 200
+2026-03-19 15:03:51,243 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:03:51] "GET /api/mori/price HTTP/1.1" 200 -
+2026-03-19 15:07:34,043 - mori_server - INFO - 📥 [170f2c751bf66f25] OPTIONS /api/mori/price | IP: 192.168.0.101
+2026-03-19 15:07:34,049 - mori_server - INFO - 📤 [170f2c751bf66f25] 200 | 6.22ms
+2026-03-19 15:07:34,053 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:07:34] "OPTIONS /api/mori/price HTTP/1.1" 200 -
+2026-03-19 15:07:34,065 - mori_server - INFO - 📥 [7fbedcc51ec347d6] GET /api/mori/price | IP: 192.168.0.101
+2026-03-19 15:07:34,073 - mori_server - INFO - 📤 [7fbedcc51ec347d6] 200
+2026-03-19 15:07:34,074 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:07:34] "GET /api/mori/price HTTP/1.1" 200 -
+2026-03-19 15:12:37,513 - mori_server - INFO - 📥 [74998c8811f16504] OPTIONS /api/mori/price | IP: 192.168.0.101
+2026-03-19 15:12:37,525 - mori_server - INFO - 📤 [74998c8811f16504] 200 | 13.3ms
+2026-03-19 15:12:37,536 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:12:37] "OPTIONS /api/mori/price HTTP/1.1" 200 -
+2026-03-19 15:12:37,556 - mori_server - INFO - 📥 [8eaad5f6dfd6ea1b] GET /api/mori/price | IP: 192.168.0.101
+2026-03-19 15:12:37,662 - mori_server - INFO - 📤 [8eaad5f6dfd6ea1b] 200
+2026-03-19 15:12:37,680 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:12:37] "GET /api/mori/price HTTP/1.1" 200 -
+2026-03-19 15:13:32,883 - mori_server - INFO - 📥 [41935a5a1af828cd] OPTIONS /api/mori/history | IP: 192.168.0.101
+2026-03-19 15:13:32,886 - mori_server - INFO - 📤 [41935a5a1af828cd] 200 | 2.83ms
+2026-03-19 15:13:32,888 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:13:32] "OPTIONS /api/mori/history?timeframe=1h HTTP/1.1" 200 -
+2026-03-19 15:13:32,908 - mori_server - INFO - 📥 [16ac747d7152342d] GET /api/mori/history | IP: 192.168.0.101
+2026-03-19 15:13:32,956 - mori_server - INFO - 📤 [16ac747d7152342d] 200
+2026-03-19 15:13:32,957 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:13:32] "GET /api/mori/history?timeframe=1h HTTP/1.1" 200 -
+2026-03-19 15:14:37,328 - mori_server - INFO - 📥 [748888784bae3c9a] OPTIONS /api/mori/history | IP: 192.168.0.101
+2026-03-19 15:14:37,332 - mori_server - INFO - 📤 [748888784bae3c9a] 200 | 2.65ms
+2026-03-19 15:14:37,335 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:14:37] "OPTIONS /api/mori/history?timeframe=3m HTTP/1.1" 200 -
+2026-03-19 15:14:37,344 - mori_server - INFO - 📥 [414156311a85e7e6] GET /api/mori/history | IP: 192.168.0.101
+2026-03-19 15:14:37,361 - mori_server - INFO - 📤 [414156311a85e7e6] 200
+2026-03-19 15:14:37,364 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:14:37] "GET /api/mori/history?timeframe=3m HTTP/1.1" 200 -
+2026-03-19 15:14:38,328 - mori_server - INFO - 📥 [b3e8e1671d47ca3c] OPTIONS /api/mori/history | IP: 192.168.0.101
+2026-03-19 15:14:38,329 - mori_server - INFO - 📤 [b3e8e1671d47ca3c] 200 | 1.1ms
+2026-03-19 15:14:38,329 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:14:38] "OPTIONS /api/mori/history?timeframe=1w HTTP/1.1" 200 -
+2026-03-19 15:14:38,336 - mori_server - INFO - 📥 [b7f72f05d111048f] GET /api/mori/history | IP: 192.168.0.101
+2026-03-19 15:14:38,342 - mori_server - INFO - 📤 [b7f72f05d111048f] 200
+2026-03-19 15:14:38,343 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:14:38] "GET /api/mori/history?timeframe=1w HTTP/1.1" 200 -
+2026-03-19 15:14:46,656 - mori_server - INFO - 📥 [67a7698c4eaed6a9] OPTIONS /api/auth/verify | IP: 192.168.0.101
+2026-03-19 15:14:46,658 - mori_server - INFO - 📤 [67a7698c4eaed6a9] 200 | 1.58ms
+2026-03-19 15:14:46,660 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:14:46] "OPTIONS /api/auth/verify HTTP/1.1" 200 -
+2026-03-19 15:14:46,680 - mori_server - INFO - 📥 [0ccd7c6fd1b54c7a] POST /api/auth/verify | IP: 192.168.0.101
+2026-03-19 15:14:46,772 - mori_server - INFO - 📤 [0ccd7c6fd1b54c7a] 200 | 91.44ms
+2026-03-19 15:14:46,774 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:14:46] "POST /api/auth/verify HTTP/1.1" 200 -
+2026-03-19 15:14:53,570 - mori_server - INFO - 📥 [dbe6e98715ef5601] POST /api/auth/verify | IP: 192.168.0.101
+2026-03-19 15:14:53,599 - mori_server - INFO - 📤 [dbe6e98715ef5601] 200 | 29.2ms
+2026-03-19 15:14:53,600 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:14:53] "POST /api/auth/verify HTTP/1.1" 200 -
+2026-03-19 15:14:56,855 - mori_server - INFO - 📥 [fd135fb4b635fd45] POST /api/auth/verify | IP: 192.168.0.101
+2026-03-19 15:14:56,923 - mori_server - INFO - 📤 [fd135fb4b635fd45] 200 | 68.58ms
+2026-03-19 15:14:56,928 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:14:56] "POST /api/auth/verify HTTP/1.1" 200 -
+2026-03-19 15:15:00,557 - mori_server - INFO - 📥 [8bc8e03ca6ba689a] POST /api/auth/verify | IP: 192.168.0.101
+2026-03-19 15:15:00,590 - mori_server - INFO - 📤 [8bc8e03ca6ba689a] 200 | 32.82ms
+2026-03-19 15:15:00,595 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:15:00] "POST /api/auth/verify HTTP/1.1" 200 -
+2026-03-19 15:15:02,998 - mori_server - INFO - 📥 [4b2fc52e463a6a84] POST /api/auth/verify | IP: 192.168.0.101
+2026-03-19 15:15:03,034 - mori_server - INFO - 📤 [4b2fc52e463a6a84] 200 | 36.14ms
+2026-03-19 15:15:03,037 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:15:03] "POST /api/auth/verify HTTP/1.1" 200 -
+2026-03-19 15:21:09,665 - mori_server - INFO - 📥 [1f5a016c0d7dd49b] OPTIONS /api/auth/verify | IP: 192.168.0.101
+2026-03-19 15:21:09,671 - mori_server - INFO - 📤 [1f5a016c0d7dd49b] 200 | 7.43ms
+2026-03-19 15:21:09,675 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:21:09] "OPTIONS /api/auth/verify HTTP/1.1" 200 -
+2026-03-19 15:21:09,683 - mori_server - INFO - 📥 [fc9e46a115396fed] POST /api/auth/verify | IP: 192.168.0.101
+2026-03-19 15:21:09,770 - mori_server - INFO - 📤 [fc9e46a115396fed] 200 | 87.32ms
+2026-03-19 15:21:09,772 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:21:09] "POST /api/auth/verify HTTP/1.1" 200 -
+2026-03-19 15:21:15,951 - mori_server - INFO - 📥 [e3d2f0aaebeda6dc] POST /api/auth/verify | IP: 192.168.0.101
+2026-03-19 15:21:15,981 - mori_server - INFO - 📤 [e3d2f0aaebeda6dc] 200 | 30.25ms
+2026-03-19 15:21:15,984 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:21:15] "POST /api/auth/verify HTTP/1.1" 200 -
+2026-03-19 15:23:04,451 - mori_server - INFO - 📥 [9dc76f1d080d8116] OPTIONS /api/auth/me | IP: 192.168.0.101
+2026-03-19 15:23:04,452 - mori_server - INFO - 📤 [9dc76f1d080d8116] 200 | 0.66ms
+2026-03-19 15:23:04,453 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:23:04] "OPTIONS /api/auth/me HTTP/1.1" 200 -
+2026-03-19 15:23:04,459 - mori_server - INFO - 📥 [e7e6248a0b3db0e2] GET /api/auth/me | IP: 192.168.0.101
+2026-03-19 15:23:04,463 - mori_server - INFO - 📤 [e7e6248a0b3db0e2] 200 | 3.72ms
+2026-03-19 15:23:04,464 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:23:04] "GET /api/auth/me HTTP/1.1" 200 -
+2026-03-19 15:23:20,169 - mori_server - INFO - 📥 [b7b2c9058efded1b] OPTIONS /api/auth/verify | IP: 192.168.0.101
+2026-03-19 15:23:20,171 - mori_server - INFO - 📤 [b7b2c9058efded1b] 200 | 2.26ms
+2026-03-19 15:23:20,173 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:23:20] "OPTIONS /api/auth/verify HTTP/1.1" 200 -
+2026-03-19 15:23:20,187 - mori_server - INFO - 📥 [b7e670d9d83e970d] POST /api/auth/verify | IP: 192.168.0.101
+2026-03-19 15:23:20,218 - mori_server - INFO - 📤 [b7e670d9d83e970d] 200 | 31.21ms
+2026-03-19 15:23:20,221 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:23:20] "POST /api/auth/verify HTTP/1.1" 200 -
+2026-03-19 15:24:20,502 - mori_server - INFO - 📥 [d1c0162ccbd2d163] OPTIONS /api/auth/me | IP: 192.168.0.101
+2026-03-19 15:24:20,502 - mori_server - INFO - 📤 [d1c0162ccbd2d163] 200 | 0.57ms
+2026-03-19 15:24:20,503 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:24:20] "OPTIONS /api/auth/me HTTP/1.1" 200 -
+2026-03-19 15:24:20,530 - mori_server - INFO - 📥 [9649f2f476f52a57] GET /api/auth/me | IP: 192.168.0.101
+2026-03-19 15:24:20,534 - mori_server - INFO - 📤 [9649f2f476f52a57] 200 | 3.84ms
+2026-03-19 15:24:20,536 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:24:20] "GET /api/auth/me HTTP/1.1" 200 -
+2026-03-19 15:24:20,769 - mori_server - INFO - 📥 [9cdccb6a6ff76ce5] OPTIONS /api/auth/verify | IP: 192.168.0.101
+2026-03-19 15:24:20,771 - mori_server - INFO - 📤 [9cdccb6a6ff76ce5] 200 | 2.15ms
+2026-03-19 15:24:20,773 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:24:20] "OPTIONS /api/auth/verify HTTP/1.1" 200 -
+2026-03-19 15:24:20,785 - mori_server - INFO - 📥 [4de449064582853e] POST /api/auth/verify | IP: 192.168.0.101
+2026-03-19 15:24:20,820 - mori_server - INFO - 📤 [4de449064582853e] 200 | 35.01ms
+2026-03-19 15:24:20,823 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:24:20] "POST /api/auth/verify HTTP/1.1" 200 -
+2026-03-19 15:24:35,667 - mori_server - INFO - 📥 [ad9644e0ef469fa5] POST /api/auth/verify | IP: 192.168.0.101
+2026-03-19 15:24:35,699 - mori_server - INFO - 📤 [ad9644e0ef469fa5] 200 | 31.39ms
+2026-03-19 15:24:35,700 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:24:35] "POST /api/auth/verify HTTP/1.1" 200 -
+2026-03-19 15:25:15,913 - mori_server - INFO - 📥 [dda3484497ac029d] OPTIONS /api/auth/me | IP: 192.168.0.101
+2026-03-19 15:25:15,918 - mori_server - INFO - 📤 [dda3484497ac029d] 200 | 5.05ms
+2026-03-19 15:25:15,920 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:25:15] "OPTIONS /api/auth/me HTTP/1.1" 200 -
+2026-03-19 15:25:15,941 - mori_server - INFO - 📥 [420100f40b7585d5] GET /api/auth/me | IP: 192.168.0.101
+2026-03-19 15:25:15,958 - mori_server - INFO - 📤 [420100f40b7585d5] 200 | 17.09ms
+2026-03-19 15:25:15,962 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:25:15] "GET /api/auth/me HTTP/1.1" 200 -
+2026-03-19 15:27:27,661 - mori_server - INFO - 📥 [4e505f6e6f7ffbe9] OPTIONS /api/auth/verify | IP: 192.168.0.101
+2026-03-19 15:27:27,666 - mori_server - INFO - 📤 [4e505f6e6f7ffbe9] 200 | 5.01ms
+2026-03-19 15:27:27,669 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:27:27] "OPTIONS /api/auth/verify HTTP/1.1" 200 -
+2026-03-19 15:27:27,694 - mori_server - INFO - 📥 [09560632e338e503] POST /api/auth/verify | IP: 192.168.0.101
+2026-03-19 15:27:27,737 - mori_server - INFO - 📤 [09560632e338e503] 200 | 42.99ms
+2026-03-19 15:27:27,740 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:27:27] "POST /api/auth/verify HTTP/1.1" 200 -
+2026-03-19 15:27:52,012 - mori_server - INFO - 📥 [03d8a0fa9fba64f0] OPTIONS /api/mori/price | IP: 192.168.0.101
+2026-03-19 15:27:52,015 - mori_server - INFO - 📤 [03d8a0fa9fba64f0] 200 | 2.6ms
+2026-03-19 15:27:52,019 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:27:52] "OPTIONS /api/mori/price HTTP/1.1" 200 -
+2026-03-19 15:27:52,029 - mori_server - INFO - 📥 [1140f5dd749ffa50] GET /api/mori/price | IP: 192.168.0.101
+2026-03-19 15:27:52,052 - mori_server - INFO - 📤 [1140f5dd749ffa50] 200
+2026-03-19 15:27:52,055 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:27:52] "GET /api/mori/price HTTP/1.1" 200 -
+2026-03-19 15:28:58,916 - mori_server - INFO - 📥 [54736228de17d8fc] OPTIONS /api/mori/history | IP: 192.168.0.101
+2026-03-19 15:28:58,918 - mori_server - INFO - 📤 [54736228de17d8fc] 200 | 1.32ms
+2026-03-19 15:28:58,919 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:28:58] "OPTIONS /api/mori/history?timeframe=1h HTTP/1.1" 200 -
+2026-03-19 15:28:58,931 - mori_server - INFO - 📥 [5d2939268759ccd2] GET /api/mori/history | IP: 192.168.0.101
+2026-03-19 15:28:58,940 - mori_server - INFO - 📤 [5d2939268759ccd2] 200
+2026-03-19 15:28:58,942 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:28:58] "GET /api/mori/history?timeframe=1h HTTP/1.1" 200 -
+2026-03-19 15:31:15,890 - mori_server - INFO - 📥 [5f33ce4776516ffb] OPTIONS /api/auth/verify | IP: 192.168.0.101
+2026-03-19 15:31:15,892 - mori_server - INFO - 📤 [5f33ce4776516ffb] 200 | 1.53ms
+2026-03-19 15:31:15,894 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:31:15] "OPTIONS /api/auth/verify HTTP/1.1" 200 -
+2026-03-19 15:31:15,912 - mori_server - INFO - 📥 [e1aa7d0dcd6a5c1f] POST /api/auth/verify | IP: 192.168.0.101
+2026-03-19 15:31:15,957 - mori_server - INFO - 📤 [e1aa7d0dcd6a5c1f] 200 | 45.15ms
+2026-03-19 15:31:15,958 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:31:15] "POST /api/auth/verify HTTP/1.1" 200 -
+2026-03-19 15:34:54,494 - mori_server - INFO - 📥 [188dc1bee1f8179d] OPTIONS /api/auth/me | IP: 192.168.0.101
+2026-03-19 15:34:54,501 - mori_server - INFO - 📤 [188dc1bee1f8179d] 200 | 7.93ms
+2026-03-19 15:34:54,504 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:34:54] "OPTIONS /api/auth/me HTTP/1.1" 200 -
+2026-03-19 15:34:54,522 - mori_server - INFO - 📥 [fe821786bd43d90e] GET /api/auth/me | IP: 192.168.0.101
+2026-03-19 15:34:54,528 - mori_server - INFO - 📤 [fe821786bd43d90e] 401 | 5.65ms
+2026-03-19 15:34:54,528 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:34:54] "[31m[1mGET /api/auth/me HTTP/1.1[0m" 401 -
+2026-03-19 15:52:59,825 - mori_server - INFO - 📥 [56a15580bf317260] OPTIONS /api/auth/login | IP: 192.168.0.101
+2026-03-19 15:52:59,829 - mori_server - INFO - 📤 [56a15580bf317260] 200 | 5.0ms
+2026-03-19 15:52:59,832 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:52:59] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2026-03-19 15:52:59,840 - mori_server - INFO - 📥 [5ef3d73a35fbf9d7] POST /api/auth/login | IP: 192.168.0.101
+2026-03-19 15:52:59,910 - auth - INFO - Успешный вход: Админ (ID: 1, уровень: admin)
+2026-03-19 15:52:59,911 - mori_server - INFO - 📤 [5ef3d73a35fbf9d7] 200 | 70.78ms
+2026-03-19 15:52:59,912 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:52:59] "POST /api/auth/login HTTP/1.1" 200 -
+2026-03-19 15:54:27,691 - mori_server - INFO - 📥 [5146bdb296bb24a1] OPTIONS /api/auth/login | IP: 192.168.0.101
+2026-03-19 15:54:27,692 - mori_server - INFO - 📤 [5146bdb296bb24a1] 200 | 0.63ms
+2026-03-19 15:54:27,693 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:54:27] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2026-03-19 15:54:27,699 - mori_server - INFO - 📥 [0ca6aea450ff0b8a] POST /api/auth/login | IP: 192.168.0.101
+2026-03-19 15:54:27,715 - auth - INFO - Успешный вход: Админ (ID: 1, уровень: admin)
+2026-03-19 15:54:27,716 - mori_server - INFO - 📤 [0ca6aea450ff0b8a] 200 | 16.63ms
+2026-03-19 15:54:27,717 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:54:27] "POST /api/auth/login HTTP/1.1" 200 -
+2026-03-19 15:54:29,136 - mori_server - INFO - 📥 [2f67b1e7f16d16c2] POST /api/auth/login | IP: 192.168.0.101
+2026-03-19 15:54:29,148 - auth - INFO - Успешный вход: Админ (ID: 1, уровень: admin)
+2026-03-19 15:54:29,149 - mori_server - INFO - 📤 [2f67b1e7f16d16c2] 200 | 12.61ms
+2026-03-19 15:54:29,150 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:54:29] "POST /api/auth/login HTTP/1.1" 200 -
+2026-03-19 15:54:29,380 - mori_server - INFO - 📥 [3aab1e329a290c48] POST /api/auth/login | IP: 192.168.0.101
+2026-03-19 15:54:29,395 - auth - INFO - Успешный вход: Админ (ID: 1, уровень: admin)
+2026-03-19 15:54:29,395 - mori_server - INFO - 📤 [3aab1e329a290c48] 200 | 14.91ms
+2026-03-19 15:54:29,396 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:54:29] "POST /api/auth/login HTTP/1.1" 200 -
+2026-03-19 15:54:29,599 - mori_server - INFO - 📥 [270077180d208cd0] POST /api/auth/login | IP: 192.168.0.101
+2026-03-19 15:54:29,612 - auth - INFO - Успешный вход: Админ (ID: 1, уровень: admin)
+2026-03-19 15:54:29,613 - mori_server - INFO - 📤 [270077180d208cd0] 200 | 13.96ms
+2026-03-19 15:54:29,614 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:54:29] "POST /api/auth/login HTTP/1.1" 200 -
+2026-03-19 15:54:29,788 - mori_server - INFO - 📥 [2a68c6b8917b9417] POST /api/auth/login | IP: 192.168.0.101
+2026-03-19 15:54:29,802 - auth - INFO - Успешный вход: Админ (ID: 1, уровень: admin)
+2026-03-19 15:54:29,803 - mori_server - INFO - 📤 [2a68c6b8917b9417] 200 | 15.28ms
+2026-03-19 15:54:29,804 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:54:29] "POST /api/auth/login HTTP/1.1" 200 -
+2026-03-19 15:54:29,915 - mori_server - INFO - 📥 [e8c73ac68295eec4] POST /api/auth/login | IP: 192.168.0.101
+2026-03-19 15:54:29,928 - auth - INFO - Успешный вход: Админ (ID: 1, уровень: admin)
+2026-03-19 15:54:29,928 - mori_server - INFO - 📤 [e8c73ac68295eec4] 200 | 13.14ms
+2026-03-19 15:54:29,929 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:54:29] "POST /api/auth/login HTTP/1.1" 200 -
+2026-03-19 15:54:30,165 - mori_server - INFO - 📥 [4da7eee6807fd9b5] POST /api/auth/login | IP: 192.168.0.101
+2026-03-19 15:54:30,180 - auth - INFO - Успешный вход: Админ (ID: 1, уровень: admin)
+2026-03-19 15:54:30,181 - mori_server - INFO - 📤 [4da7eee6807fd9b5] 200 | 15.62ms
+2026-03-19 15:54:30,182 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:54:30] "POST /api/auth/login HTTP/1.1" 200 -
+2026-03-19 15:54:30,289 - mori_server - INFO - 📥 [813dc8c4c83d27e3] POST /api/auth/login | IP: 192.168.0.101
+2026-03-19 15:54:30,304 - auth - INFO - Успешный вход: Админ (ID: 1, уровень: admin)
+2026-03-19 15:54:30,305 - mori_server - INFO - 📤 [813dc8c4c83d27e3] 200 | 15.88ms
+2026-03-19 15:54:30,306 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:54:30] "POST /api/auth/login HTTP/1.1" 200 -
+2026-03-19 15:54:30,451 - mori_server - INFO - 📥 [5b3f59ca22cb7b94] POST /api/auth/login | IP: 192.168.0.101
+2026-03-19 15:54:30,464 - auth - INFO - Успешный вход: Админ (ID: 1, уровень: admin)
+2026-03-19 15:54:30,465 - mori_server - INFO - 📤 [5b3f59ca22cb7b94] 200 | 14.07ms
+2026-03-19 15:54:30,466 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:54:30] "POST /api/auth/login HTTP/1.1" 200 -
+2026-03-19 15:54:30,621 - mori_server - INFO - 📥 [37598debf5ee382f] POST /api/auth/login | IP: 192.168.0.101
+2026-03-19 15:54:30,634 - auth - INFO - Успешный вход: Админ (ID: 1, уровень: admin)
+2026-03-19 15:54:30,635 - mori_server - INFO - 📤 [37598debf5ee382f] 200 | 13.84ms
+2026-03-19 15:54:30,636 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:54:30] "POST /api/auth/login HTTP/1.1" 200 -
+2026-03-19 15:54:30,808 - mori_server - INFO - 📥 [28ff87ee1a65278e] POST /api/auth/login | IP: 192.168.0.101
+2026-03-19 15:54:30,821 - auth - INFO - Успешный вход: Админ (ID: 1, уровень: admin)
+2026-03-19 15:54:30,821 - mori_server - INFO - 📤 [28ff87ee1a65278e] 200 | 13.04ms
+2026-03-19 15:54:30,822 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:54:30] "POST /api/auth/login HTTP/1.1" 200 -
+2026-03-19 15:54:31,405 - mori_server - INFO - 📥 [35f4e99f7c8fdeb9] POST /api/auth/login | IP: 192.168.0.101
+2026-03-19 15:54:31,417 - auth - INFO - Успешный вход: Админ (ID: 1, уровень: admin)
+2026-03-19 15:54:31,418 - mori_server - INFO - 📤 [35f4e99f7c8fdeb9] 200 | 12.18ms
+2026-03-19 15:54:31,418 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:54:31] "POST /api/auth/login HTTP/1.1" 200 -
+2026-03-19 15:54:31,984 - mori_server - INFO - 📥 [614154597ab3e9f6] POST /api/auth/login | IP: 192.168.0.101
+2026-03-19 15:54:31,997 - auth - INFO - Успешный вход: Админ (ID: 1, уровень: admin)
+2026-03-19 15:54:31,997 - mori_server - INFO - 📤 [614154597ab3e9f6] 200 | 13.99ms
+2026-03-19 15:54:31,998 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:54:31] "POST /api/auth/login HTTP/1.1" 200 -
+2026-03-19 15:54:35,918 - mori_server - INFO - 📥 [abe437e9b1a21c49] POST /api/auth/login | IP: 192.168.0.101
+2026-03-19 15:54:35,932 - auth - INFO - Успешный вход: Админ (ID: 1, уровень: admin)
+2026-03-19 15:54:35,932 - mori_server - INFO - 📤 [abe437e9b1a21c49] 200 | 14.12ms
+2026-03-19 15:54:35,934 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:54:35] "POST /api/auth/login HTTP/1.1" 200 -
+2026-03-19 15:58:10,350 - mori_server - INFO - 📥 [f5d287f1f912fd69] OPTIONS /api/mori/price | IP: 192.168.0.101
+2026-03-19 15:58:10,352 - mori_server - INFO - 📤 [f5d287f1f912fd69] 200 | 2.21ms
+2026-03-19 15:58:10,353 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:58:10] "OPTIONS /api/mori/price HTTP/1.1" 200 -
+2026-03-19 15:58:10,380 - mori_server - INFO - 📥 [626cfcddcccf388c] GET /api/mori/price | IP: 192.168.0.101
+2026-03-19 15:58:10,393 - mori_server - INFO - 📤 [626cfcddcccf388c] 200
+2026-03-19 15:58:10,395 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 15:58:10] "GET /api/mori/price HTTP/1.1" 200 -
+2026-03-19 16:00:30,981 - mori_server - INFO - 📥 [67a8e0354f709709] OPTIONS /api/mori/history | IP: 192.168.0.101
+2026-03-19 16:00:30,989 - mori_server - INFO - 📤 [67a8e0354f709709] 200 | 8.98ms
+2026-03-19 16:00:30,996 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 16:00:30] "OPTIONS /api/mori/history?timeframe=1h HTTP/1.1" 200 -
+2026-03-19 16:00:31,008 - mori_server - INFO - 📥 [80852ce406f14b18] GET /api/mori/history | IP: 192.168.0.101
+2026-03-19 16:00:31,043 - mori_server - INFO - 📤 [80852ce406f14b18] 200
+2026-03-19 16:00:31,044 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 16:00:31] "GET /api/mori/history?timeframe=1h HTTP/1.1" 200 -
+2026-03-19 16:03:08,127 - mori_server - INFO - 📥 [9b00181fdd2bac7d] OPTIONS /api/auth/login | IP: 192.168.0.101
+2026-03-19 16:03:08,129 - mori_server - INFO - 📤 [9b00181fdd2bac7d] 200 | 2.52ms
+2026-03-19 16:03:08,130 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 16:03:08] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+2026-03-19 16:03:08,138 - mori_server - INFO - 📥 [c3a0188e09c22828] POST /api/auth/login | IP: 192.168.0.101
+2026-03-19 16:03:08,221 - auth - INFO - Успешный вход: Админ (ID: 1, уровень: admin)
+2026-03-19 16:03:08,222 - mori_server - INFO - 📤 [c3a0188e09c22828] 200 | 83.76ms
+2026-03-19 16:03:08,223 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 16:03:08] "POST /api/auth/login HTTP/1.1" 200 -
+2026-03-19 16:03:10,796 - mori_server - INFO - 📥 [8e8b8fc852ed4be3] OPTIONS /api/mori/price | IP: 192.168.0.101
+2026-03-19 16:03:10,797 - mori_server - INFO - 📤 [8e8b8fc852ed4be3] 200 | 0.7ms
+2026-03-19 16:03:10,798 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 16:03:10] "OPTIONS /api/mori/price HTTP/1.1" 200 -
+2026-03-19 16:03:10,803 - mori_server - INFO - 📥 [8b93b9b14bc69252] GET /api/mori/price | IP: 192.168.0.101
+2026-03-19 16:03:10,807 - mori_server - INFO - 📤 [8b93b9b14bc69252] 200
+2026-03-19 16:03:10,808 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 16:03:10] "GET /api/mori/price HTTP/1.1" 200 -
+2026-03-19 16:05:36,018 - mori_server - INFO - 📥 [11fcab7446b5bacc] OPTIONS /api/mori/history | IP: 192.168.0.101
+2026-03-19 16:05:36,019 - mori_server - INFO - 📤 [11fcab7446b5bacc] 200 | 0.94ms
+2026-03-19 16:05:36,020 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 16:05:36] "OPTIONS /api/mori/history?timeframe=1h HTTP/1.1" 200 -
+2026-03-19 16:05:36,030 - mori_server - INFO - 📥 [da966a4d05b02494] GET /api/mori/history | IP: 192.168.0.101
+2026-03-19 16:05:36,036 - mori_server - INFO - 📤 [da966a4d05b02494] 200
+2026-03-19 16:05:36,037 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 16:05:36] "GET /api/mori/history?timeframe=1h HTTP/1.1" 200 -
+2026-03-19 16:05:42,988 - mori_server - INFO - 📥 [230abcb830a66cc1] OPTIONS /api/auth/verify | IP: 192.168.0.101
+2026-03-19 16:05:42,989 - mori_server - INFO - 📤 [230abcb830a66cc1] 200 | 1.19ms
+2026-03-19 16:05:42,990 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 16:05:42] "OPTIONS /api/auth/verify HTTP/1.1" 200 -
+2026-03-19 16:05:43,001 - mori_server - INFO - 📥 [e8c19752c89f3094] POST /api/auth/verify | IP: 192.168.0.101
+2026-03-19 16:05:43,016 - mori_server - INFO - 📤 [e8c19752c89f3094] 200 | 15.16ms
+2026-03-19 16:05:43,017 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 16:05:43] "POST /api/auth/verify HTTP/1.1" 200 -
+2026-03-19 16:12:32,171 - mori_server - INFO - 📥 [79accb305ea5fda7] POST /api/auth/verify | IP: 192.168.0.101
+2026-03-19 16:12:32,235 - mori_server - INFO - 📤 [79accb305ea5fda7] 200 | 63.88ms
+2026-03-19 16:12:32,236 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 16:12:32] "POST /api/auth/verify HTTP/1.1" 200 -
+2026-03-19 16:12:36,126 - mori_server - INFO - 📥 [5851b2cb2083a80d] POST /api/auth/verify | IP: 192.168.0.101
+2026-03-19 16:12:36,160 - mori_server - INFO - 📤 [5851b2cb2083a80d] 200 | 34.28ms
+2026-03-19 16:12:36,163 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 16:12:36] "POST /api/auth/verify HTTP/1.1" 200 -
+2026-03-19 16:12:42,023 - mori_server - INFO - 📥 [644d3746b6108ccc] POST /api/auth/verify | IP: 192.168.0.101
+2026-03-19 16:12:42,065 - mori_server - INFO - 📤 [644d3746b6108ccc] 200 | 42.49ms
+2026-03-19 16:12:42,068 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 16:12:42] "POST /api/auth/verify HTTP/1.1" 200 -
+2026-03-19 16:13:58,171 - mori_server - INFO - 📥 [1b13650617f807ae] OPTIONS /api/auth/verify | IP: 192.168.0.101
+2026-03-19 16:13:58,176 - mori_server - INFO - 📤 [1b13650617f807ae] 200 | 5.14ms
+2026-03-19 16:13:58,179 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 16:13:58] "OPTIONS /api/auth/verify HTTP/1.1" 200 -
+2026-03-19 16:13:58,192 - mori_server - INFO - 📥 [c40e98d2d8eecc49] POST /api/auth/verify | IP: 192.168.0.101
+2026-03-19 16:13:58,232 - mori_server - INFO - 📤 [c40e98d2d8eecc49] 200 | 39.77ms
+2026-03-19 16:13:58,236 - werkzeug - INFO - 192.168.0.101 - - [19/Mar/2026 16:13:58] "POST /api/auth/verify HTTP/1.1" 200 -
+2026-03-20 01:31:09,571 - mori_server - INFO - 🏁 Сервер завершил работу
+2026-03-20 01:31:09,842 - mori_server - INFO - 🏁 Сервер завершил работу
