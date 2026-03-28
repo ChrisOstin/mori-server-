@@ -16,6 +16,7 @@ MORI ROUTES — 35 ЭНДПОИНТОВ ДЛЯ МАСШТАБИРОВАНИЯ
 
 import json
 import logging
+import requests
 from datetime import datetime, timedelta
 from functools import wraps
 
@@ -46,16 +47,7 @@ def with_tenant(f):
         
         return f(*args, **kwargs)
     return decorated_function
-
-# ========== РЕГИСТРАЦИЯ ВСЕХ РОУТОВ ==========
-def register_all_routes(app):
-    
-    # Сначала регистрируем auth роуты
-    register_auth_routes(app)
-    
     # ========== ПОРТФЕЛЬ (MORI) ==========
-@app.route('/api/mori/price', methods=['GET'])
-@with_tenant
 def get_mori_price():
     """Получение текущей цены MORI — реальные данные с DexScreener"""
     try:
@@ -93,8 +85,14 @@ def get_mori_price():
     except Exception as e:
         logger.error(f"Ошибка получения цены: {e}")
         return jsonify({"error": "Сервис временно недоступен"}), 503
-            
-    @app.route('/api/mori/history', methods=['GET'])
+
+# ========== РЕГИСТРАЦИЯ ВСЕХ РОУТОВ ==========
+def register_all_routes(app):
+    
+    # Сначала регистрируем auth роуты
+    register_auth_routes(app)
+
+    
     @with_tenant
     def get_mori_history():
         """Получение истории цены для графика"""
@@ -157,7 +155,6 @@ def get_mori_price():
         
         return jsonify(data), 200
     
-    @app.route('/api/mori/whales', methods=['GET'])
     @with_tenant
     @cached_query('whales', ttl=300)  # Кэш на 5 минут
     def get_whales():
@@ -184,7 +181,6 @@ def get_mori_price():
     
     # ========== БИБЛИОТЕКА ==========
     
-    @app.route('/api/books', methods=['GET'])
     @with_tenant
     @cached_query('all_books', ttl=60)  # Кэш на 1 минуту
     def get_books():
@@ -199,7 +195,6 @@ def get_mori_price():
             logger.error(f"Ошибка получения книг: {e}")
             return jsonify({'success': False, 'error': 'Ошибка загрузки'}), 500
     
-    @app.route('/api/books/<int:book_id>', methods=['GET'])
     @with_tenant
     def get_book(book_id):
         """Получение конкретной книги"""
@@ -216,7 +211,6 @@ def get_mori_price():
             logger.error(f"Ошибка получения книги {book_id}: {e}")
             return jsonify({'success': False, 'error': 'Ошибка загрузки'}), 500
     
-    @app.route('/api/books/<int:book_id>/download', methods=['GET'])
     @with_tenant
     def download_book(book_id):
         """Скачивание книги"""
@@ -240,7 +234,6 @@ def get_mori_price():
             logger.error(f"Ошибка скачивания книги {book_id}: {e}")
             return jsonify({'success': False, 'error': 'Ошибка скачивания'}), 500
     
-    @app.route('/api/books', methods=['POST'])
     @with_tenant
     @jwt_required()
     @requires_access_level('admin')
@@ -284,7 +277,6 @@ def get_mori_price():
             logger.error(f"Ошибка добавления книги: {e}")
             return jsonify({'success': False, 'error': 'Ошибка добавления'}), 500
     
-    @app.route('/api/books/<int:book_id>', methods=['PUT'])
     @with_tenant
     @jwt_required()
     @requires_access_level('admin')
@@ -318,7 +310,6 @@ def get_mori_price():
             logger.error(f"Ошибка обновления книги {book_id}: {e}")
             return jsonify({'success': False, 'error': 'Ошибка обновления'}), 500
     
-    @app.route('/api/books/<int:book_id>', methods=['DELETE'])
     @with_tenant
     @jwt_required()
     @requires_access_level('admin')
@@ -342,7 +333,6 @@ def get_mori_price():
     
     # ========== ЧАТ ==========
     
-    @app.route('/api/chat/<string:chat_type>/messages', methods=['GET'])
     @with_tenant
     @jwt_required()
     def get_chat_messages(chat_type):
@@ -402,7 +392,6 @@ def get_mori_price():
             logger.error(f"Ошибка получения сообщений: {e}")
             return jsonify({'success': False, 'error': 'Ошибка загрузки'}), 500
     
-    @app.route('/api/chat/message', methods=['POST'])
     @with_tenant
     @jwt_required()
     def send_message():
@@ -456,7 +445,6 @@ def get_mori_price():
             logger.error(f"Ошибка отправки сообщения: {e}")
             return jsonify({'success': False, 'error': 'Ошибка отправки'}), 500
     
-    @app.route('/api/chat/message/<int:message_id>/reaction', methods=['POST'])
     @with_tenant
     @jwt_required()
     def toggle_reaction(message_id):
@@ -509,7 +497,6 @@ def get_mori_price():
             logger.error(f"Ошибка обработки реакции: {e}")
             return jsonify({'success': False, 'error': 'Ошибка'}), 500
     
-    @app.route('/api/chat/users', methods=['GET'])
     @with_tenant
     @jwt_required()
     @requires_access_level('family')
@@ -539,7 +526,6 @@ def get_mori_price():
     
     # ========== СЕМЬЯ ==========
     
-    @app.route('/api/family/members', methods=['GET'])
     @with_tenant
     @jwt_required()
     @requires_access_level('family')
@@ -569,7 +555,6 @@ def get_mori_price():
             logger.error(f"Ошибка получения членов семьи: {e}")
             return jsonify({'success': False, 'error': 'Ошибка'}), 500
     
-    @app.route('/api/family/members', methods=['POST'])
     @with_tenant
     @jwt_required()
     @requires_access_level('family')
@@ -624,7 +609,6 @@ def get_mori_price():
             logger.error(f"Ошибка добавления в семью: {e}")
             return jsonify({'success': False, 'error': 'Ошибка'}), 500
     
-    @app.route('/api/family/members/<int:member_id>', methods=['DELETE'])
     @with_tenant
     @jwt_required()
     @requires_access_level('family')
@@ -660,7 +644,6 @@ def get_mori_price():
             logger.error(f"Ошибка удаления из семьи: {e}")
             return jsonify({'success': False, 'error': 'Ошибка'}), 500
     
-    @app.route('/api/family/budget', methods=['GET'])
     @with_tenant
     @jwt_required()
     @requires_access_level('family')
@@ -689,7 +672,6 @@ def get_mori_price():
             logger.error(f"Ошибка получения бюджета: {e}")
             return jsonify({'success': False, 'error': 'Ошибка'}), 500
     
-    @app.route('/api/family/budget', methods=['POST'])
     @with_tenant
     @jwt_required()
     @requires_access_level('family')
@@ -731,7 +713,6 @@ def get_mori_price():
             logger.error(f"Ошибка добавления транзакции: {e}")
             return jsonify({'success': False, 'error': 'Ошибка'}), 500
     
-    @app.route('/api/family/calendar', methods=['GET'])
     @with_tenant
     @jwt_required()
     @requires_access_level('family')
@@ -766,7 +747,6 @@ def get_mori_price():
             logger.error(f"Ошибка получения событий: {e}")
             return jsonify({'success': False, 'error': 'Ошибка'}), 500
     
-    @app.route('/api/family/calendar', methods=['POST'])
     @with_tenant
     @jwt_required()
     @requires_access_level('family')
@@ -810,7 +790,6 @@ def get_mori_price():
             logger.error(f"Ошибка добавления события: {e}")
             return jsonify({'success': False, 'error': 'Ошибка'}), 500
     
-    @app.route('/api/family/calendar/<int:event_id>', methods=['DELETE'])
     @with_tenant
     @jwt_required()
     @requires_access_level('family')
@@ -832,7 +811,6 @@ def get_mori_price():
             logger.error(f"Ошибка удаления события: {e}")
             return jsonify({'success': False, 'error': 'Ошибка'}), 500
     
-    @app.route('/api/family/reminders', methods=['GET'])
     @with_tenant
     @jwt_required()
     @requires_access_level('family')
@@ -855,7 +833,6 @@ def get_mori_price():
             logger.error(f"Ошибка получения напоминаний: {e}")
             return jsonify({'success': False, 'error': 'Ошибка'}), 500
     
-    @app.route('/api/family/reminders', methods=['POST'])
     @with_tenant
     @jwt_required()
     @requires_access_level('family')
@@ -899,7 +876,6 @@ def get_mori_price():
             logger.error(f"Ошибка добавления напоминания: {e}")
             return jsonify({'success': False, 'error': 'Ошибка'}), 500
     
-    @app.route('/api/family/reminders/<int:reminder_id>', methods=['PUT'])
     @with_tenant
     @jwt_required()
     @requires_access_level('family')
@@ -930,7 +906,6 @@ def get_mori_price():
             logger.error(f"Ошибка обновления напоминания: {e}")
             return jsonify({'success': False, 'error': 'Ошибка'}), 500
     
-    @app.route('/api/family/reminders/<int:reminder_id>', methods=['DELETE'])
     @with_tenant
     @jwt_required()
     @requires_access_level('family')
@@ -959,7 +934,6 @@ def get_mori_price():
     
     # ========== ПРОФИЛЬ ==========
     
-    @app.route('/api/user/<int:user_id>', methods=['GET'])
     @with_tenant
     @jwt_required()
     def get_user_profile(user_id):
@@ -982,7 +956,6 @@ def get_mori_price():
             logger.error(f"Ошибка получения профиля: {e}")
             return jsonify({'success': False, 'error': 'Ошибка'}), 500
     
-    @app.route('/api/user/<int:user_id>/stats', methods=['GET'])
     @with_tenant
     @jwt_required()
     def get_user_stats(user_id):
@@ -1018,7 +991,6 @@ def get_mori_price():
     
     # ========== АДМИНКА ==========
     
-    @app.route('/api/admin/stats', methods=['GET'])
     @with_tenant
     @jwt_required()
     @requires_access_level('admin')
@@ -1074,7 +1046,6 @@ def get_mori_price():
             logger.error(f"Ошибка получения статистики: {e}")
             return jsonify({'success': False, 'error': 'Ошибка'}), 500
     
-    @app.route('/api/admin/users', methods=['GET'])
     @with_tenant
     @jwt_required()
     @requires_access_level('admin')
@@ -1112,12 +1083,10 @@ def get_mori_price():
     
     # ========== МЕТА ==========
     
-    @app.route('/api/ping', methods=['GET'])
     def ping():
         """Пинг для проверки соединения"""
         return '', 204
     
-    @app.route('/api/health', methods=['GET'])
     def api_health():
         """Проверка здоровья API"""
         return jsonify({
@@ -1128,7 +1097,6 @@ def get_mori_price():
             'tenant': g.get('tenant', 'main')
         }), 200
     
-    @app.route('/api/info', methods=['GET'])
     def api_info():
         """Информация о API"""
         return jsonify({
@@ -1140,4 +1108,44 @@ def get_mori_price():
             'features': ['Portfolio', 'Library', 'Chat', 'Family', 'Profile', 'Admin']
         }), 200
     
+    # ========== РЕГИСТРАЦИЯ ВСЕХ МАРШРУТОВ ==========
+    app.add_url_rule('/api/mori/price', view_func=get_mori_price, methods=['GET'])
+    app.add_url_rule('/api/mori/history', view_func=get_mori_history, methods=['GET'])
+    app.add_url_rule('/api/mori/whales', view_func=get_whales, methods=['GET'])
+
+    app.add_url_rule('/api/books', view_func=get_books, methods=['GET'])
+    app.add_url_rule('/api/books/<int:book_id>', view_func=get_book, methods=['GET'])
+    app.add_url_rule('/api/books/<int:book_id>/download', view_func=download_book, methods=['GET'])
+    app.add_url_rule('/api/books', view_func=add_book, methods=['POST'])
+    app.add_url_rule('/api/books/<int:book_id>', view_func=update_book, methods=['PUT'])
+    app.add_url_rule('/api/books/<int:book_id>', view_func=delete_book, methods=['DELETE'])
+
+    app.add_url_rule('/api/chat/<string:chat_type>/messages', view_func=get_chat_messages, methods=['GET'])
+    app.add_url_rule('/api/chat/message', view_func=send_message, methods=['POST'])
+    app.add_url_rule('/api/chat/message/<int:message_id>/reaction', view_func=toggle_reaction, methods=['POST'])
+    app.add_url_rule('/api/chat/users', view_func=get_chat_users, methods=['GET'])
+
+    app.add_url_rule('/api/family/members', view_func=get_family_members, methods=['GET'])
+    app.add_url_rule('/api/family/members', view_func=add_family_member, methods=['POST'])
+    app.add_url_rule('/api/family/members/<int:member_id>', view_func=remove_family_member, methods=['DELETE'])
+    app.add_url_rule('/api/family/budget', view_func=get_budget, methods=['GET'])
+    app.add_url_rule('/api/family/budget', view_func=add_transaction, methods=['POST'])
+    app.add_url_rule('/api/family/calendar', view_func=get_calendar_events, methods=['GET'])
+    app.add_url_rule('/api/family/calendar', view_func=add_calendar_event, methods=['POST'])
+    app.add_url_rule('/api/family/calendar/<int:event_id>', view_func=delete_calendar_event, methods=['DELETE'])
+    app.add_url_rule('/api/family/reminders', view_func=get_reminders, methods=['GET'])
+    app.add_url_rule('/api/family/reminders', view_func=add_reminder, methods=['POST'])
+    app.add_url_rule('/api/family/reminders/<int:reminder_id>', view_func=update_reminder, methods=['PUT'])
+    app.add_url_rule('/api/family/reminders/<int:reminder_id>', view_func=delete_reminder, methods=['DELETE'])
+
+    app.add_url_rule('/api/user/<int:user_id>', view_func=get_user_profile, methods=['GET'])
+    app.add_url_rule('/api/user/<int:user_id>/stats', view_func=get_user_stats, methods=['GET'])
+
+    app.add_url_rule('/api/admin/stats', view_func=get_admin_stats, methods=['GET'])
+    app.add_url_rule('/api/admin/users', view_func=get_all_users, methods=['GET'])
+
+    app.add_url_rule('/api/ping', view_func=ping, methods=['GET'])
+    app.add_url_rule('/api/health', view_func=api_health, methods=['GET'])
+    app.add_url_rule('/api/info', view_func=api_info, methods=['GET'])
+
     logger.info(f"✅ Зарегистрировано 35 эндпоинтов для {len(Config.ALLOWED_ORIGINS)} origins")
