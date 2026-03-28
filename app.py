@@ -397,7 +397,6 @@ SOLSCAN_URL = "https://public-api.solscan.io"
 @app.route('/api/price', methods=['GET'])
 def api_price():
     try:
-        # Реальный токен MORI на Solana
         token_address = "8ZHE4ow1a2jjxuoMfyExuNamQNALv5ekZhsBn5nMDf5e"
         resp = requests.get(
             f"https://api.dexscreener.com/latest/dex/search?q={token_address}",
@@ -414,7 +413,7 @@ def api_price():
                 fdv = price * 1_000_000_000
                 marketCap = price * 400_000_000
                 circulating = 400_000_000
-                return jsonify({
+                response = jsonify({
                     "price": round(price, 6),
                     "change24h": round(change24h, 2),
                     "volume24h": int(volume24h),
@@ -423,11 +422,14 @@ def api_price():
                     "marketCap": int(marketCap),
                     "circulatingSupply": circulating
                 })
+                response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, max-age=0'
+                response.headers['Pragma'] = 'no-cache'
+                response.headers['Expires'] = '0'
+                return response
     except Exception as e:
-        print(f"Ошибка получения цены: {e}")
+        print(f"Ошибка: {e}")
 
-    # Фолбэк
-    return jsonify({
+    response = jsonify({
         "price": 0.006887,
         "change24h": 0,
         "volume24h": 100000,
@@ -436,6 +438,8 @@ def api_price():
         "marketCap": 2000000,
         "circulatingSupply": 300000000
     })
+    response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, max-age=0'
+    return response
 
 @app.route('/api/history', methods=['GET'])
 def api_history():
