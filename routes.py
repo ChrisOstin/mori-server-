@@ -47,72 +47,70 @@ def with_tenant(f):
         
         return f(*args, **kwargs)
     return decorated_function
-    # ========== НОВАЯ ФУНКЦИЯ ДЛЯ ЦЕНЫ (DexScreener + fallback CoinGecko) ==========
-    def get_mori_price():
-        """Получение текущей цены MORI — DexScreener + fallback CoinGecko"""
+# ========== НОВАЯ ФУНКЦИЯ ДЛЯ ЦЕНЫ (DexScreener + fallback CoinGecko) ==========
+def get_mori_price():
+    """Получение текущей цены MORI — DexScreener + fallback CoinGecko"""
     
-        # Пробуем DexScreener с User-Agent
-        try:
-            token_address = "8ZHE4ow1a2jjxuoMfyExuNamQNALv5ekZhsBn5nMDf5e"
-            headers = {
-                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
-            }
-            resp = requests.get(
-                f"https://api.dexscreener.com/latest/dex/search?q={token_address}",
-                headers=headers,
-                timeout=5
-            )
-            if resp.status_code == 200:
-                data = resp.json()
-                if data.get("pairs"):
-                    pair = data["pairs"][0]
-                    price = float(pair.get("priceUsd"))
-                    change24h = float(pair.get("priceChange", {}).get("h24", 0))
-                    volume24h = float(pair.get("volume", {}).get("h24", 0))
-                    liquidity = float(pair.get("liquidity", {}).get("usd", 0))
-                    fdv = price * 1_000_000_000
-                    marketCap = price * 400_000_000
+    # Пробуем DexScreener с User-Agent
+    try:
+        token_address = "8ZHE4ow1a2jjxuoMfyExuNamQNALv5ekZhsBn5nMDf5e"
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+        }
+        resp = requests.get(
+            f"https://api.dexscreener.com/latest/dex/search?q={token_address}",
+            headers=headers,
+            timeout=5
+        )
+        if resp.status_code == 200:
+            data = resp.json()
+            if data.get("pairs"):
+                pair = data["pairs"][0]
+                price = float(pair.get("priceUsd"))
+                change24h = float(pair.get("priceChange", {}).get("h24", 0))
+                volume24h = float(pair.get("volume", {}).get("h24", 0))
+                liquidity = float(pair.get("liquidity", {}).get("usd", 0))
+                fdv = price * 1_000_000_000
+                marketCap = price * 400_000_000
                 
-                    return jsonify({
-                        "price": round(price, 6),
-                        "change24h": round(change24h, 2),
-                        "volume24h": int(volume24h),
-                        "liquidity": int(liquidity),
-                        "fdv": int(fdv),
-                        "marketCap": int(marketCap),
-                        "circulatingSupply": 400_000_000,
-                        "timestamp": datetime.utcnow().timestamp()
-                    })
-        except Exception as e:
-            logger.error(f"DexScreener error: {e}")
-    
-        # Fallback: CoinGecko
-        try:
-            url = "https://api.coingecko.com/api/v3/simple/price"
-            params = {"ids": "solana", "vs_currencies": "usd"}
-            resp = requests.get(url, params=params, timeout=5)
-            if resp.status_code == 200:
-                data = resp.json()
-                sol_price = data.get("solana", {}).get("usd", 0)
-                # 1 MORI ≈ 0.00005432 SOL (актуальное соотношение)
-                mori_price = sol_price * 0.00005432
                 return jsonify({
-                    "price": round(mori_price, 6),
-                    "change24h": 0,
-                    "volume24h": 0,
-                    "liquidity": 0,
-                    "fdv": 0,
-                    "marketCap": 0,
+                    "price": round(price, 6),
+                    "change24h": round(change24h, 2),
+                    "volume24h": int(volume24h),
+                    "liquidity": int(liquidity),
+                    "fdv": int(fdv),
+                    "marketCap": int(marketCap),
                     "circulatingSupply": 400_000_000,
                     "timestamp": datetime.utcnow().timestamp()
                 })
-        except Exception as e:
-            logger.error(f"CoinGecko error: {e}")
+    except Exception as e:
+        logger.error(f"DexScreener error: {e}")
     
-        # Если всё упало
-        return jsonify({"error": "Сервис временно недоступен"}), 503
-
-
+    # Fallback: CoinGecko
+    try:
+        url = "https://api.coingecko.com/api/v3/simple/price"
+        params = {"ids": "solana", "vs_currencies": "usd"}
+        resp = requests.get(url, params=params, timeout=5)
+        if resp.status_code == 200:
+            data = resp.json()
+            sol_price = data.get("solana", {}).get("usd", 0)
+            # 1 MORI ≈ 0.00005432 SOL (актуальное соотношение)
+            mori_price = sol_price * 0.00005432
+            return jsonify({
+                "price": round(mori_price, 6),
+                "change24h": 0,
+                "volume24h": 0,
+                "liquidity": 0,
+                "fdv": 0,
+                "marketCap": 0,
+                "circulatingSupply": 400_000_000,
+                "timestamp": datetime.utcnow().timestamp()
+            })
+    except Exception as e:
+        logger.error(f"CoinGecko error: {e}")
+    
+    # Если всё упало
+    return jsonify({"error": "Сервис временно недоступен"}), 503
 # ========== РЕГИСТРАЦИЯ ВСЕХ РОУТОВ ==========
 def register_all_routes(app):
     
