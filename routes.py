@@ -381,7 +381,7 @@ def add_book():
         db.session.add(book)
         db.session.commit()
             
-            logger.info(f"📚 Добавлена книга: {book.title}")
+        logger.info(f"📚 Добавлена книга: {book.title}")
             
         return jsonify({
             'success': True,
@@ -414,7 +414,7 @@ def update_book(book_id):
                 setattr(book, field, data[field])
             
         db.session.commit()
-            logger.info(f"📝 Обновлена книга: {book.title}")
+        logger.info(f"📝 Обновлена книга: {book.title}")
             
         return jsonify({
             'success': True,
@@ -438,7 +438,7 @@ def delete_book(book_id):
         db.session.delete(book)
         db.session.commit()
             
-            logger.info(f"🗑️ Удалена книга: {book.title}")
+        logger.info(f"🗑️ Удалена книга: {book.title}")
             
         return jsonify({'success': True}), 200
             
@@ -548,7 +548,7 @@ def send_message():
             'access_level': user.access_level
         }
             
-            logger.info(f"💬 Новое сообщение в {chat_type} от {user.nickname}")
+        logger.info(f"💬 Новое сообщение в {chat_type} от {user.nickname}")
             
         return jsonify({
             'success': True,
@@ -712,7 +712,7 @@ def add_family_member():
             
         db.session.commit()
             
-            logger.info(f"👨‍👩‍👧‍👦 Новый член семьи: {user.nickname}")
+        logger.info(f"👨‍👩‍👧‍👦 Новый член семьи: {user.nickname}")
             
         return jsonify({
             'success': True,
@@ -750,7 +750,7 @@ def remove_family_member(member_id):
         db.session.delete(member)
         db.session.commit()
             
-            logger.info(f"👋 Участник {user.nickname if user else member_id} покинул семью")
+        logger.info(f"👋 Участник {user.nickname if user else member_id} покинул семью")
             
         return jsonify({'success': True}), 200
             
@@ -816,7 +816,7 @@ def add_transaction():
         db.session.add(transaction)
         db.session.commit()
             
-            logger.info(f"💰 {transaction_type}: {title} - {amount} MORI")
+        logger.info(f"💰 {transaction_type}: {title} - {amount} MORI")
             
         return jsonify({
             'success': True,
@@ -861,48 +861,48 @@ def get_calendar_events():
         logger.error(f"Ошибка получения событий: {e}")
         return jsonify({'success': False, 'error': 'Ошибка'}), 500
     
-    @with_tenant
-    @jwt_required()
-    @requires_access_level('family')
-    def add_calendar_event():
-        """Добавление события в календарь"""
+@with_tenant
+@jwt_required()
+@requires_access_level('family')
+def add_calendar_event():
+    """Добавление события в календарь"""
+    try:
+        user_id = get_jwt_identity()
+        data = request.get_json()
+            
+        title = data.get('title')
+        date_str = data.get('date')
+        event_type = data.get('type', 'event')
+            
+        if not title or not date_str:
+            return jsonify({'success': False, 'error': 'Не все поля заполнены'}), 400
+            
         try:
-            user_id = get_jwt_identity()
-            data = request.get_json()
+            date = datetime.strptime(date_str, '%Y-%m-%d').date()
+        except ValueError:
+            return jsonify({'success': False, 'error': 'Неверный формат даты'}), 400
             
-            title = data.get('title')
-            date_str = data.get('date')
-            event_type = data.get('type', 'event')
+        event = CalendarEvent(
+            title=title,
+            date=date,
+            type=event_type,
+            created_by=user_id,
+            created_at=datetime.utcnow()
+        )
             
-            if not title or not date_str:
-                return jsonify({'success': False, 'error': 'Не все поля заполнены'}), 400
+        db.session.add(event)
+        db.session.commit()
             
-            try:
-                date = datetime.strptime(date_str, '%Y-%m-%d').date()
-            except ValueError:
-                return jsonify({'success': False, 'error': 'Неверный формат даты'}), 400
+        logger.info(f"📅 Добавлено событие: {title}")
             
-            event = CalendarEvent(
-                title=title,
-                date=date,
-                type=event_type,
-                created_by=user_id,
-                created_at=datetime.utcnow()
-            )
+        return jsonify({
+            'success': True,
+            'event': event.to_dict()
+        }), 201
             
-            db.session.add(event)
-            db.session.commit()
-            
-            logger.info(f"📅 Добавлено событие: {title}")
-            
-            return jsonify({
-                'success': True,
-                'event': event.to_dict()
-            }), 201
-            
-        except Exception as e:
-            logger.error(f"Ошибка добавления события: {e}")
-            return jsonify({'success': False, 'error': 'Ошибка'}), 500
+    except Exception as e:
+        logger.error(f"Ошибка добавления события: {e}")
+        return jsonify({'success': False, 'error': 'Ошибка'}), 500
     
 @with_tenant
 @jwt_required()
@@ -917,7 +917,7 @@ def delete_calendar_event(event_id):
         db.session.delete(event)
         db.session.commit()
             
-            logger.info(f"🗑️ Удалено событие: {event.title}")
+        logger.info(f"🗑️ Удалено событие: {event.title}")
             
         return jsonify({'success': True}), 200
             
@@ -979,7 +979,7 @@ def add_reminder():
         db.session.add(reminder)
         db.session.commit()
             
-            logger.info(f"⏰ Добавлено напоминание: {title}")
+        logger.info(f"⏰ Добавлено напоминание: {title}")
             
         return jsonify({
             'success': True,
@@ -1038,7 +1038,7 @@ def delete_reminder(reminder_id):
         db.session.delete(reminder)
         db.session.commit()
             
-            logger.info(f"🗑️ Удалено напоминание: {reminder.title}")
+        logger.info(f"🗑️ Удалено напоминание: {reminder.title}")
             
         return jsonify({'success': True}), 200
             
