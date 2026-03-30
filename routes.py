@@ -113,11 +113,10 @@ def get_mori_price():
     return jsonify({"error": "Сервис временно недоступен"}), 503
 
 @with_tenant
-@cached_query('mori_history', ttl=300)  # кэш на 5 минут
 def get_mori_history():
-    """Получение истории цены — линейный график через CoinGecko"""
     try:
         timeframe = request.args.get('timeframe', '1d')
+        print(f"📊 Запрос истории для {timeframe}")  # ← добавить
         
         days_map = {
             '12h': 1,
@@ -131,52 +130,38 @@ def get_mori_history():
         days = days_map.get(timeframe, 1)
         
         url = "https://api.coingecko.com/api/v3/coins/solana/market_chart"
-        params = {
-            'vs_currency': 'usd',
-            'days': days
-        }
+        params = {'vs_currency': 'usd', 'days': days}
+        
+        print(f"📡 Запрос к CoinGecko: {url}?days={days}")  # ← добавить
         
         resp = requests.get(url, params=params, timeout=10)
-        
-        if resp.status_code == 429:
-            logger.warning("CoinGecko rate limit, возвращаем кэшированные данные")
-            # Если кэш есть — он вернётся автоматически, если нет — пустой массив
-            return jsonify([])
+        print(f"📡 Статус CoinGecko: {resp.status_code}")  # ← добавить
         
         if resp.status_code != 200:
-            logger.error(f"CoinGecko вернул статус {resp.status_code}")
+            print(f"❌ Ошибка CoinGecko: {resp.status_code}")
             return jsonify([])
         
         data = resp.json()
+        prices = data.get('prices', [])
+        print(f"📈 Получено точек: {len(prices)}")  # ← добавить
         
-        if 'prices' not in data or not data['prices']:
-            logger.error("Нет данных о ценах")
+        if not prices:
+            print("⚠️ Нет цен в ответе")
             return jsonify([])
         
-        prices = data['prices']
         result = []
-        
-        # Прореживаем точки для коротких ТФ
-        step = 1
-        if timeframe == '12h' and len(prices) > 24:
-            step = 2
-        elif timeframe == '1d' and len(prices) > 24:
-            step = 2
-        elif timeframe == '3d' and len(prices) > 72:
-            step = 3
-        
-        for i in range(0, len(prices), step):
-            ts, price = prices[i]
+        for ts, price in prices:
             mori_price = price * 0.00005432
             result.append({
                 'x': ts,
                 'y': round(mori_price, 6)
             })
         
+        print(f"✅ Возвращаем {len(result)} точек")  # ← добавить
         return jsonify(result)
         
     except Exception as e:
-        logger.error(f"Ошибка получения истории: {e}")
+        print(f"💥 Ошибка: {e}")  # ← добавить
         return jsonify([])
  
 @with_tenant
