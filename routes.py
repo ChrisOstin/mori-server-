@@ -114,29 +114,66 @@ def get_mori_price():
 
 @with_tenant
 def get_mori_history():
-    """Тестовые данные для графика (временное решение)"""
+    """Получение истории цены — линейный график через CoinGecko"""
     try:
-        # Генерируем 24 точки за последние 12 часов
-        result = []
-        now = datetime.utcnow().timestamp() * 1000
-        base_price = 0.0045
+        timeframe = request.args.get('timeframe', '1d')
         
-        for i in range(24):
-            timestamp = now - (i * 1800000)  # каждые 30 минут
-            # Создаём волнообразную цену
-            price = base_price + (i % 5) * 0.0001
+        days_map = {
+            '12h': 1,
+            '1d': 1,
+            '3d': 3,
+            '1m': 30,
+            '3m': 90,
+            '6m': 180,
+            '12m': 365
+        }
+        days = days_map.get(timeframe, 1)
+        
+        url = "https://api.coingecko.com/api/v3/coins/solana/market_chart"
+        params = {
+            'vs_currency': 'usd',
+            'days': days
+        }
+        
+        resp = requests.get(url, params=params, timeout=10)
+        
+        if resp.status_code != 200:
+            logger.error(f"CoinGecko вернул статус {resp.status_code}")
+            return jsonify([])
+        
+        data = resp.json()
+        
+        if 'prices' not in data or not data['prices']:
+            logger.error("Нет данных о ценах")
+            return jsonify([])
+        
+        prices = data['prices']
+        result = []
+        
+        # Прореживаем точки для коротких ТФ
+        step = 1
+        if timeframe == '12h' and len(prices) > 24:
+            step = 2
+        elif timeframe == '1d' and len(prices) > 24:
+            step = 2
+        elif timeframe == '3d' and len(prices) > 72:
+            step = 3
+        
+        for i in range(0, len(prices), step):
+            ts, price = prices[i]
+            # Конвертируем SOL в MORI (актуальное соотношение)
+            mori_price = price * 0.00005432
             result.append({
-                'x': timestamp,
-                'y': round(price, 6)
+                'x': ts,
+                'y': round(mori_price, 6)
             })
         
-        # Возвращаем в обратном порядке (сначала старые)
-        return jsonify(result[::-1])
+        return jsonify(result)
         
     except Exception as e:
-        logger.error(f"Ошибка: {e}")
+        logger.error(f"Ошибка получения истории: {e}")
         return jsonify([])
-      
+ 
 @with_tenant
 @cached_query('whales', ttl=300)  # Кэш на 5 минут
 def get_whales():
