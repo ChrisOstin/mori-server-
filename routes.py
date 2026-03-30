@@ -113,6 +113,7 @@ def get_mori_price():
     return jsonify({"error": "Сервис временно недоступен"}), 503
 
 @with_tenant
+@cached_query('mori_history', ttl=300)  # кэш на 5 минут
 def get_mori_history():
     """Получение истории цены — линейный график через CoinGecko"""
     try:
@@ -136,6 +137,11 @@ def get_mori_history():
         }
         
         resp = requests.get(url, params=params, timeout=10)
+        
+        if resp.status_code == 429:
+            logger.warning("CoinGecko rate limit, возвращаем кэшированные данные")
+            # Если кэш есть — он вернётся автоматически, если нет — пустой массив
+            return jsonify([])
         
         if resp.status_code != 200:
             logger.error(f"CoinGecko вернул статус {resp.status_code}")
@@ -161,7 +167,6 @@ def get_mori_history():
         
         for i in range(0, len(prices), step):
             ts, price = prices[i]
-            # Конвертируем SOL в MORI (актуальное соотношение)
             mori_price = price * 0.00005432
             result.append({
                 'x': ts,
