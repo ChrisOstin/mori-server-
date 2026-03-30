@@ -114,82 +114,26 @@ def get_mori_price():
 
 @with_tenant
 def get_mori_history():
-    """Получение истории цены — свечи для коротких ТФ, линейный график для длинных"""
+    """Получение истории цены — линейный график через CoinGecko"""
     try:
         timeframe = request.args.get('timeframe', '1d')
-        token_address = "8ZHE4ow1a2jjxuoMfyExuNamQNALv5ekZhsBn5nMDf5e"
         
-        # Длинные таймфреймы (3м, 6м, 12м) — используем CoinGecko (линейный график)
-        if timeframe in ['3m', '6m', '12m']:
-            return get_linear_from_coingecko(timeframe)
-        
-        # Короткие таймфреймы — используем Birdeye (свечи)
-        resolution_map = {
-            '12h': '15m',
-            '1d': '1h',
-            '3d': '1h',
-            '1m': '4h',
-        }
-        
-        resolution = resolution_map.get(timeframe, '1h')
-        
-        # Для 3d и 1m нужно больше данных, увеличиваем диапазон
-        days = 30
-        if timeframe == '3d':
-            days = 7
-        elif timeframe == '1m':
-            days = 30
-        
-        url = "https://public-api.birdeye.so/defi/ohlcv"
-        params = {
-            'address': token_address,
-            'type': resolution,
-            'time_from': int((datetime.utcnow() - timedelta(days=days)).timestamp()),
-            'time_to': int(datetime.utcnow().timestamp())
-        }
-        
-        resp = requests.get(url, params=params, timeout=5)
-        
-        if resp.status_code == 200:
-            data = resp.json()
-            if data.get('success') and data.get('data'):
-                ohlcv_list = data['data']
-                result = []
-                for candle in ohlcv_list:
-                    result.append({
-                        'x': candle['unixTime'] * 1000,
-                        'open': candle['o'],
-                        'high': candle['h'],
-                        'low': candle['l'],
-                        'close': candle['c']
-                    })
-                # Агрегируем свечи по таймфрейму
-                result = aggregate_candles(result, timeframe)
-                return jsonify(result)
-                
-    except Exception as e:
-        logger.error(f"Ошибка получения истории: {e}")
-    
-    # Если ничего не получилось — пустой массив
-    return jsonify([])
-   
-def get_linear_from_coingecko(timeframe):
-    """Получение линейной истории цен из CoinGecko для длинных таймфреймов"""
-    try:
-        # Определяем количество дней
         days_map = {
+            '12h': 1,
+            '1d': 1,
+            '3d': 3,
+            '1m': 30,
             '3m': 90,
             '6m': 180,
             '12m': 365
         }
-        days = days_map.get(timeframe, 90)
+        days = days_map.get(timeframe, 1)
         
-        # Запрос к CoinGecko для SOL (MORI привязан к SOL)
         url = "https://api.coingecko.com/api/v3/coins/solana/market_chart"
         params = {
             'vs_currency': 'usd',
             'days': days,
-            'interval': 'daily'
+            'interval': 'hourly' if days <= 3 else 'daily'
         }
         
         resp = requests.get(url, params=params, timeout=10)
@@ -200,8 +144,7 @@ def get_linear_from_coingecko(timeframe):
             
             result = []
             for ts, price in prices:
-                # Конвертируем SOL в MORI (1 MORI ≈ 0.00004 SOL)
-                mori_price = price * 0.00004
+                mori_price = price * 0.00005432
                 result.append({
                     'x': ts,
                     'y': round(mori_price, 6)
@@ -209,67 +152,10 @@ def get_linear_from_coingecko(timeframe):
             return jsonify(result)
             
     except Exception as e:
-        logger.error(f"Ошибка получения истории из CoinGecko: {e}")
+        logger.error(f"Ошибка: {e}")
     
     return jsonify([])
-
-def aggregate_candles(candles, timeframe):
-    """Агрегирует свечи по таймфрейму"""
-    if not candles:
-        return candles
-    
-    # Определяем целевой интервал агрегации (в минутах)
-    agg_map = {
-        '12h': 15,
-        '1d': 60,
-        '3d': 60,
-        '1m': 240,
-    }
-    
-    target_minutes = agg_map.get(timeframe, 60)
-    
-    # Если агрегация не нужна (15-минутные свечи для 12ч)
-    if target_minutes == 15:
-        return candles
-    
-    result = []
-    current_group = []
-    group_start_time = None
-    
-    for candle in candles:
-        candle_time = candle['x'] / 1000
-        group_key = int(candle_time // (target_minutes * 60)) * (target_minutes * 60)
-        
-        if group_start_time is None:
-            group_start_time = group_key
-            current_group = [candle]
-        elif group_key == group_start_time:
-            current_group.append(candle)
-        else:
-            if current_group:
-                aggregated = {
-                    'x': group_start_time * 1000,
-                    'open': current_group[0]['open'],
-                    'high': max(c['high'] for c in current_group),
-                    'low': min(c['low'] for c in current_group),
-                    'close': current_group[-1]['close']
-                }
-                result.append(aggregated)
-            group_start_time = group_key
-            current_group = [candle]
-    
-    if current_group:
-        aggregated = {
-            'x': group_start_time * 1000,
-            'open': current_group[0]['open'],
-            'high': max(c['high'] for c in current_group),
-            'low': min(c['low'] for c in current_group),
-            'close': current_group[-1]['close']
-        }
-        result.append(aggregated)
-    
-    return result
-   
+      
 @with_tenant
 @cached_query('whales', ttl=300)  # Кэш на 5 минут
 def get_whales():
