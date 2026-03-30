@@ -133,28 +133,46 @@ def get_mori_history():
         params = {
             'vs_currency': 'usd',
             'days': days,
-            'interval': 'hourly' if days <= 3 else 'daily'
+            # interval не добавляем, чтобы CoinGecko сам выбрал подходящий
         }
         
         resp = requests.get(url, params=params, timeout=10)
         
-        if resp.status_code == 200:
-            data = resp.json()
-            prices = data.get('prices', [])
-            
-            result = []
-            for ts, price in prices:
-                mori_price = price * 0.00005432
-                result.append({
-                    'x': ts,
-                    'y': round(mori_price, 6)
-                })
-            return jsonify(result)
-            
+        if resp.status_code != 200:
+            logger.error(f"CoinGecko вернул статус {resp.status_code}")
+            return jsonify([])
+        
+        data = resp.json()
+        
+        if 'prices' not in data or not data['prices']:
+            logger.error("Нет данных о ценах")
+            return jsonify([])
+        
+        prices = data['prices']
+        result = []
+        
+        # Берём каждую 4-ю точку для коротких ТФ, чтобы не было слишком много данных
+        step = 1
+        if timeframe == '12h' and len(prices) > 24:
+            step = 2  # каждые 2 часа
+        elif timeframe == '1d' and len(prices) > 24:
+            step = 2
+        elif timeframe == '3d' and len(prices) > 72:
+            step = 3
+        
+        for i in range(0, len(prices), step):
+            ts, price = prices[i]
+            mori_price = price * 0.00005432
+            result.append({
+                'x': ts,
+                'y': round(mori_price, 6)
+            })
+        
+        return jsonify(result)
+        
     except Exception as e:
-        logger.error(f"Ошибка: {e}")
-    
-    return jsonify([])
+        logger.error(f"Ошибка получения истории: {e}")
+        return jsonify([])
       
 @with_tenant
 @cached_query('whales', ttl=300)  # Кэш на 5 минут
