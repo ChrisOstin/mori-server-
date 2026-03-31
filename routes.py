@@ -113,7 +113,6 @@ def get_mori_price():
     return jsonify({"error": "Сервис временно недоступен"}), 503
 
 def get_solana_price():
-    """Получение текущей цены SOL и изменения за 24ч"""
     try:
         url = "https://api.coingecko.com/api/v3/simple/price"
         params = {
