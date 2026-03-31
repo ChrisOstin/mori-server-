@@ -135,6 +135,58 @@ def get_solana_price():
         print(f"❌ Ошибка: {e}")
         logger.error(f"Ошибка получения цены SOL: {e}")
     return {'price': 0, 'change24h': 0}
+
+@with_tenant
+def get_mori_history():
+    """Получение истории цены — реальные данные с CoinGecko"""
+    try:
+        timeframe = request.args.get('timeframe', '1d')
+        app_logger.info(f"📊 Запрос истории для {timeframe}")
+        
+        days_map = {
+            '12h': 1,
+            '1d': 1,
+            '3d': 3,
+            '1m': 30,
+            '3m': 90,
+            '6m': 180,
+            '12m': 365
+        }
+        days = days_map.get(timeframe, 1)
+        
+        url = "https://api.coingecko.com/api/v3/coins/solana/market_chart"
+        params = {'vs_currency': 'usd', 'days': days}
+        
+        app_logger.info(f"📡 Запрос к CoinGecko: {url}?days={days}")
+        resp = requests.get(url, params=params, timeout=10)
+        app_logger.info(f"📡 Статус CoinGecko: {resp.status_code}")
+        
+        if resp.status_code != 200:
+            app_logger.error(f"❌ CoinGecko ошибка: {resp.status_code}")
+            return jsonify([])
+        
+        data = resp.json()
+        prices = data.get('prices', [])
+        app_logger.info(f"📈 Получено цен: {len(prices)}")
+        
+        if not prices:
+            app_logger.warning("⚠️ Нет цен в ответе")
+            return jsonify([])
+        
+        result = []
+        for ts, price in prices:
+            mori_price = price * 0.00005432
+            result.append({
+                'x': ts,
+                'y': round(mori_price, 6)
+            })
+        
+        app_logger.info(f"✅ Возвращаем {len(result)} точек для {timeframe}")
+        return jsonify(result)
+        
+    except Exception as e:
+        app_logger.error(f"💥 Ошибка в get_mori_history: {e}")
+        return jsonify([])
  
 @with_tenant
 @cached_query('whales', ttl=300)  # Кэш на 5 минут
