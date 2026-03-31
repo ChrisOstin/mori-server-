@@ -112,6 +112,27 @@ def get_mori_price():
     # Если всё упало
     return jsonify({"error": "Сервис временно недоступен"}), 503
 
+def get_solana_price():
+    """Получение текущей цены SOL и изменения за 24ч"""
+    try:
+        url = "https://api.coingecko.com/api/v3/simple/price"
+        params = {
+            'ids': 'solana',
+            'vs_currencies': 'usd',
+            'include_24hr_change': 'true'
+        }
+        resp = requests.get(url, params=params, timeout=5)
+        if resp.status_code == 200:
+            data = resp.json()
+            solana = data.get('solana', {})
+            return {
+                'price': solana.get('usd', 0),
+                'change24h': solana.get('usd_24h_change', 0)
+            }
+    except Exception as e:
+        logger.error(f"Ошибка получения цены SOL: {e}")
+    return {'price': 0, 'change24h': 0}
+
 @with_tenant
 def get_mori_history():
     try:
@@ -1115,11 +1136,13 @@ def api_info():
 # ========== РЕГИСТРАЦИЯ ВСЕХ РОУТОВ ==========
 def register_all_routes(app):
 
+
     # Сначала регистрируем auth роуты
     register_auth_routes(app)
 
     # ========== РЕГИСТРАЦИЯ ВСЕХ МАРШРУТОВ ==========
     app.add_url_rule('/api/mori/price', view_func=get_mori_price, methods=['GET'])
+    app.add_url_rule('/api/solana/price', view_func=lambda: jsonify(get_solana_price()), methods=['GET'])
     app.add_url_rule('/api/mori/history', view_func=get_mori_history, methods=['GET'])
     app.add_url_rule('/api/mori/whales', view_func=get_whales, methods=['GET'])
 
