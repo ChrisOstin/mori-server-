@@ -49,7 +49,16 @@ def with_tenant(f):
     return decorated_function
 # ========== НОВАЯ ФУНКЦИЯ ДЛЯ ЦЕНЫ (DexScreener + fallback CoinGecko) ==========
 def get_mori_price():
-    """Получение текущей цены MORI — DexScreener + fallback CoinGecko"""
+    """Получение текущей цены MORI — DexScreener + fallback CoinGecko с кэшем"""
+    global mori_cache
+    
+    # Проверяем кэш (5 минут)
+    now = datetime.utcnow().timestamp()
+    if mori_cache['data'] is not None and (now - mori_cache['timestamp']) < 300:
+        logger.info(f"📦 MORI цена из кэша: {mori_cache['data']['price']}")
+        return jsonify(mori_cache['data'])
+    
+    logger.info("🔍 Запрос цены MORI через DexScreener...")
     
     # Пробуем DexScreener с User-Agent
     try:
@@ -73,7 +82,7 @@ def get_mori_price():
                 fdv = price * 1_000_000_000
                 marketCap = price * 400_000_000
                 
-                return jsonify({
+                result = {
                     "price": round(price, 6),
                     "change24h": round(change24h, 2),
                     "volume24h": int(volume24h),
@@ -82,11 +91,17 @@ def get_mori_price():
                     "marketCap": int(marketCap),
                     "circulatingSupply": 400_000_000,
                     "timestamp": datetime.utcnow().timestamp()
-                })
+                }
+                # Сохраняем в кэш
+                mori_cache['data'] = result
+                mori_cache['timestamp'] = now
+                logger.info(f"✅ DexScreener: цена {price}")
+                return jsonify(result)
     except Exception as e:
         logger.error(f"DexScreener error: {e}")
-    
+
     # Fallback: CoinGecko
+    logger.info("🔄 Fallback на CoinGecko...")
     try:
         url = "https://api.coingecko.com/api/v3/simple/price"
         params = {"ids": "solana", "vs_currencies": "usd"}
@@ -96,7 +111,7 @@ def get_mori_price():
             sol_price = data.get("solana", {}).get("usd", 0)
             # 1 MORI ≈ 0.00005432 SOL (актуальное соотношение)
             mori_price = sol_price * 0.00005432
-            return jsonify({
+            result = {
                 "price": round(mori_price, 6),
                 "change24h": 0,
                 "volume24h": 0,
@@ -105,36 +120,61 @@ def get_mori_price():
                 "marketCap": 0,
                 "circulatingSupply": 400_000_000,
                 "timestamp": datetime.utcnow().timestamp()
-            })
+            }
+            # Сохраняем в кэш
+            mori_cache['data'] = result
+            mori_cache['timestamp'] = now
+            logger.info(f"✅ CoinGecko: цена {mori_price}")
+            return jsonify(result)
     except Exception as e:
         logger.error(f"CoinGecko error: {e}")
-    
-    # Если всё упало
-    return jsonify({"error": "Сервис временно недоступен"}), 503
+
+    # Если всё упало — возвращаем кэш (даже если старый)
+    logger.warning(f"❌ Ошибка, возвращаем кэш MORI: {mori_cache['data']['price']}")
+    return jsonify(mori_cache['data'])
+
+# Глобальный кэш для SOL с начальным значением
+solana_cache = {
+    'data': {'price': 83.5, 'change24h': 1.5},
+    'timestamp': time.time()
+}
 
 def get_solana_price():
-    """Получение цены SOL и изменения через Binance API"""
+    """Получение цены SOL и изменения — Binance + fallback CoinGecko"""
+    global solana_cache
+    
+    # Проверяем кэш (5 минут)
+    now = time.time()
+    if solana_cache['data'] is not None and (now - solana_cache['timestamp']) < 300:
+        logger.info(f"📦 Возвращаем из кэша: {solana_cache['data']}")
+        return solana_cache['data']
+    
     logger.info("🔍 Запрос цены SOL через Binance...")
+    
+    # Попытка 1: Binance
     try:
-        url = "https://api.binance.com/api/v3/ticker/24hr"
-        params = {'symbol': 'SOLUSDT'}
-        resp = requests.get(url, params=params, timeout=5)
-        logger.info(f"📡 Статус Binance: {resp.status_code}")
-        
+        url = "https://api.binance.com/api/v3/ticker/price?symbol=SOLUSDT"
+        resp = requests.get(url, timeout=5)
         if resp.status_code == 200:
             data = resp.json()
-            price = float(data.get('lastPrice', 0))
-            change24h = float(data.get('priceChangePercent', 0))
-            logger.info(f"✅ SOL цена: {price}, изменение: {change24h}%")
-            return {
-                'price': price,
-                'change24h': change24h
-            }
+            price = float(data.get('price', 0))
+            # Получаем изменение
+            url_24h = "https://api.binance.com/api/v3/ticker/24hr?symbol=SOLUSDT"
+            resp_24h = requests.get(url_24h, timeout=5)
+            change24h = 0
+            if resp_24h.status_code == 200:
+                data_24h = resp_24h.json()
+                change24h = float(data_24h.get('priceChangePercent', 0))
+            
+            result = {'price': price, 'change24h': change24h}
+            solana_cache['data'] = result
+            solana_cache['timestamp'] = now
+            logger.info(f"✅ Binance: цена {price}, изменение {change24h}%")
+            return result
     except Exception as e:
-        logger.error(f"❌ Ошибка Binance: {e}")
+        logger.error(f"Binance error: {e}")
     
-    # Fallback: CoinGecko (если Binance не работает)
-    logger.info("🔄 Fallback на CoinGecko...")
+    # Попытка 2: CoinGecko
     try:
         url = "https://api.coingecko.com/api/v3/simple/price"
         params = {
@@ -146,14 +186,19 @@ def get_solana_price():
         if resp.status_code == 200:
             data = resp.json()
             solana = data.get('solana', {})
-            return {
-                'price': solana.get('usd', 0),
-                'change24h': solana.get('usd_24h_change', 0)
-            }
+            price = solana.get('usd', 0)
+            change24h = solana.get('usd_24h_change', 0)
+            result = {'price': price, 'change24h': change24h}
+            solana_cache['data'] = result
+            solana_cache['timestamp'] = now
+            logger.info(f"✅ CoinGecko: цена {price}, изменение {change24h}%")
+            return result
     except Exception as e:
-        logger.error(f"❌ Ошибка CoinGecko: {e}")
+        logger.error(f"CoinGecko error: {e}")
     
-    return {'price': 0, 'change24h': 0}
+    # Если ничего не вышло — возвращаем кэш (даже если старый)
+    logger.warning(f"❌ Ошибка, возвращаем кэш: {solana_cache['data']}")
+    return solana_cache['data']
 
 @with_tenant
 def get_mori_history():
