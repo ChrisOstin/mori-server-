@@ -157,10 +157,9 @@ def get_solana_price():
 
 @with_tenant
 def get_mori_history():
-    """Получение истории цены — реальные данные с CoinGecko"""
     try:
         timeframe = request.args.get('timeframe', '1d')
-        logger.info(f"📊 Запрос истории для {timeframe}")
+        print(f"📊 Запрос истории для {timeframe}")
         
         days_map = {
             '12h': 1,
@@ -176,20 +175,19 @@ def get_mori_history():
         url = "https://api.coingecko.com/api/v3/coins/solana/market_chart"
         params = {'vs_currency': 'usd', 'days': days}
         
-        logger.info(f"📡 Запрос к CoinGecko: {url}?days={days}")
+        print(f"📡 Запрос к CoinGecko: {url}?days={days}")
         resp = requests.get(url, params=params, timeout=10)
-        logger.info(f"📡 Статус CoinGecko: {resp.status_code}")
+        print(f"📡 Статус CoinGecko: {resp.status_code}")
         
         if resp.status_code != 200:
-            logger.error(f"❌ CoinGecko ошибка: {resp.status_code}")
+            print(f"❌ Ошибка CoinGecko: {resp.status_code}")
             return jsonify([])
         
         data = resp.json()
         prices = data.get('prices', [])
-        logger.info(f"📈 Получено цен: {len(prices)}")
+        print(f"📈 Получено цен: {len(prices)}")
         
         if not prices:
-            logger.warning("⚠️ Нет цен в ответе")
             return jsonify([])
         
         result = []
@@ -200,11 +198,11 @@ def get_mori_history():
                 'y': round(mori_price, 6)
             })
         
-        logger.info(f"✅ Возвращаем {len(result)} точек для {timeframe}")
+        print(f"✅ Возвращаем {len(result)} точек")
         return jsonify(result)
         
     except Exception as e:
-        logger.error(f"💥 Ошибка в get_mori_history: {e}")
+        print(f"💥 Ошибка: {e}")
         return jsonify([])
  
 @with_tenant
