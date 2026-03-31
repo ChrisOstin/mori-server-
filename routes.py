@@ -113,7 +113,28 @@ def get_mori_price():
     return jsonify({"error": "Сервис временно недоступен"}), 503
 
 def get_solana_price():
-    logger.info("🔍 Запрос цены SOL...")
+    """Получение цены SOL и изменения через Binance API"""
+    logger.info("🔍 Запрос цены SOL через Binance...")
+    try:
+        url = "https://api.binance.com/api/v3/ticker/24hr"
+        params = {'symbol': 'SOLUSDT'}
+        resp = requests.get(url, params=params, timeout=5)
+        logger.info(f"📡 Статус Binance: {resp.status_code}")
+        
+        if resp.status_code == 200:
+            data = resp.json()
+            price = float(data.get('lastPrice', 0))
+            change24h = float(data.get('priceChangePercent', 0))
+            logger.info(f"✅ SOL цена: {price}, изменение: {change24h}%")
+            return {
+                'price': price,
+                'change24h': change24h
+            }
+    except Exception as e:
+        logger.error(f"❌ Ошибка Binance: {e}")
+    
+    # Fallback: CoinGecko (если Binance не работает)
+    logger.info("🔄 Fallback на CoinGecko...")
     try:
         url = "https://api.coingecko.com/api/v3/simple/price"
         params = {
@@ -122,17 +143,16 @@ def get_solana_price():
             'include_24hr_change': 'true'
         }
         resp = requests.get(url, params=params, timeout=5)
-        logger.info(f"📡 Статус CoinGecko: {resp.status_code}")
         if resp.status_code == 200:
             data = resp.json()
             solana = data.get('solana', {})
-            logger.info(f"✅ SOL цена: {solana.get('usd')}, изменение: {solana.get('usd_24h_change')}")
             return {
                 'price': solana.get('usd', 0),
                 'change24h': solana.get('usd_24h_change', 0)
             }
     except Exception as e:
-        logger.error(f"❌ Ошибка: {e}")
+        logger.error(f"❌ Ошибка CoinGecko: {e}")
+    
     return {'price': 0, 'change24h': 0}
 
 @with_tenant
