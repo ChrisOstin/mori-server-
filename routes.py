@@ -114,6 +114,7 @@ def get_mori_price():
 
 def get_solana_price():
     try:
+        print("🔍 Запрос цены SOL...")
         url = "https://api.coingecko.com/api/v3/simple/price"
         params = {
             'ids': 'solana',
@@ -121,64 +122,19 @@ def get_solana_price():
             'include_24hr_change': 'true'
         }
         resp = requests.get(url, params=params, timeout=5)
+        print(f"📡 Статус CoinGecko: {resp.status_code}")
         if resp.status_code == 200:
             data = resp.json()
             solana = data.get('solana', {})
+            print(f"✅ SOL цена: {solana.get('usd')}, изменение: {solana.get('usd_24h_change')}")
             return {
                 'price': solana.get('usd', 0),
                 'change24h': solana.get('usd_24h_change', 0)
             }
     except Exception as e:
+        print(f"❌ Ошибка: {e}")
         logger.error(f"Ошибка получения цены SOL: {e}")
     return {'price': 0, 'change24h': 0}
-
-@with_tenant
-def get_mori_history():
-    try:
-        timeframe = request.args.get('timeframe', '1d')
-        print(f"📊 Запрос истории для {timeframe}")
-        
-        days_map = {
-            '12h': 1,
-            '1d': 1,
-            '3d': 3,
-            '1m': 30,
-            '3m': 90,
-            '6m': 180,
-            '12m': 365
-        }
-        days = days_map.get(timeframe, 1)
-        
-        url = "https://api.coingecko.com/api/v3/coins/solana/market_chart"
-        params = {'vs_currency': 'usd', 'days': days}
-        
-        resp = requests.get(url, params=params, timeout=10)
-        
-        if resp.status_code != 200:
-            print(f"❌ CoinGecko ошибка: {resp.status_code}")
-            return jsonify([])
-        
-        data = resp.json()
-        prices = data.get('prices', [])
-        print(f"📈 Получено цен: {len(prices)}")
-        
-        if not prices:
-            return jsonify([])
-        
-        result = []
-        for ts, price in prices:
-            mori_price = price * 0.00005432
-            result.append({
-                'x': ts,
-                'y': round(mori_price, 6)
-            })
-        
-        print(f"✅ Возвращаем {len(result)} точек")
-        return jsonify(result)
-        
-    except Exception as e:
-        print(f"💥 Ошибка: {e}")
-        return jsonify([])
  
 @with_tenant
 @cached_query('whales', ttl=300)  # Кэш на 5 минут
