@@ -113,8 +113,8 @@ def get_mori_price():
     return jsonify({"error": "Сервис временно недоступен"}), 503
 
 def get_solana_price():
+    logger.info("🔍 Запрос цены SOL...")
     try:
-        print("🔍 Запрос цены SOL...")
         url = "https://api.coingecko.com/api/v3/simple/price"
         params = {
             'ids': 'solana',
@@ -122,18 +122,17 @@ def get_solana_price():
             'include_24hr_change': 'true'
         }
         resp = requests.get(url, params=params, timeout=5)
-        print(f"📡 Статус CoinGecko: {resp.status_code}")
+        logger.info(f"📡 Статус CoinGecko: {resp.status_code}")
         if resp.status_code == 200:
             data = resp.json()
             solana = data.get('solana', {})
-            print(f"✅ SOL цена: {solana.get('usd')}, изменение: {solana.get('usd_24h_change')}")
+            logger.info(f"✅ SOL цена: {solana.get('usd')}, изменение: {solana.get('usd_24h_change')}")
             return {
                 'price': solana.get('usd', 0),
                 'change24h': solana.get('usd_24h_change', 0)
             }
     except Exception as e:
-        print(f"❌ Ошибка: {e}")
-        logger.error(f"Ошибка получения цены SOL: {e}")
+        logger.error(f"❌ Ошибка: {e}")
     return {'price': 0, 'change24h': 0}
 
 @with_tenant
