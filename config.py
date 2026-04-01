@@ -36,6 +36,7 @@ class Config:
         "http://192.168.0.101:8080",
         "https://chrisostin.github.io",
         "https://mori-oracle.netlify.app",
+        "https://oracle-mini-app.vercel.app",
         "https://mori-server.onrender.com"
     ]    
     
