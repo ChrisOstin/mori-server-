@@ -33,6 +33,25 @@ from config import Config
 
 logger = logging.getLogger('mori_routes')
 
+# Глобальный кэш для MORI
+mori_cache = {
+    'data': {
+        "price": 0.0052,
+        "change24h": 0,
+        "volume24h": 0,
+        "liquidity": 0,
+        "fdv": 0,
+        "marketCap": 0,
+        "circulatingSupply": 400_000_000,
+        "timestamp": 0
+    },
+    'timestamp': 0
+}
+
+solana_cache = {
+    'data': {'price': 83.5, 'change24h': 1.5},
+    'timestamp': 0
+}
 # ========== ДЕКОРАТОР ДЛЯ ТЕНАНТОВ ==========
 def with_tenant(f):
     """Добавляет информацию о тенанте в запрос"""
