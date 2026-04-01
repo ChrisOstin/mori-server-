@@ -1,0 +1,311 @@
+pip install transformers huggingface-hub
+exit
+cat ~/.bashrc | grep -E "^alias|^#.*alias
+cat ~/.bashrc | grep -E "^alias|^#.*alias"
+tar -tzf ~/GALACTIC-BACKUP-BMCSL-20260320_225943.tar.gz | grep ".bashrc"
+tar -xzf ~/GALACTIC-BACKUP-BMCSL-20260320_225943.tar.gz --wildcards "*.bashrc"
+cp ~/oracle-bot/bashrc_backup.txt ~/.bashrc
+source ~/.bashrc
+bs
+alias
+pyt
+nano oracle_bot_final_complete.py
+pip install -r requirements.txt
+pip install python-telegram-bot
+pyy
+pyt
+pip install lyricsgenius yandex-music python-dotenv schedule flask-socketio
+pyt
+pip install python-telegram-bot httpx httpcore aiohttp flask flask-cors transformers numpy pandas requests
+exit
+nano .env.secure
+exit
+pkg install root-repo
+pkg install python-matplotlib
+pkg update
+pkg install python-matplotlib
+pkg install matplotlib
+exit
+pkg update && pkg upgrade -y
+pkg install -y python python-pip curl openssl git
+cd ~
+cp /storage/emulated/0/Download/GALACTIC-BACKUP-BMCSL-20260320_225943.tar.gz .
+tar -xzf GALACTIC-BACKUP-BMCSL-20260320_225943.tar.gz
+ls -la ~/oracle-bot/
+ls -la ~/Oracle-Mini-App-/
+cd ~/oracle-bot
+pip install python-telegram-bot httpx httpcore aiohttp flask flask-cors transformers numpy pandas request
+cd ~/oracle-bot
+pip install python-telegram-bot httpx httpcore aiohttp flask flask-cors transformers numpy pandas requests
+curl https://api.telegram.org/bot8388302658:AAHOmrORK_1mNlXpzlYUNd3iYh31VsAnkVQ/getMe
+cd ~/oracle-bot
+pip install python-telegram-bot httpx httpcore aiohttp flask flask-cors transformers numpy pandas requests
+pkg install python-torch
+pip install transformers huggingface-hub
+pip install tokenizers -i https://mirrors.aliyun.com/pypi/simple
+pip install tokenizers -i https://pypi.tuna.tsinghua.edu.cn/simple
+pip install https://github.com/KumaTea/tokenizers-aarch64/releases/download/v0.22.0/tokenizers-0.22.0-cp312-cp312-linux_aarch64.whl
+pip install transformers huggingface-hub --no-deps
+pip install packaging pyyaml regex
+pip install https://github.com/KumaTea/tokenizers-aarch64/releases/download/v0.22.0/tokenizers-0.22.0-cp313-cp313-linux_aarch64.wh
+pip install https://github.com/KumaTea/tokenizers-aarch64/releases/download/v0.22.0/tokenizers-0.22.0-cp313-cp313-linux_aarch64.whl
+cd ~/oracle-bot
+curl -L -o tokenizers.whl https://github.com/KumaTea/tokenizers-aarch64/releases/download/v0.22.0/tokenizers-0.22.0-cp313-cp313-linux_aarch64.whl
+pip install tokenizers.whl
+pip install safetensors
+pip install tqdm typer
+pip install hf-xet
+pkg install rus
+pkg install rust
+pip install tokenizers -i https://mirrors.aliyun.com/pypi/simple/ --no-cache-dir
+curl https://api.telegram.org/bot8388302658:AAHOmrORK_1mNlXpzlYUNd3iYh31VsAnkVQ/getMe
+pkg install python-tokenizers python-safetensors
+pkg install rus
+pkg install rust
+pkg install android-sdk
+export ANDROID_HOME=/data/data/com.termux/files/usr/lib/android-sdk
+export ANDROID_API_LEVEL=24
+pip install tokenizers -i https://mirrors.aliyun.com/pypi/simple/ --no-cache-dir
+pip install safetensors -i https://mirrors.aliyun.com/pypi/simple/ --no-cache-dir
+pyt
+bs
+source ~/.bashr
+source ~/.bashrc
+bs
+pyt
+pip install pycoingecko
+pyt
+pip install matplotlib
+pkg install python-matplotlib
+pkg install -y freetype libpng qhull python-numpy python-pillow
+pip install matplotlib -i https://mirrors.aliyun.com/pypi/simple/ --no-cache-dir
+шpip install matplotlib -i https://pypi.tuna.tsinghua.edu.cn/simple --no-cache-dir
+pip install matplotlib -i https://pypi.tuna.tsinghua.edu.cn/simple --no-cache-dir
+pkg list-installed | grep -E "python|curl|openssl|git|rust|cmake|ninja|freetype|libpng|qhull|root-repo"
+pip list | grep -E "telegram|httpx|httpcore|aiohttp|flask|transformers|tokenizers|safetensors|torch|numpy|pandas|matplotlib|pycoingecko|lyricsgenius|yandex-music|requests|beautifulsoup4|python-dotenv|schedule|pyTelegramBotAPI|redis|celery|Pillow|PyYAML|tqdm"
+pip list
+pyt
+pip install pandas
+pkg install python-pandas
+pip install pandas -i https://mirrors.aliyun.com/pypi/simple/ --no-build-isolation
+pip install pandas -i https://pypi.tuna.tsinghua.edu.cn/simple --no-build-isolation
+pkg install -y meson ninja python-pip python-numpy python-pandas
+pkg install -y cmake ninja meson
+pip install mesonpy
+pip install pandas -i https://mirrors.aliyun.com/pypi/simple/ --no-cache-dir
+pyt
+pip install flask-compress
+pyt
+pip install flask-cors
+pyt
+pip install flask-babel
+pyt
+nano ~/oracle-bot/web_panel.py
+pyt
+megastart
+bs
+find ~ -name "start_all.sh" 2>/dev/null
+find ~ -name "punkt50.sh" 2>/dev/null
+god
+nano ~/.god_config
+god
+find ~ -name "start_all.sh" 2>/dev/null
+find ~ -name "*megastart*" -type f 2>/dev/nul
+find ~ -name "*start*" -type f 2>/dev/null | grep -E "\.sh$"
+nano ~/bashrc.sh
+orb
+fm
+nano ~/oracle-bot/start_all.sh
+ch +x ~/start_all.sh
+ch +x start_all.sh
+nano ~/oracle-bot/start_all.sh
+ch +x ~/oracle-bot/start_all.sh
+chmod +x ~/oracle-bot/start_all.sh
+megastart
+cat ~/oracle-bot/start_all.sh
+echo "alias megastart='cd ~/oracle-bot && ./start_all.sh'" >> ~/.bashrc
+source ~/.bashr
+echo "alias megastart='cd ~/oracle-bot && ./start_all.sh'" >> ~/.bashrc
+source ~/.bashrc
+megastart
+ls -la ~/Oracle-Mini-App-/server/
+cd ~/Oracle-Mini-App-/server
+python3 app.py
+pip install flask-jwt-extended
+python3 app.py
+pip install flask-sqlalchemy
+python3 app.py
+megastart
+bs
+stopapp
+bp
+bs
+cd ~/Oracle-Mini-App-
+git add .
+git commit -m "MORI ORACLE v2.0 — исправлены заглушки"
+git push origin main
+cd ~/Oracle-Mini-App-
+git add .
+git commit -m "MORI ORACLE v2.0 — исправлены заглушки"
+git push origin main
+git init
+git add .
+git branch -M main
+git push -u origin main
+cd ~/Oracle-Mini-App-
+git add .
+git commit -m "MORI ORACLE v2.0 — исправлены заглушки"
+git remote add origin https://github.com/chrisostin/Oracle-Mini-App-.git
+git branch -M main
+git push -u origin main
+git config --global user.name "chrisostin"
+git config --global user.email "chrisostin@github.com"
+cd ~/Oracle-Mini-App-
+git add .
+git commit -m "MORI ORACLE v2.0 — исправлены заглушки"
+git branch -M main
+git push -u origin main
+git
+nano bashrc.sh
+nano ~/bashrc.sh
+cd ~/Oracle-Mini-App-
+git add .
+git commit -m "MORI ORACLE v2.0 — исправлены заглушки"
+git branch -M main
+git push -u origin main
+git add .
+git commit -m "MORI ORACLE v2.0 — исправлены заглушки"
+git branch -M main
+git push -u origin main
+ls -la ~/Oracle-Mini-App-/js/modules
+nano ~/Oracle-Mini-App-/js/core/storage.js
+cd ~/Oracle-Mini-App-
+git add js/core/storage.js
+git commit -m "fix: обработка null/undefined в queryDB"
+git push origin main
+git push origin main --force
+nano ~/oracle-bot/start_all.sh
+megastart
+nano ~/oracle-bot/start_all.sh
+megastart
+bs
+grep -n "src=" ~/Oracle-Mini-App-/index.html
+grep -n "modules/" ~/Oracle-Mini-App-/js/core/app.js | head -10
+grep -n "loadModule\|initModules" ~/Oracle-Mini-App-/js/core/app.js | head -10
+tail -50 ~/oracle-bot/logs/oracle_bot.log
+cd ~/oracle-bot
+./start_all.sh --sto
+pkill -f oracle_bot
+pkill -f start_all
+pkill -f megastart
+pyt
+nano ~/oracle-bot/start_all.sh
+megastart
+bs
+nano ~/Oracle-Mini-App-/js/core/app.js
+cd ~/Oracle-Mini-App-
+git add js/core/app.js
+git commit -m "fix: относительный путь к модулям"
+git push origin main --force
+stopapp
+bp
+pkill -f start_all
+pkill -f "python3.*oracle"
+pkill -f "http.server"
+pkill -f "app.py
+
+
+pkill -f start_all
+pkill -f "python3.*oracle"
+pkill -f "http.server"
+pkill -f "app.py"
+nano ~/oracle-bot/start_all.sh
+megastart
+bs
+nano ~/Oracle-Mini-App-/js/core/api.j
+nano ~/Oracle-Mini-App-/js/core/api.js
+ssh-keygen -t ed25519 -C "chrisostin@github.com"
+cat ~/.ssh/id_ed25519.pu
+cat ~/.ssh/id_ed25519.pub
+cd ~/Oracle-Mini-App-
+git remote set-url origin git@github.com:ChrisOstin/Oracle-Mini-App-.git
+git push origin main
+grep -n "import.*modules" ~/Oracle-Mini-App-/js/core/app.js
+megastart
+bs
+cd ~/Oracle-Mini-App-
+git ls-files | grep "js/modules/portfolio"
+git ls-files
+nano ~/Oracle-Mini-App-/js/core/api.js
+nano ~/Oracle-Mini-App-/js/core/app.js
+cat ~/Oracle-Mini-App-/js/core/app.js
+bs
+cd ~/Oracle-Mini-App-
+git add js/core/app.js
+git commit -m "MORI APP v6.2.0: параллельная загрузка, предзагрузка, кэширование"
+git push origin main
+bs
+nano ~/Oracle-Mini-App-/js/core/app.js
+gb
+nano ~/Oracle-Mini-App-/js/core/app.js
+cd ~/Oracle-Mini-App-
+git add js/core/app.js
+git commit -m "MORI APP v6.2.0: параллельная загрузка, убраны дубликаты"
+git push origin main
+bs
+stopapp
+bp
+bs
+nano ~/.bashrc
+source ~/.bashrc
+bbs
+exit
+orb
+nano ~/.bashrc
+grep -r "MEGA-START ULTIMATE" ~/.bashrc ~/.profile ~/oracle-bot/*.sh 2>/dev/null | head -10
+grep -r "start_all.sh" ~/.bashrc ~/.profile ~/.bash_profile 2>/dev/null
+grep -r "oracle-bot/start_all" ~/.bashrc 2>/dev/null
+nano ~/.bashrc
+source ~/.bashrc
+bs
+nano ~/.bashrc
+source ~/.bashrc
+bs
+megastart
+bs
+gm
+cd ~/Oracle-Mini-App-/js/modules/voice
+echo "// Voice module placeholder" > index.j
+cd ~/Oracle-Mini-App-/js/modules/voice
+echo "// Voice module placeholder" > index.js
+ls -la ~/Oracle-Mini-App-/js/modules/voice/
+grep "baseUrl" ~/Oracle-Mini-App-/js/core/api.js
+grep -n "value === undefined || value === null" ~/Oracle-Mini-App-/js/core/storage.j
+grep -n "value === undefined || value === null" ~/Oracle-Mini-App-/js/core/storage.js
+nano ~/oracle-bot/start_all.s
+h
+nano ~/oracle-bot/start_all.sh
+nano ~/Oracle-Mini-App-/js/core/app.js
+nano ~/Oracle-Mini-App-/js/core/api.js
+cd ~/Oracle-Mini-App-
+git add js/core/api.js
+git commit -m "fix: baseUrl localhost"
+git push origin main
+bs
+curl -v http://localhost:5000/health
+nano ~/Oracle-Mini-App-/server/app.py
+cat ~/Oracle-Mini-App-/server/app.py
+nano ~/Oracle-Mini-App-/server/config.p
+nano ~/Oracle-Mini-App-/server/config.py
+curl -v http://localhost:5000/health
+bs
+grep "localhost:8080" ~/Oracle-Mini-App-/server/config.py
+stopapp
+bp
+cd ~/Oracle-Mini-App-/server
+python3 app.py
+exit
+cp -r ~/Oracle-Mini-App- ~/mori-oracle-backup/Oracle-Mini-App-$(date +%Y%m%d_%H%M%S)
+cd ~/Oracle-Mini-App-
+nano css/core/variables.css
+exit

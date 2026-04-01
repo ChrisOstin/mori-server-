@@ -1,0 +1,342 @@
+# === ORACLE BOT — РАБОЧИЕ АЛИАСЫ (ИСПРАВЛЕНО) ===
+alias ab='cd ~/oracle-bot && python3 bot_manager.py ab'
+alias ar='cd ~/oracle-bot && python3 bot_manager.py ar'
+alias bl='cd ~/oracle-bot && python3 bot_manager.py bl'
+alias bp='cd ~/oracle-bot && python3 bot_manager.py bp'
+alias br='cd ~/oracle-bot && python3 bot_manager.py br'
+alias bs='cd ~/oracle-bot && python3 bot_manager.py bs'
+alias list='ls -lh ~/*.tar.gz /sdcard/*.tar.gz 2>/dev/null'
+alias h='cd ~/oracle-bot && python3 bot_manager.py h'
+alias orb='cd ~/oracle-bot'
+alias clean='cd ~/oracle-bot && python3 bot_manager.py clean'
+
+# 🎨 ЦВЕТА
+alias ls='ls --color=auto'
+alias ll='ls -l --color=auto'
+alias la='ls -la --color=auto'
+
+alias editbot='~/oracle-bot/edit.sh'
+alias ed='~/oracle-bot/edit.sh'
+alias bal='~/oracle-bot/balance'
+alias pr='~/oracle-bot/check_proxies_batch.sh'
+alias up='python3 ~/oracle-bot/upgrade_proxies_cli.py'
+alias p='~/oracle-bot/protect.sh'
+alias di="~/oracle-bot/diagnose_bot_complete.sh"
+alias fm='python3 ~/oracle-bot/file_manager.py'
+alias pyt='cd ~/oracle-bot && python3 oracle_bot_final_complete.py'
+alias logs='tail -f ~/oracle-bot/logs/oracle_bot.log'
+alias web='cd ~/oracle-bot && python3 web_panel.py'
+
+#!/data/data/com.termux/files/usr/bin/bash
+
+clear
+
+CYAN='\033[0;36m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+RED='\033[0;31m'
+BLUE='\033[0;34m'
+PURPLE='\033[0;35m'
+NC='\033[0m'
+BOLD='\033[1m'
+
+echo -e "${CYAN}${BOLD}"
+echo "╔═══════════════════════════════════════════════════════════════════╗"
+echo "║                    🔮 ORACLE BOT                                 ║"
+echo "╚═══════════════════════════════════════════════════════════════════╝"
+echo -e "${NC}"
+
+echo -e "${CYAN}┌─────────────────────────────────────────────────────────────────┐${NC}"
+echo -e "${CYAN}│${NC}  ${GREEN}🤖 УПРАВЛЕНИЕ БОТОМ${NC}                                            ${CYAN}│${NC}"
+echo -e "${CYAN}│${NC}  ${YELLOW}bl${NC}  = запуск через менеджер    ${YELLOW}bp${NC}  = остановка           ${CYAN}│${NC}"
+echo -e "${CYAN}│${NC}  ${YELLOW}br${NC}  = перезапуск               ${YELLOW}bs${NC}  = статус              ${CYAN}│${NC}"
+echo -e "${CYAN}│${NC}  ${YELLOW}pyt${NC} = ручной запуск (отладка)                                 ${CYAN}│${NC}"
+echo -e "${CYAN}├─────────────────────────────────────────────────────────────────┤${NC}"
+
+echo -e "${CYAN}│${NC}  ${GREEN}🌐 ВЕБ-ПАНЕЛЬ${NC}                                                 ${CYAN}│${NC}"
+echo -e "${CYAN}│${NC}  ${YELLOW}web${NC}  = запуск веб-панели                                    ${CYAN}│${NC}"
+echo -e "${CYAN}│${NC}  ${YELLOW}myip${NC} = показать локальный IP                                ${CYAN}│${NC}"
+echo -e "${CYAN}├─────────────────────────────────────────────────────────────────┤${NC}"
+
+echo -e "${CYAN}│${NC}  ${GREEN}📦 БЭКАПЫ${NC}                                                     ${CYAN}│${NC}"
+echo -e "${CYAN}│${NC}  ${YELLOW}ab${NC}   = атомный бэкап              ${YELLOW}list${NC} = список бэкапов  ${CYAN}│${NC}"
+echo -e "${CYAN}│${NC}  ${YELLOW}ar${NC}   = восстановление                                        ${CYAN}│${NC}"
+echo -e "${CYAN}├─────────────────────────────────────────────────────────────────┤${NC}"
+
+echo -e "${CYAN}│${NC}  ${GREEN}⚡ ПРОКСИ И ДИАГНОСТИКА${NC}                                        ${CYAN}│${NC}"
+echo -e "${CYAN}│${NC}  ${YELLOW}bal${NC}  = баланс DeepSeek           ${YELLOW}pr${NC}   = проверка прокси  ${CYAN}│${NC}"
+echo -e "${CYAN}│${NC}  ${YELLOW}up${NC}   = обновление из 50+ источников                         ${CYAN}│${NC}"
+echo -e "${CYAN}│${NC}  ${YELLOW}di${NC}   = полная диагностика         ${YELLOW}p${NC}    = редактор        ${CYAN}│${NC}"
+echo -e "${CYAN}├─────────────────────────────────────────────────────────────────┤${NC}"
+
+echo -e "${CYAN}│${NC}  ${GREEN}📊 ЛОГИ${NC}                                                        ${CYAN}│${NC}"
+echo -e "${CYAN}│${NC}  ${YELLOW}logs${NC}    = логи бота               ${YELLOW}weblogs${NC} = логи веб-панели ${CYAN}│${NC}"
+echo -e "${CYAN}│${NC}  ${YELLOW}log50${NC}   = последние 50             ${YELLOW}logerr${NC}   = ошибки        ${CYAN}│${NC}"
+echo -e "${CYAN}├─────────────────────────────────────────────────────────────────┤${NC}"
+
+echo -e "${CYAN}│${NC}  ${GREEN}🛠️ СЕРВИС${NC}                                                      ${CYAN}│${NC}"
+echo -e "${CYAN}│${NC}  ${YELLOW}clean${NC}  = очистка кэша               ${YELLOW}fm${NC}    = файловый менеджер${CYAN}│${NC}"
+echo -e "${CYAN}│${NC}  ${YELLOW}deps${NC}   = проверить зависимости                                ${CYAN}│${NC}"
+echo -e "${CYAN}└─────────────────────────────────────────────────────────────────┘${NC}"
+
+echo ""
+echo -e "${CYAN}═══════════════════════════════════════════════════════════════════════${NC}"
+echo -e "${YELLOW}📱 Веб-панель:${NC} http://$(ip -4 addr show wlan0 2>/dev/null | grep -oP '(?<=inet\s)\d+(\.\d+){3}' || echo "192.168.0.157"):5000"
+echo -e "${CYAN}═══════════════════════════════════════════════════════════════════════${NC}"
+echo ""
+
+
+security_check() {
+    clear
+    
+    # Цвета
+    RED='\033[0;31m'
+    GREEN='\033[0;32m'
+    YELLOW='\033[1;33m'
+    BLUE='\033[0;34m'
+    PURPLE='\033[0;35m'
+    CYAN='\033[0;36m'
+    WHITE='\033[1;37m'
+    NC='\033[0m'
+    BOLD='\033[1m'
+
+    echo -e "${CYAN}${BOLD}"
+    echo "╔══════════════════════════════════════════════════════════════════════════════════╗"
+    echo "║                      🔒 SECURITY CHECK — ORACLE BOT v16.0                        ║"
+    echo "╚══════════════════════════════════════════════════════════════════════════════════╝"
+    echo -e "${NC}"
+
+    # Функция для отрисовки строки
+    draw_line() {
+        echo -e "${CYAN}║${NC} $1"
+    }
+
+    # Функция для статуса
+    status_icon() {
+        if [ "$1" == "ok" ]; then
+            echo -e "${GREEN}✅${NC}"
+        elif [ "$1" == "warn" ]; then
+            echo -e "${YELLOW}⚠️${NC}"
+        elif [ "$1" == "error" ]; then
+            echo -e "${RED}❌${NC}"
+        elif [ "$1" == "info" ]; then
+            echo -e "${BLUE}ℹ️${NC}"
+        fi
+    }
+
+    # ========== 1. БАЗЫ ДАННЫХ ==========
+    echo -e "${CYAN}╔══════════════════════════════════════════════════════════════════════════════╗${NC}"
+    echo -e "${CYAN}║${WHITE}${BOLD}                        📁 БАЗЫ ДАННЫХ                                    ${CYAN}║${NC}"
+    echo -e "${CYAN}╠══════════════════════════════════════════════════════════════════════════════╣${NC}"
+
+    if [ -f ~/oracle-bot/oracle_bot.db ]; then
+        PERMS=$(stat -c "%a" ~/oracle-bot/oracle_bot.db 2>/dev/null)
+        if [ "$PERMS" = "600" ]; then
+            echo -e "${CYAN}║${NC}   $(status_icon ok) oracle_bot.db  ${GREEN}✓ 600 (безопасно)${NC} $(printf '%*s' $((40-${#PERMS})) '')${CYAN}║${NC}"
+        else
+            echo -e "${CYAN}║${NC}   $(status_icon error) oracle_bot.db  ${RED}✗ $PERMS (должно быть 600)${NC}${CYAN}║${NC}"
+        fi
+    else
+        echo -e "${CYAN}║${NC}   $(status_icon warn) oracle_bot.db  ${YELLOW}⚠ не найден${NC}${CYAN}║${NC}"
+    fi
+
+    if [ -f ~/oracle-bot/web_panel.db ]; then
+        PERMS=$(stat -c "%a" ~/oracle-bot/web_panel.db 2>/dev/null)
+        if [ "$PERMS" = "600" ]; then
+            echo -e "${CYAN}║${NC}   $(status_icon ok) web_panel.db   ${GREEN}✓ 600 (безопасно)${NC}${CYAN}║${NC}"
+        else
+            echo -e "${CYAN}║${NC}   $(status_icon error) web_panel.db   ${RED}✗ $PERMS (должно быть 600)${NC}${CYAN}║${NC}"
+        fi
+    else
+        echo -e "${CYAN}║${NC}   $(status_icon warn) web_panel.db   ${YELLOW}⚠ не найден${NC}${CYAN}║${NC}"
+    fi
+
+    # ========== 2. ЛОГИ ==========
+    echo -e "${CYAN}╠══════════════════════════════════════════════════════════════════════════════╣${NC}"
+    echo -e "${CYAN}║${WHITE}${BOLD}                        📊 ЛОГИ СИСТЕМЫ                                     ${CYAN}║${NC}"
+    echo -e "${CYAN}╠══════════════════════════════════════════════════════════════════════════════╣${NC}"
+
+    if [ -d ~/oracle-bot/logs ]; then
+        LOGS_PERMS=$(stat -c "%a" ~/oracle-bot/logs 2>/dev/null)
+        if [ "$LOGS_PERMS" = "700" ]; then
+            echo -e "${CYAN}║${NC}   $(status_icon ok) папка logs     ${GREEN}✓ 700 (безопасно)${NC}${CYAN}║${NC}"
+        else
+            echo -e "${CYAN}║${NC}   $(status_icon error) папка logs     ${RED}✗ $LOGS_PERMS (должно быть 700)${NC}${CYAN}║${NC}"
+        fi
+
+        # Проверка файлов логов
+        BAD_LOGS=0
+        for log in ~/oracle-bot/logs/*.log; do
+            if [ -f "$log" ]; then
+                PERMS=$(stat -c "%a" "$log" 2>/dev/null)
+                if [ "$PERMS" != "600" ] && [ "$PERMS" != "640" ]; then
+                    echo -e "${CYAN}║${NC}   $(status_icon error) $(basename $log) ${RED}✗ $PERMS${NC}${CYAN}║${NC}"
+                    BAD_LOGS=1
+                fi
+            fi
+        done
+        if [ $BAD_LOGS -eq 0 ]; then
+            echo -e "${CYAN}║${NC}   $(status_icon ok) все логи       ${GREEN}✓ права в порядке${NC}${CYAN}║${NC}"
+        fi
+    else
+        echo -e "${CYAN}║${NC}   $(status_icon warn) папка logs     ${YELLOW}⚠ не найдена${NC}${CYAN}║${NC}"
+    fi
+
+    # ========== 3. ТОКЕНЫ ==========
+    echo -e "${CYAN}╠══════════════════════════════════════════════════════════════════════════════╣${NC}"
+    echo -e "${CYAN}║${WHITE}${BOLD}                        🔑 ФАЙЛЫ С ТОКЕНАМИ                                 ${CYAN}║${NC}"
+    echo -e "${CYAN}╠══════════════════════════════════════════════════════════════════════════════╣${NC}"
+
+    if [ -f ~/oracle-bot/.env.secure ]; then
+        PERMS=$(stat -c "%a" ~/oracle-bot/.env.secure 2>/dev/null)
+        if [ "$PERMS" = "600" ]; then
+            echo -e "${CYAN}║${NC}   $(status_icon ok) .env.secure    ${GREEN}✓ 600 (безопасно)${NC}${CYAN}║${NC}"
+        else
+            echo -e "${CYAN}║${NC}   $(status_icon error) .env.secure    ${RED}✗ $PERMS (должно быть 600)${NC}${CYAN}║${NC}"
+        fi
+    else
+        echo -e "${CYAN}║${NC}   $(status_icon info) .env.secure    ${BLUE}ℹ не используется (или другое имя)${NC}${CYAN}║${NC}"
+    fi
+
+    # ========== 4. СТАТУС ПРОЦЕССОВ ==========
+    echo -e "${CYAN}╠══════════════════════════════════════════════════════════════════════════════╣${NC}"
+    echo -e "${CYAN}║${WHITE}${BOLD}                        ⚙️ СТАТУС ПРОЦЕССОВ                                   ${CYAN}║${NC}"
+    echo -e "${CYAN}╠══════════════════════════════════════════════════════════════════════════════╣${NC}"
+
+    if pgrep -f "web_panel.py" > /dev/null; then
+        WEB_PID=$(pgrep -f "web_panel.py" | head -1)
+        echo -e "${CYAN}║${NC}   $(status_icon ok) веб-панель     ${GREEN}✓ запущена (PID: $WEB_PID)${NC}${CYAN}║${NC}"
+    else
+        echo -e "${CYAN}║${NC}   $(status_icon warn) веб-панель     ${YELLOW}⚠ не запущена${NC}${CYAN}║${NC}"
+    fi
+
+    if pgrep -f "oracle_bot_final_complete.py" > /dev/null; then
+        BOT_PID=$(pgrep -f "oracle_bot_final_complete.py" | head -1)
+        echo -e "${CYAN}║${NC}   $(status_icon ok) бот            ${GREEN}✓ запущен (PID: $BOT_PID)${NC}${CYAN}║${NC}"
+    else
+        echo -e "${CYAN}║${NC}   $(status_icon warn) бот            ${YELLOW}⚠ не запущен${NC}${CYAN}║${NC}"
+    fi
+
+    # ========== 5. ПОРТЫ ==========
+    echo -e "${CYAN}╠══════════════════════════════════════════════════════════════════════════════╣${NC}"
+    echo -e "${CYAN}║${WHITE}${BOLD}                        🌐 ОТКРЫТЫЕ ПОРТЫ                                   ${CYAN}║${NC}"
+    echo -e "${CYAN}╠══════════════════════════════════════════════════════════════════════════════╣${NC}"
+
+    if command -v netstat &> /dev/null; then
+        PORTS=$(netstat -tuln 2>/dev/null | grep -E ":(5000|22|80|443)" | awk '{print $4}' | cut -d: -f2 | sort -u | tr '\n' ' ')
+        if [ -n "$PORTS" ]; then
+            echo -e "${CYAN}║${NC}   $(status_icon info) открытые порты: ${BLUE}$PORTS${NC}${CYAN}║${NC}"
+            if echo "$PORTS" | grep -q "5000"; then
+                echo -e "${CYAN}║${NC}   $(status_icon warn) порт 5000 открыт ${YELLOW}⚠ только для локального доступа${NC}${CYAN}║${NC}"
+            fi
+        else
+            echo -e "${CYAN}║${NC}   $(status_icon ok) нет открытых портов${GREEN} ✓${NC}${CYAN}║${NC}"
+        fi
+    else
+        echo -e "${CYAN}║${NC}   $(status_icon info) netstat не найден${NC}${CYAN}║${NC}"
+    fi
+
+    # ========== 6. ИТОГ ==========
+    echo -e "${CYAN}╠══════════════════════════════════════════════════════════════════════════════╣${NC}"
+    echo -e "${CYAN}║${WHITE}${BOLD}                        📋 ИТОГ ПРОВЕРКИ                                      ${CYAN}║${NC}"
+    echo -e "${CYAN}╠══════════════════════════════════════════════════════════════════════════════╣${NC}"
+
+    echo -e "${CYAN}║${NC}   $(status_icon ok) ${GREEN}Базы данных защищены${NC}                                  ${CYAN}║${NC}"
+    echo -e "${CYAN}║${NC}   $(status_icon ok) ${GREEN}Логи защищены${NC}                                          ${CYAN}║${NC}"
+    echo -e "${CYAN}║${NC}   $(status_icon info) ${BLUE}Рекомендации:${NC}                                         ${CYAN}║${NC}"
+    echo -e "${CYAN}║${NC}      • Не открывай порт 5000 наружу (используй localhost)                ${CYAN}║${NC}"
+    echo -e "${CYAN}║${NC}      • Регулярно чисти старые лозы                                       ${CYAN}║${NC}"
+    echo -e "${CYAN}║${NC}      • Следи за правами доступа к файлам                                 ${CYAN}║${NC}"
+    echo -e "${CYAN}║${NC}      • Используй HTTPS для веб-панели (самоподписанный сертификат)       ${CYAN}║${NC}"
+
+    echo -e "${CYAN}╚══════════════════════════════════════════════════════════════════════════════╝${NC}"
+    echo ""
+}
+alias startapp='cd ~/oracle-bot && ./start_mini_app.sh'
+alias startapp='cd ~/oracle-bot && ./start_mini_app.sh'
+alias stopapp='kill $(cat ~/.mini_app_pids 2>/dev/null) 2>/dev/null && echo "🛑 ВСЁ ОСТАНОВЛЕНО"'
+alias startapp='cd ~/oracle-bot && ./start_mini_app.sh'
+alias check='~/oracle-bot/check_all.sh'
+alias stopapp="pkill -f http.server && pkill -f serveo"
+alias fullstart="~/start_mini_app.sh && ~/update_app_js.sh"
+alias fullstart="~/start_mini_app.sh && ~/update_app_js.sh"
+alias fullstart="~/oracle-bot/start_mini_app.sh && ~/update_app_js.sh"
+alias fullstart="~/start_mini_app.sh && ~/update_app_js.sh"
+alias fullstart="~/oracle-bot/start_mini_app.sh && ~/update_api_url.sh"
+alias megastart="~/start_all.sh"
+alias scan="~/project_diagnostic.sh"
+alias scan="~/project_diagnostic.sh"
+alias miniapp="~/miniapp.sh"
+alias gb="python ~/oracle-bot/bot_manager.py galactic_backup"
+alias gr="python ~/oracle-bot/bot_manager.py galactic_restore"
+alias miniapp="~/miniapp.sh"
+alias git="cd ~/Oracle-Mini-App- && git"
+alias scan='~/project_diagnostic.sh'
+alias god='cd ~/oracle-bot && ./main.sh'
+alias godc='~/oracle-bot. /main.sh --cyber'
+alias godi='~/oracle-bot. /main.sh --immortal'
+
+# ===== MEGA-START AUTOSTART =====
+#if [ -f "$HOME/oracle-bot/start_all.sh" ]; then
+#    (sleep 5 && $HOME/oracle-bot/start_all.sh --restore) &
+#fi
+alias megastart='cd ~/oracle-bot && ./start_all.sh'
+alias megastart='cd ~/oracle-bot && ./start_all.sh'
+
+
+# ==============================================
+# 🔮 ORACLE GIT ALIASES
+# ==============================================
+
+# Быстрые пуш
+alias gm='git push origin main'
+alias gf='git push origin main --force'
+
+# Базовые
+alias gs='git status'
+alias ga='git add .'
+alias gc='git commit -m'
+alias gl='git log --oneline --graph --decorate -12'
+alias gd='git diff'
+
+# Умный пуш
+gpush() {
+    echo -e "\n\033[0;35m🔮 ORACLE GIT PUSHER\033[0m"
+    echo -e "\033[0;33m📁 $(pwd | sed "s|$HOME|~|")\033[0m\n"
+
+    if [[ -n $(git status -s) ]]; then
+        echo -e "\033[0;33m📝 Изменения:\033[0m"
+        git status -s
+        echo ""
+        read -p "Сделать коммит? (y/n): " commit_ans
+        if [[ "$commit_ans" == "y" || "$commit_ans" == "Y" ]]; then
+            echo -n "💬 Сообщение: "
+            read msg
+            git add .
+            git commit -m "$msg"
+            echo -e "\033[0;35m✅ Коммит сделан\033[0m\n"
+        fi
+    fi
+
+    echo -e "\033[0;35m📤 Пуш...\033[0m"
+    if git push origin main 2>&1 | grep -q "rejected"; then
+        echo -e "\033[0;31m⚠️ Конфликт\033[0m"
+        read -p "Сделать pull --rebase? (y/n): " pull_ans
+        if [[ "$pull_ans" == "y" || "$pull_ans" == "Y" ]]; then
+            git pull --rebase origin main && git push origin main && echo -e "\033[0;35m🎉 Успешно!\033[0m" || echo -e "\033[0;31m❌ Ошибка\033[0m"
+        fi
+    else
+        echo -e "\033[0;35m🎉 Успешно!\033[0m"
+    fi
+}
+
+# Статус
+gss() {
+    echo -e "\n\033[0;35m🔮 ORACLE STATUS\033[0m"
+    echo -e "\033[0;33m📁 $(pwd | sed "s|$HOME|~|")\033[0m"
+    echo -e "\033[0;35m$(git status -s || echo '✨ Чисто')\033[0m"
+    echo -e "\n\033[0;33m📜 Последние коммиты:\033[0m"
+    git log --oneline --decorate -5
+}
+
+#echo -e "\033[0;35m🔮 Git aliases загружены\033[0m"
