@@ -40,15 +40,15 @@ kiwisolver==1.5.0
 lyricsgenius==3.11.0
 markdown-it-py==4.0.0
 MarkupSafe==3.0.3
-matplotlib @ file:///home/builder/.termux-build/matplotlib/src/dist/matplotlib-3.10.8-cp313-cp313-android_aarch64.whl#sha256=a23cf2e77cbc9258d328366ef90d4b4b3aa98cfc37cfd43a2cc28a6cb4c13d82
+matplotlib==3.7.5
 mdurl==0.1.2
 mpmath==1.3.0
 multidict==6.7.1
 networkx==3.6.1
-numpy @ file:///home/builder/.termux-build/python-numpy/src/dist/numpy-2.4.3-cp313-cp313-android_aarch64.whl#sha256=8ef35b7e7291aa8501ff0be8f354f3b089c4e0c08e9a905301b3551814601263
+numpy==1.24.3
 packaging==26.0
 pandas==3.0.1
-pillow @ file:///home/builder/.termux-build/python-pillow/src
+pillow==10.0.0
 propcache==0.4.1
 pycoingecko==3.2.0
 Pygments==2.19.2
@@ -75,7 +75,7 @@ soupsieve==2.8.3
 SQLAlchemy==2.0.48
 sympy==1.14.0
 tokenizers==0.22.2
-torch @ file:///home/builder/.termux-build/python-torch/src
+torch==2.1.0
 tqdm==4.67.3
 transformers==5.3.0
 typer==0.24.1
