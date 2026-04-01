@@ -35,6 +35,7 @@ class Config:
         "http://127.0.0.1:8080", 
         "http://192.168.0.101:8080",
         "https://chrisostin.github.io",
+        "https://mori-oracle.netlify.app",
         "https://mori-server.onrender.com"
     ]    
     
